@@ -3,6 +3,8 @@ import {styled} from '@mui/system'
 export const ProfileContainer = styled('div')({
  width: '19.5rem',
  height: '14.75rem', 
+ marginTop:'3.5rem',
+ marginBottom:'2.5rem'
 })
 
 export const ImageContainer = styled('div')({
@@ -11,6 +13,7 @@ export const ImageContainer = styled('div')({
  display: 'flex',
  alignItems: 'center',
  justifyContent: 'center',
+ 
 })
 
 export const Image = styled('img')({
@@ -20,16 +23,17 @@ export const Image = styled('img')({
 })
 
 export const ProfileText = styled('div')({
- width: '100%',
  display: 'flex',
  flexDirection: 'column',
- alignItems: 'center',
+ alignItems: 'left',
  justifyContent: 'center',
  margin:'1rem 0',
  color:'#000',
-
+ gap:'2px',
+ textAlign:'left',
+ 
+ 
  h1: {
-  width:'50%',
   fontSize:'1.5rem',
   fontWeight:'400',
   margin:'0',
@@ -37,9 +41,16 @@ export const ProfileText = styled('div')({
   fontFamily:'roboto',
  },
  p: {
-  width:'50%',
   margin:'0',
   textAlign:'start',
   color:'#00000061'
  }
+})
+
+export const TextContainer = styled('div')({
+ textAlign:'start',
+ display:'flex',
+ flexDirection:'column',
+ alignItems:'center',
+ justifyContent:'center'
 })
