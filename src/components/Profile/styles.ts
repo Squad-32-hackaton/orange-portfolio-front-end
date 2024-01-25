@@ -3,6 +3,8 @@ import {styled} from '@mui/system'
 export const ProfileContainer = styled('div')({
  width: '19.5rem',
  height: '14.75rem', 
+ marginTop:'3.5rem',
+ marginBottom:'2.5rem'
 })
 
 export const ImageContainer = styled('div')({
@@ -11,6 +13,7 @@ export const ImageContainer = styled('div')({
  display: 'flex',
  alignItems: 'center',
  justifyContent: 'center',
+ 
 })
 
 export const Image = styled('img')({

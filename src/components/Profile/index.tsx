@@ -2,8 +2,11 @@ import { Image, ImageContainer, ProfileContainer,ProfileText,TextContainer } fro
 import ProfileImage from '../../assets/ProfileImage.png'
 import Button from '@mui/material/Button';
 
+interface ProfileProps {
+  handleCreateANewProject: () => void
+}
 
-export default function Profile() {
+export default function Profile({ handleCreateANewProject }:ProfileProps) {
   return (
    <ProfileContainer>
      <ImageContainer >
@@ -16,7 +19,7 @@ export default function Profile() {
         <p>Brasil</p>
       </ProfileText>
 
-      <Button variant='contained' color='inherit' sx={{color:'#00000061', height:'2.625rem'}}>ADICIONAR PROJETO</Button>
+      <Button variant='contained' color='inherit' sx={{color:'#00000061', height:'2.625rem'}} onClick={() => handleCreateANewProject()}>ADICIONAR PROJETO</Button>
     </TextContainer>
    </ProfileContainer>
 
