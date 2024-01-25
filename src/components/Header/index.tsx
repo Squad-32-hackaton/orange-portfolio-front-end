@@ -2,7 +2,8 @@ import {  Stack } from '@mui/material'
 import { Container, Image, } from './styles'
 import { FaBars } from "react-icons/fa";
 import Logo from '../../assets/Logo.png'
-import { FaBell } from "react-icons/fa6";
+import IconButton from '@mui/material/IconButton';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 export default function Header() {
   return (
@@ -14,7 +15,9 @@ export default function Header() {
       </Stack>
       <Stack mr={2} direction='row' alignItems='center'>
         
-        <FaBell size={20}/>
+        <IconButton color='inherit' size='medium'>
+          <NotificationsIcon />
+        </IconButton>
       </Stack>
    </Container>
   )

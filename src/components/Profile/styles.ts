@@ -34,11 +34,12 @@ export const ProfileText = styled('div')({
   fontWeight:'400',
   margin:'0',
   textAlign:'start',
+  fontFamily:'roboto',
  },
  p: {
   width:'50%',
   margin:'0',
   textAlign:'start',
-  color:'#ff'
+  color:'#00000061'
  }
 })
