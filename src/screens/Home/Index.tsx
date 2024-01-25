@@ -6,6 +6,7 @@ import { Typography } from '@mui/material';
 import Collections from '@mui/icons-material/Collections'
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
+import ProjectModal from '../../components/ProjectModal';
 
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
 
   return (
    <Container >
-    <Modal children={<Header/>} open={openModal}/>
+    <Modal children={<ProjectModal/>} open={openModal}/>
 
     <Header/>
     <Profile handleCreateANewProject={handleCreateANewProject}/>
