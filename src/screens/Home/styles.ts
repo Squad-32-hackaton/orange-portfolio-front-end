@@ -11,5 +11,11 @@ export const Container = styled('div')({
  gap:'3.5rem'
 })
 
+export const InputContainer = styled('div')({
+ width:'100%',
+ display:'flex',
+ flexDirection:'column',
+ gap:'1rem',
+})
 
 
