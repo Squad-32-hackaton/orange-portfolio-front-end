@@ -1,13 +1,14 @@
 import Header from '../../components/Header'
-import { Container, InputContainer, ProjectsContainer } from './styles'
+import { Container,InputContainer, UploaderContainer } from './styles'
 import Profile from '../../components/Profile'
 import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
-import Collections from '@mui/icons-material/Collections'
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import ProjectModal from '../../components/ProjectModal';
-import ModalDeleteProject from '../../components/ModalDeleteProject';
+import UploaderImage from '../../components/UploaderImage';
+
+
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -17,14 +18,14 @@ export default function Home() {
   }
 
   return (
-    <Container >
-      {/* <Modal children={<ProjectModal/>} open={openModal}/> */}
+   <Container >
+    <Modal children={<ProjectModal handleClose={handleCreateANewProject}/>} open={openModal} />
 
       <Header />
       <Profile handleCreateANewProject={handleCreateANewProject} />
 
-      <Modal children={<ModalDeleteProject handleChangeState={handleCreateANewProject} />} open={openModal} />
 
+    
       <InputContainer>
 
         <Typography
@@ -56,11 +57,31 @@ export default function Home() {
 
         <Typography
           align='left'
-          sx={{ opacity: '0.6', paddingLeft: '1.3rem' }}
-        >
-          Compartilhe seu talento com milhares de pessoas
+          sx={{
+          color:'#0B0C0D',
+          margin:'0 1.5rem', 
+          fontSize:'1.25rem', 
+          fontWeight:'800', 
+          lineHeight:'1.25rem'}} 
+          variant='h2'
+          >
+          Meus projetos
         </Typography>
-      </ProjectsContainer>
-    </Container>
+        <TextField 
+          label='Buscar tags'
+          sx={{margin:'0 1.5rem'}} 
+          size='medium'/>
+      </InputContainer>
+      
+      <UploaderContainer>
+      
+        <UploaderImage 
+          texts={[
+          {content: 'Adicione seu primeiro projeto',type:'title'},
+          {content: 'compartilhe seu talento com milhares de pessoas',type:'subTitle'}
+        ]}/>
+      </UploaderContainer>
+   </Container>
+
   )
 }
