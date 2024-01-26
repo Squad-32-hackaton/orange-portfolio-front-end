@@ -1,5 +1,5 @@
 import { Image, ImageContainer, ProfileContainer,ProfileText,TextContainer } from './styles'
-import ProfileImage from '../../assets/ProfileImage.png'
+import ProfileImage from '../../assets/img/ProfileImage.png'
 import Button from '@mui/material/Button';
 
 interface ProfileProps {
