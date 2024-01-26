@@ -9,24 +9,53 @@ import ProjectModal from '../../components/ProjectModal';
 import UploaderImage from '../../components/UploaderImage';
 
 
-export default function Home() {
-  const [openModal, setOpenModal] = useState(false)
 
-  function handleCreateANewProject(){
+export default function Home() {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
+  function handleCreateANewProject() {
     setOpenModal(!openModal)
   }
-
 
   return (
    <Container >
     <Modal children={<ProjectModal handleClose={handleCreateANewProject}/>} open={openModal} />
 
-    <Header/>
-    <Profile handleCreateANewProject={handleCreateANewProject}/>
+      <Header />
+      <Profile handleCreateANewProject={handleCreateANewProject} />
 
+
+    
       <InputContainer>
 
-        <Typography 
+        <Typography
+          align='left'
+          sx={{
+            color: '#0B0C0D',
+            margin: '0 1.5rem',
+            fontSize: '1.25rem',
+            fontWeight: '800',
+            lineHeight: '1.25rem'
+          }}
+          variant='h2'
+        >
+          Meus projetos
+        </Typography>
+        <TextField
+          label='Buscar tags'
+          sx={{ margin: '0 1.5rem' }}
+          size='medium' />
+      </InputContainer>
+
+      <ProjectsContainer>
+        <Collections sx={{ width: '2.8rem', height: '2.8rem', m: "0 auto" }} />
+
+        <Typography
+          sx={{ opacity: '0.6', paddingLeft: '1.3rem' }}>
+          Adicione seu primeiro projeto
+        </Typography>
+
+        <Typography
           align='left'
           sx={{
           color:'#0B0C0D',
@@ -53,5 +82,6 @@ export default function Home() {
         ]}/>
       </UploaderContainer>
    </Container>
+
   )
 }

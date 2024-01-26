@@ -5,7 +5,7 @@ export const Container = styled('div')({
  height: '4rem',
  backgroundColor: '#111133',
  display: 'flex',
- justifyContent:'space-between',
+ justifyContent:'space-between'
  
 })
 
