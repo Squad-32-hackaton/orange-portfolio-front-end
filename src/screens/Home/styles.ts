@@ -3,12 +3,25 @@ import { styled } from "@mui/system";
 
 export const Container = styled('div')({
  width: '100%',
- height: '100vh',
+ minHeight: '100vh',
  display: 'flex',
  flexDirection: 'column',
  backgroundColor: '#fff',
  alignItems: 'center',
- gap:'3.5rem'
+ overflow:'scroll',
+ gap:'1rem'
+})
+
+export const InputContainer = styled('div')({
+ width:'100%',
+ display:'flex',
+ flexDirection:'column',
+ gap:'1rem',
+})
+
+export const UploaderContainer = styled('div')({
+ width:'90%',
+ height:'100%',
 })
 
 
