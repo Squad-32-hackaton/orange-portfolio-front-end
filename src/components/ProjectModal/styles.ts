@@ -1,22 +1,27 @@
 import {styled} from '@mui/system'
 
 
-export const Container = styled('div')({
- width:'100%',
- height:'100%',
+export const ProjectModalMain = styled('div')({
  display:'flex',
  alignItems:'center',
  justifyContent:'center',
+ height: '100vh',
+ maxHeight: '100vh',
+ overflow: 'hidden',
 })
 
-export const ModalContainer = styled('div')({
- width:'calc(100% - 3rem)',
- background:'#fff',
- padding:'1rem 1.3rem 10.8rem 1.5rem',
+export const ProjectModalContainer = styled('div')({
+ backgroundColor:'#fff',
+ margin: '0 1rem',
+ maxHeight: '80vh',
+ overflowY: 'auto',
+ padding:'1rem 1rem 5rem 1.5rem',
+})
+
+export const ProjectModalContent = styled('div')({
  display:'flex',
  flexDirection:'column',
  gap:'1rem',
  minHeight:'16rem',
  margin:'0 1.5rem'
 })
-

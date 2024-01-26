@@ -8,6 +8,8 @@ export const Container = styled('div')({
  flexDirection: 'column',
  backgroundColor: '#fff',
  alignItems: 'center',
+ overflow:'scroll',
+ gap:'1rem'
 })
 
 export const InputContainer = styled('div')({
@@ -17,19 +19,10 @@ export const InputContainer = styled('div')({
  gap:'1rem',
 })
 
-export const ProjectsContainer = styled('div')({
- minHeight:'16rem',
- width:'calc(100% - 3rem)',
- margin:'1rem 1.5rem',
- backgroundColor: '#E6E9F2',
-
- display: 'flex',
- 
- justifyContent: 'center',
- flexDirection:'column',
- color:'#323232',
- gap:'1rem',
- textAlign:'left'
+export const UploaderContainer = styled('div')({
+ width:'90%',
+ height:'100%',
 })
+
 
 
