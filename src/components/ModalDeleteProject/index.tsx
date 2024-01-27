@@ -17,7 +17,6 @@ export default function ModalDeleteProject({ handleChangeState }: ModalDeletePro
 
     function handleSuccessfullyDelete() {
         setOpenModalDelete(!openModalDelete)
-        console.log('openModalDelete', openModalDelete)
     }
 
     return (

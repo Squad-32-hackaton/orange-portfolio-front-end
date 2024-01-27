@@ -7,9 +7,6 @@ import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import ProjectModal from '../../components/ProjectModal';
 import UploaderImage from '../../components/UploaderImage';
-import { Collections } from '@mui/icons-material';
-
-
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<boolean>(false);
