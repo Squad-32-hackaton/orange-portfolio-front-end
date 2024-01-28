@@ -39,19 +39,19 @@ export const Title = styled('h5')({
     marginBottom:'1rem',
     fontsize:'1.5rem',
     letterSpacing: '0.5px',
+    marginLeft:'2rem',
+    marginRight:'2rem',
 
     [theme.breakpoints.up('xl')]:{
-        paddingLeft:'3rem',
-        paddingRight:'3rem',
         paddingTop:'1rem',
     }
 })
 
 export const circle = {
-    color: 'green', 
+    color: 'red', 
     fontSize: '2.5rem', 
     margin: 'auto', 
-    marginBottom: '1rem',
+    marginBottom: '1rem' ,
 }
 
 export const button = {

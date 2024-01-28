@@ -1,18 +1,18 @@
-import { Typography } from "@mui/material";
 import Button from '@mui/material/Button';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
-import { ModalContainer, button, circle, Title, Section } from "./styles";
+import { ModalContainer, button, circle, Title } from "./styles";
+import { Section } from "./styles";
 
-export default function ModalProjectDeletedSuccessfully() {
+export default function ModalAddSuccess() {
 
     return (
         <Section>
             <ModalContainer>
-                <Title>Projeto deletado com sucesso!</Title>
+                <Title>Projeto adicionado com sucesso!</Title>
                 <CheckCircleRoundedIcon sx={ circle } />
                 <Button variant="contained" sx={ button }
                     
-                >Voltar para Projetos</Button>
+                >voltar para projetos</Button>
             </ModalContainer>
         </Section>
 

@@ -4,6 +4,7 @@ import { theme } from './styles/theme';
 import Home from './screens/Home/Index';
 import '@fontsource/roboto'
 import { BrowserRouter } from 'react-router-dom';
+import DetailProject from './screens/DetailProject/index'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Home />
+        <DetailProject/>
       </ThemeProvider>
     </BrowserRouter>
   )

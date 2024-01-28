@@ -32,7 +32,7 @@ export const Section = styled('section')({
 })
 
 
-export const Title = styled('h5')({
+export const Title = styled('h5') ({
     textAlign: 'center', 
     fontSize: '1.5rem',
     marginTop:'1rem',
@@ -41,21 +41,19 @@ export const Title = styled('h5')({
     letterSpacing: '0.5px',
 
     [theme.breakpoints.up('xl')]:{
-        paddingLeft:'3rem',
-        paddingRight:'3rem',
         paddingTop:'1rem',
     }
-})
+ })
 
-export const circle = {
+ export const circle = {
     color: 'green', 
     fontSize: '2.5rem', 
     margin: 'auto', 
-    marginBottom: '1rem',
-}
+    marginBottom: '1rem' ,
+ }
 
-export const button = {
+ export const button = {
     backgroundColor: '#FF5522', 
     marginBottom: '0.5rem', 
     width: '15rem',
-}
+ }
