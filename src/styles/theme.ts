@@ -1,6 +1,13 @@
 import { createTheme } from "@mui/material/styles";
 // import '@fontsource/roboto'
 
+declare module  "@mui/material/Button" {
+  interface ButtonPropsColor {
+
+  }
+
+}
+
 export const theme = createTheme({
  palette: {
    primary: {
@@ -22,4 +29,13 @@ export const theme = createTheme({
  typography: {
   fontFamily:"roboto"
  },
+ breakpoints: {
+  values: {
+    xs: 0,
+    sm: 600,
+    md: 900,
+    lg: 1200,
+    xl: 1536,
+  },
+},
 });
