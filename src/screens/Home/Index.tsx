@@ -7,6 +7,7 @@ import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import ProjectModal from '../../components/ProjectModal';
 import UploaderImage from '../../components/UploaderImage';
+import ModalCardProjectDesktop from '../../components/ModalCardProjectDesktop';
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -17,7 +18,8 @@ export default function Home() {
 
   return (
    <Container >
-    <Modal children={<ProjectModal handleClose={handleCreateANewProject}/>} open={openModal} />
+    <Modal children={<ModalCardProjectDesktop/>} open={openModal} />
+    
 
       <Header />
       <Profile handleCreateANewProject={handleCreateANewProject} />

@@ -1,4 +1,5 @@
 import { styled } from "@mui/system";
+import { theme } from "../../styles/theme";
 
 
 export const Container = styled('div')({
@@ -9,7 +10,12 @@ export const Container = styled('div')({
     backgroundColor: '#fff',
     alignItems: 'center',
     overflow: 'scroll',
-    gap: '1rem'
+    gap: '1rem',
+
+    [theme.breakpoints.up('xl')]:{
+        
+    }
+
 })
 
 export const Title = styled('h2')({

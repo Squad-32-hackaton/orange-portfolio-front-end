@@ -1,6 +1,6 @@
 import { Modal, Typography } from "@mui/material";
 import Button from '@mui/material/Button';
-import { ModalContainer } from "./styles";
+import { ModalContainer, Title, firstButton, secondButton, text } from "./styles";
 import { Paragraph } from "./styles";
 import { Section } from "./styles";
 import { Buttons } from "./styles";
@@ -23,13 +23,13 @@ export default function ModalDeleteProject({ handleChangeState }: ModalDeletePro
         <>
             <Section>
                 <ModalContainer >
-                    <Typography variant="h5" sx={{ textAlign: 'start', paddingLeft: '1rem' }}>Deseja Excluir?</Typography>
+                    <Title>Deseja Excluir?</Title>
                     <Paragraph>Se você prosseguir irá excluir o projeto do seu portfólio</Paragraph>
                     <Buttons>
-                        <Button variant="contained" sx={{ backgroundColor: '#FF5522', marginRight: '1rem' }}
+                        <Button variant="contained" sx={ firstButton }
                             onClick={() => handleSuccessfullyDelete()}
                         >Excluir</Button>
-                        <Button variant="contained" sx={{ backgroundColor: 'rgba(0, 0, 0, 0.15)', color: 'rgba(0, 0, 0, 0.38)' }}
+                        <Button variant="contained" sx={ secondButton }
                             onClick={() => handleChangeState()}
                         >Cancelar</Button>
                     </Buttons>

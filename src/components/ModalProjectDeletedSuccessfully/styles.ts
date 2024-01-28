@@ -1,13 +1,20 @@
 import { styled } from '@mui/system'
+import { theme } from '../../styles/theme'
 
 export const ModalContainer = styled('div')({
     backgroundColor: 'white',
-    width: '85%',
+    width: '19.5rem',
     display:'flex',
     alignItems:'center',
     flexDirection: 'column',
     paddingBottom: '1rem',
     paddingTop: '1rem',
+
+    
+    [theme.breakpoints.up('xl')]:{
+        width: '21.9rem',
+        paddingTop: '0',
+    }
 })
 
 export const Paragraph = styled('p')({
@@ -20,5 +27,35 @@ export const Section = styled('section')({
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems:'center'
+    alignItems:'center',
+    lineHeight: '1.5rem',
 })
+
+
+export const Title = styled('h5')({
+    textAlign: 'center', 
+    fontSize: '1.5rem',
+    marginTop:'1rem',
+    marginBottom:'1rem',
+    fontsize:'1.5rem',
+    letterSpacing: '0.5px',
+
+    [theme.breakpoints.up('xl')]:{
+        paddingLeft:'3rem',
+        paddingRight:'3rem',
+        paddingTop:'1rem',
+    }
+})
+
+export const circle = {
+    color: 'green', 
+    fontSize: '2.5rem', 
+    margin: 'auto', 
+    marginBottom: '1rem',
+}
+
+export const button = {
+    backgroundColor: '#FF5522', 
+    marginBottom: '0.5rem', 
+    width: '15rem',
+}

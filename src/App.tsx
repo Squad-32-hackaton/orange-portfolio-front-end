@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        {/* <Home /> */}
+        <Home />
         <DetailProject/>
       </ThemeProvider>
     </BrowserRouter>
