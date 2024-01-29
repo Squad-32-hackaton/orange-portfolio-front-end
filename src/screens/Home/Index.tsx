@@ -7,7 +7,9 @@ import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import ProjectModal from '../../components/ProjectModal';
 import UploaderImage from '../../components/UploaderImage';
+
 import Box from '@mui/material/Box'
+
 
 
 
@@ -20,6 +22,7 @@ export default function Home() {
 
   return (
    <Box sx={container}>
+
 
     <Modal 
       children={
@@ -34,6 +37,7 @@ export default function Home() {
       <Profile handleCreateANewProject={handleCreateANewProject} nameUser='Camila Soares' />
 
     <Box sx={projectSectionContainer}>
+
 
       <Box sx={inputContainer}>
         <Typography
@@ -51,6 +55,7 @@ export default function Home() {
       </Box>
 
       <Box sx={uploaderContainer}>
+
 
         <UploaderImage 
           texts={[
