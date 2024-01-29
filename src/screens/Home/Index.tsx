@@ -11,8 +11,6 @@ import UploaderImage from '../../components/UploaderImage';
 import Box from '@mui/material/Box'
 
 
-
-
 export default function Home() {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
