@@ -8,6 +8,7 @@ import Avatar from '@mui/material/Avatar'
 import ProfilePhoto from '../../assets/img/ProfileImage.png'
 import { useState } from 'react';
 import { menuIconButton } from '../../screens/Home/styles';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
 
@@ -38,11 +39,15 @@ export default function Header() {
                 <MenuIcon /> 
               </IconButton>
 
-              <Image src={Logo}/>
+              <Link to='/'>
+                <Image src={Logo}/>
+              </Link>
  
               <List sx={listContainer}>
                 <ListItem >
-                  <ListItemText primary="Meus projetos" />
+                  <Link to={'/my-portfolio'}  >
+                    <ListItemText primary="Meus projetos" />
+                  </Link>
                 </ListItem>
                 <ListItem >
                   <ListItemText primary="Descobrir" />

@@ -26,10 +26,15 @@ export const listContainer = {
  alignItems: 'center',
  gap:'3px',
  ml:'6.25rem',
+ textDeorator:'none',
 
  span: {
-
   textAlign:'center',
+ },
+
+ a : {
+   textDecoration:'none',
+   color:'#fff'
  },
 
  [theme.breakpoints.down('md')] : {
