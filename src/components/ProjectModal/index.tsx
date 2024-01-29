@@ -1,11 +1,11 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography } from '@mui/material'
 import {
   ProjectModalMain,
   ProjectModalContainer,
   ProjectModalContent,
-} from "./styles";
-import TextField from "@mui/material/TextField";
-import UploaderImage from "../UploaderImage";
+} from './styles'
+import TextField from '@mui/material/TextField'
+import UploaderImage from '../UploaderImage'
 
 type ProjectModalProps = {
   handleClose: () => void
@@ -18,11 +18,11 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
         <ProjectModalContent>
           <Typography
             sx={{
-              color: "#515255",
-              fontSize: "1.5rem",
+              color: '#515255',
+              fontSize: '1.5rem',
             }}
           >
-            {" "}
+            {' '}
             Adicionar projeto
           </Typography>
 
@@ -33,9 +33,9 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
           <Typography
             variant="body1"
             sx={{
-              color: "#515255",
-              letterSpacing: "0.15px",
-              lineHeight: "16px",
+              color: '#515255',
+              letterSpacing: '0.15px',
+              lineHeight: '16px',
             }}
           >
             Selecione o conteúdo que você deseja fazer upload
@@ -44,8 +44,8 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
           <UploaderImage
             texts={[
               {
-                content: "Compartilhe seu talento com milhares de pessoas",
-                type: "subTitle",
+                content: 'Compartilhe seu talento com milhares de pessoas',
+                type: 'subTitle',
               },
             ]}
           />
@@ -57,14 +57,14 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
           <Stack
             direction="row"
             spacing={2}
-            sx={{ justifyContent: "space-between" }}
+            sx={{ justifyContent: 'space-between' }}
           >
-            <Button variant="contained" sx={{ width: "45%" }} size="large">
+            <Button variant="contained" sx={{ width: '45%' }} size="large">
               Salvar
             </Button>
             <Button
               variant="contained"
-              sx={{ width: "45%", backgroundColor: "#00000061" }}
+              sx={{ width: '45%', backgroundColor: '#00000061' }}
               size="large"
               onClick={() => handleClose()}
             >
@@ -74,5 +74,5 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
         </ProjectModalContent>
       </ProjectModalContainer>
     </ProjectModalMain>
-  );
+  )
 }

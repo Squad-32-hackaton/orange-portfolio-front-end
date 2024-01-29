@@ -5,28 +5,28 @@ import {
   homeTextField,
   homeTextLabel,
   projectSectionContainer,
-} from "./styles";
-import Profile from "../../components/Profile";
-import TextField from "@mui/material/TextField";
-import { Typography } from "@mui/material";
-import Modal from "@mui/material/Modal";
-import { useState } from "react";
-import ProjectModal from "../../components/ProjectModal";
-import UploaderImage from "../../components/UploaderImage";
+} from './styles'
+import Profile from '../../components/Profile'
+import TextField from '@mui/material/TextField'
+import { Typography } from '@mui/material'
+import Modal from '@mui/material/Modal'
+import { useState } from 'react'
+import ProjectModal from '../../components/ProjectModal'
+import UploaderImage from '../../components/UploaderImage'
 
-import Box from "@mui/material/Box";
-
+import Box from '@mui/material/Box'
 
 export default function Home() {
-  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [openModal, setOpenModal] = useState<boolean>(false)
 
   function handleCreateANewProject() {
-    setOpenModal(!openModal);
+    setOpenModal(!openModal)
   }
 
   return (
     <Box sx={container}>
       <Modal
+        // eslint-disable-next-line react/no-children-prop
         children={<ProjectModal handleClose={handleCreateANewProject} />}
         open={openModal}
       />
@@ -46,15 +46,15 @@ export default function Home() {
         <Box sx={uploaderContainer}>
           <UploaderImage
             texts={[
-              { content: "Adicione seu primeiro projeto", type: "title" },
+              { content: 'Adicione seu primeiro projeto', type: 'title' },
               {
-                content: "compartilhe seu talento com milhares de pessoas",
-                type: "subTitle",
+                content: 'compartilhe seu talento com milhares de pessoas',
+                type: 'subTitle',
               },
             ]}
           />
         </Box>
       </Box>
     </Box>
-  );
+  )
 }

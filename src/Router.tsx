@@ -1,8 +1,8 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "./screens/Home";
-import MyPortfolio from "./screens/MyPortfolio";
-import { DefaultLayout } from "./layouts/DefaultLayout";
-import DetailProject from "./screens/DetailProject";
+import { Routes, Route } from 'react-router-dom'
+import Home from './screens/Home'
+import MyPortfolio from './screens/MyPortfolio'
+import { DefaultLayout } from './layouts/DefaultLayout'
+import DetailProject from './screens/DetailProject'
 
 export function Router() {
   return (
@@ -13,5 +13,5 @@ export function Router() {
         <Route path="/detail-project" element={<DetailProject />} />
       </Route>
     </Routes>
-  );
+  )
 }
