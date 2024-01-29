@@ -7,7 +7,9 @@ import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import ProjectModal from '../../components/ProjectModal';
 import UploaderImage from '../../components/UploaderImage';
-import ModalProjectDeletedFail from '../../components/ModalProjectDeletedFail';
+import ModalCardProjectDesktop from '../../components/ModalCardProjectDesktop';
+import ModalSuccess from '../../components/ModalSuccess';
+import ModalError from '../../components/ModalError';
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -18,9 +20,9 @@ export default function Home() {
 
   return (
    <Container >
-    {/* <Modal children={<ProjectModal handleClose={handleCreateANewProject}/>} open={openModal} /> */}
+    <Modal children={<ProjectModal handleClose={handleCreateANewProject}/>} open={openModal} />
 
-    <Modal children={<ModalProjectDeletedFail/>} open={openModal} />
+    {/* <Modal children={<ModalCardProjectDesktop/>} open={openModal} /> */}
     
 
       <Header />
