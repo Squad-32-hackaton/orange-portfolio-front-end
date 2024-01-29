@@ -1,6 +1,13 @@
 import { createTheme } from "@mui/material/styles";
 // import '@fontsource/roboto'
 
+declare module  "@mui/material/Button" {
+  interface ButtonPropsColor {
+
+  }
+
+}
+
 export const theme = createTheme({
  palette: {
    primary: {

@@ -1,6 +1,6 @@
 import { Collections } from "@mui/icons-material"
-import { ProjectsContainer } from "./styles"
-import { Typography } from "@mui/material"
+import { projectsContainer, collectionStyles } from "./styles"
+import { Box, Typography } from "@mui/material"
 
 type TextProps = {
   type: 'title' | 'subTitle'
@@ -12,10 +12,11 @@ export interface UploaderImageProps {
   margin?: boolean
 }
 
-export default function UploaderImage({texts}:UploaderImageProps) {
+export default function UploaderImage({ texts } :UploaderImageProps) {
   return (
-    <ProjectsContainer sx={{width:'100%'}}>
-     <Collections sx={{width: '2.8rem', height:'2.8rem', m:"0 auto"}}/>
+    <Box sx={projectsContainer}>
+
+     <Collections sx={ collectionStyles }/>
 
      {texts && texts.map((text,_) => {
        return (
@@ -27,6 +28,6 @@ export default function UploaderImage({texts}:UploaderImageProps) {
       })
      }
      
-    </ProjectsContainer>
+    </Box>
   )
 }
