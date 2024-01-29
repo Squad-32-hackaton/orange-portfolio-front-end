@@ -10,11 +10,15 @@ export const ModalContainer = styled('div')({
     paddingBottom: '1rem',
     paddingTop: '1rem',
 
+    [theme.breakpoints.up('md')]: {
+        width: '21.9rem',
+        paddingTop: '0',
+    },
 
     [theme.breakpoints.up('xl')]: {
         width: '21.9rem',
         paddingTop: '0',
-    }
+    },
 })
 
 export const Paragraph = styled('p')({
@@ -42,9 +46,13 @@ export const Title = styled('h5')({
     marginLeft: '2rem',
     marginRight: '2rem',
 
+    [theme.breakpoints.up('md')]: {
+        paddingTop: '1rem',
+    },
+
     [theme.breakpoints.up('xl')]: {
         paddingTop: '1rem',
-    }
+    },
 })
 
 export const circle = {

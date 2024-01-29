@@ -3,7 +3,7 @@ import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import { ModalContainer, button, circle, Title } from "./styles";
 import { Section } from "./styles";
 
-export default function ModalAddSuccess() {
+export default function ModalSuccess() {
 
     return (
         <Section>

@@ -1,17 +1,18 @@
 import Button from '@mui/material/Button';
 import DangerousIcon from '@mui/icons-material/Dangerous';
-import { ModalContainer, button, circle, Title, Section } from "./styles";
+import { ModalContainer, button, circle, Title } from "./styles";
+import { Section } from "./styles";
 
-export default function ModalProjectDeletedFail() {
+export default function ModalError() {
 
     return (
         <Section>
             <ModalContainer>
-                <Title>Houve um erro ao deletar o projeto!</Title>
+                <Title>Houve um erro ao adicionar o projeto!</Title>
                 <DangerousIcon sx={ circle } />
                 <Button variant="contained" sx={ button }
                     
-                >Voltar para Projetos</Button>
+                >voltar para projetos</Button>
             </ModalContainer>
         </Section>
 

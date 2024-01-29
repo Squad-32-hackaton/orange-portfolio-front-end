@@ -1,4 +1,5 @@
 import { styled } from '@mui/system'
+import { theme } from '../../styles/theme'
 
 export const Section = styled('div')({
     display:'flex',
@@ -9,6 +10,10 @@ export const Section = styled('div')({
 export const ModalContainer = styled('div')({
     width: '65.1rem',
     backgroundColor:'white',
+
+    [theme.breakpoints.down('md')]:{
+        width: '50rem',
+    },
 })
 
 export const ButtonClose = styled('button')({
@@ -36,7 +41,8 @@ export const Top = styled('div')({
     paddingLeft:'6.3rem',
     paddingRight:'4.5rem',
     alignItems:'center',
-    marginTop:'3.5rem'
+    marginTop:'3.5rem',
+
 })
 
 export const Profile = styled('div')({
@@ -51,6 +57,7 @@ export const DivPhoto = styled('div')({
 export const Photo = styled('img')({
     width:'2.5rem',
     borderRadius:'90px',
+    
 })
 
 export const DivNameDate = styled('div')({
@@ -92,10 +99,15 @@ export const DivImg = styled('div')({
     flexDirection:'column',
     alignItems:'center',
     marginTop:'1rem',
+
 })
 
 export const Image = styled('img')({
     width:'52rem',
+
+    [theme.breakpoints.down('md')]:{
+        width:'37rem',
+    },
 })
 
 export const Description = styled('div')({
