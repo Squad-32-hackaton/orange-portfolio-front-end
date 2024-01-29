@@ -9,6 +9,7 @@ export const projectsContainer = {
  gap:'1rem',
  textAlign:'left',
  maxWidth:'24.3rem',
+ borderRadius:'4px',
  
 }
 

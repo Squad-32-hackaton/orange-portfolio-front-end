@@ -20,8 +20,13 @@ export const inputContainer = {
 }
 
 export const uploaderContainer = {
- width:'90%',
+ width:'100%',
  height:'100%',
+ padding:'1rem 0',
+
+ [theme.breakpoints.up('lg')] : {
+  padding:'0'
+ }
 }
 
 export const homeTextField = {
@@ -36,15 +41,25 @@ export const homeTextLabel = {
  opacity:'0.6',
 
  [theme.breakpoints.down('md')]: {
-  color: 'secondary.main',
+  
  },
 
 }
-export const menuIconButton = {
-  
+export const menuIconButton = {  
  [theme.breakpoints.up('md')]: {
   display:'none',
  },
+}
+
+export const projectSectionContainer = {
+ width:'calc(100% - 3rem)',
+ display:'flex',
+ flexDirection:'column',
+ gap:'1.5rem',
+ 
+ [theme.breakpoints.up('lg')]: {
+  gap:'80px'
+ }
 }
 
 

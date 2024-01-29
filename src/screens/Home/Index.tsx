@@ -1,5 +1,5 @@
 import Header from '../../components/Header'
-import { container,inputContainer, uploaderContainer, homeTextField, homeTextLabel } from './styles'
+import { container,inputContainer, uploaderContainer, homeTextField, homeTextLabel, projectSectionContainer } from './styles'
 import Profile from '../../components/Profile'
 import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
@@ -19,7 +19,7 @@ export default function Home() {
   }
 
   return (
-   <Box  sx={container}>
+   <Box sx={container}>
 
     <Modal 
       children={
@@ -31,22 +31,23 @@ export default function Home() {
       />
 
       <Header />
-      <Profile handleCreateANewProject={handleCreateANewProject} />
+      <Profile handleCreateANewProject={handleCreateANewProject} nameUser='Camila Soares' />
 
-    <Box sx={{width:'calc(100% - 3rem)', background:'#e3e'}}>
+    <Box sx={projectSectionContainer}>
+
       <Box sx={inputContainer}>
-
-      <Typography
-        align='left'
-        sx={homeTextLabel}
-        variant='h2'
-      >
-        Meus projetos
-      </Typography>
-      <TextField
-        label='Buscar tags'
-        sx={ homeTextField }
-        size='medium' />
+        <Typography
+          align='left'
+          sx={homeTextLabel}
+          variant='h2'
+        >
+          Meus projetos
+        </Typography>
+        <TextField
+          label='Buscar tags'
+          sx={ homeTextField }
+          size='medium' 
+        />
       </Box>
 
       <Box sx={uploaderContainer}>

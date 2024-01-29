@@ -1,5 +1,5 @@
 import {  AppBar, Box, Drawer,  List,  ListItem,  ListItemText,  Slide,  Stack,  Toolbar } from '@mui/material'
-import { container, Image, listContainer } from './styles'
+import { appBarContainer, container, Image, listContainer } from './styles'
 import Logo from '../../assets/img/Logo.png'
 import IconButton from '@mui/material/IconButton';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -18,8 +18,8 @@ export default function Header() {
   }
 
   return (
-    <Box style={{width: '100%'}}>
-      <AppBar position='relative'  >
+    <Box sx={appBarContainer}>
+      <AppBar position='relative'>
         <Box sx={container}>
           <Toolbar sx={{ 
             width:'100%', 
@@ -35,7 +35,7 @@ export default function Header() {
                 onClick={() =>  toggleDrawer()}
                 sx={menuIconButton}
               >
-                <MenuIcon />
+                <MenuIcon /> 
               </IconButton>
 
               <Image src={Logo}/>
