@@ -26,12 +26,14 @@ import IconButton from '../../components/IconButton';
 import authService from '../../services/authService';
 
 const LoginPage: React.FC = () => {
+  
   const handleLogin = async (email: string, password: string) => {
     try {
       const response = await authService.login({ email, password });
 
       if (response.status === 200) {
-        console.log('Login bem-sucedido');        
+        console.log('Login bem-sucedido');
+        window.location.href = '/';       
       } else {
         console.error(response.data.error);
       }
