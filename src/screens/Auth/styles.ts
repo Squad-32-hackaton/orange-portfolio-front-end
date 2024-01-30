@@ -1,82 +1,106 @@
-import { SxProps } from "@mui/system";
+import { theme } from "../../styles/theme";
+import { SxProps, styled } from "@mui/material";
 
-export const ContainerStyles: SxProps = {
-    backgroundColor: 'white',
-    height: '100vh',
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-  };
+export const StyleBrButton = styled ('div')({
 
-  export const GridNoneStyles : SxProps = {
-    xs: 'none', 
-    sm: 'block'
-  };
+  [theme.breakpoints.up('md')]: {
+    display:'flex'
+  }
+})
 
-  export const BoxStyles : SxProps = {
-    margin: '2rem',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  };
+export const textFieldBrOne = {
 
-  export const CardMediaStyles : SxProps = {
-    width: '100%',
-    objectFit: 'cover',
-    marginBottom: '0.05rem',
-  };
+  [theme.breakpoints.up('md')]: {
+    marginRight:'1rem',
+  }
+}
 
-  export const TypographyTitleStyles : SxProps = {
-    fontFamily: 'Roboto',
-    fontSize: '1.875rem',
-    fontWeight: 400,
-    lineHeight: '2.5rem',
-    letterSpacing: '0em',
-    textAlign: 'center',
-    padding: '1rem'
-  };
+export const textFieldBrTwo = {
 
-  export const IconButtonStyles : SxProps = {
-    backgroundColor: 'white',
-    color: '#000000',
-    '&:hover': {
-    backgroundColor: '#eeeeee',
-    },
-    width: '12.5rem',
-    height: '1.875rem',
-    marginTop: '1rem',
-    marginBottom: '1rem',    
-    padding: '1rem',
-    gap: '0.5rem',
-    textAlign: 'center',
-  };
+  [theme.breakpoints.up('md')]: {
+    marginLeftt:'1rem',
+  }
+}
 
-  export const GridStyles : SxProps = {
-    width: '100%',
-    height: '16.938rem',
-    top: '22.5rem',
-    left: '39.25rem',
-    padding: '0px 0px 0.188rem 0px',
-  };
+export const cardMediaStyles = {
+  width: '32.8rem',
+  height:'51.4rem',
+  objectFit: 'cover',
+  marginBottom: '0.05rem',
+  display:'none',
 
-  export const LinkStyles : SxProps = {
-    mt: '1rem',
-    display: 'block',
-    textAlign: 'left',
-    fontFamily: 'Roboto',
-    fontSize: '1rem',
-    fontWeight: 400,
-    lineHeight: '1rem',
-    letterSpacing: '0.094rem',
-    color: '#818388',
-    padding: '0',
-    textDecoration: 'none',
-  };
+  [theme.breakpoints.up('md')]: {
+    display:'block',
+    marginLeftt:'1rem',
+  }
 
-  export const Styles : SxProps = {
-    
-  };
+};
 
+export const baseStyle ={
+  padding:'2rem',
+
+
+  [theme.breakpoints.up('md')]: {
+    display:'flex',
+    justifyContent:'space-between',
+    padding:'0',
+  }
+
+}
+
+export const boxInputs = {
+
+
+  [theme.breakpoints.up('md')]: {
+    marginTop:'15rem',
+    marginLeft:'5rem',
+    marginRight:'5rem',
+  }
+
+}
+
+export const IconButtonStyles = {
+  backgroundColor: 'white',
+  color: '#000000',
+  '&:hover': {
+  backgroundColor: '#eeeeee',
+  },
+  width: '12.5rem',
+  height: '1.875rem',
+  marginTop: '1rem',
+  marginBottom: '1rem',    
+  padding: '1rem',
+  gap: '0.5rem',
+  textAlign: 'center',
+};
+
+export const boxGoogle = {
+  display:'flex',
+  flexDirection:'column',
+  alignItems:'center',
+  marginTop:'4rem',
+}
+
+export const typographyTitleStyles = {
+  fontSize:'1.5rem',
+  marginBottom:'2rem',
+}
+
+export const LinkStyles : SxProps = {
+  mt: '1rem',
+  display: 'block',
+  textAlign: 'left',
+  fontFamily: 'Roboto',
+  fontSize: '1rem',
+  fontWeight: 400,
+  lineHeight: '1rem',
+  letterSpacing: '0.094rem',
+  color: '#818388',
+  padding: '0',
+  textDecoration: 'none',
+};
+
+export const Styles : SxProps = {
+  
+};
 

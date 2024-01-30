@@ -9,7 +9,10 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <Router />
+        {/* <Home /> */}
+        {/* <DetailProject/> */}
+        {/* <MyPortfolio/> */}
+        { isAuthenticated ? <Home /> : <LoginPage /> }
       </ThemeProvider>
     </BrowserRouter>
   )

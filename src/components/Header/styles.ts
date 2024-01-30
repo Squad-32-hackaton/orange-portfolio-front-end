@@ -98,6 +98,13 @@ export const list = {
   marginLeft: '4rem',
 }
 
+<<<<<<< HEAD
+export const ListItemButton = styled('a')({
+    backgroundColor: '#111133',
+    color: 'white',
+    width: '110px',
+    padding: '0',
+=======
 export const ListItemButton = styled('button')({
   backgroundColor: '#111133',
   color: 'white',
@@ -106,6 +113,7 @@ export const ListItemButton = styled('button')({
   outline: 'none',
 
   '&:hover': {
+>>>>>>> develop
     outline: 'none',
   },
 
@@ -114,6 +122,13 @@ export const ListItemButton = styled('button')({
   },
 })
 
+<<<<<<< HEAD
+export const ListItemButtonModal = styled('a')({
+    backgroundColor: 'white',
+    color: 'black',
+    width: '110px',
+    padding: '0',
+=======
 export const ListItemButtonModal = styled('button')({
   backgroundColor: 'white',
   color: 'black',
@@ -122,6 +137,7 @@ export const ListItemButtonModal = styled('button')({
   outline: 'none',
 
   '&:hover': {
+>>>>>>> develop
     outline: 'none',
   },
 
