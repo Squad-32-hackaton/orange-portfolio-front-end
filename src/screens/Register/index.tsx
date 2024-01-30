@@ -6,20 +6,23 @@ import {
   TextField,
   Typography
 } from '@mui/material';
-import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import LoginImage from '../../assets/img/LoginImage.png';
+import React from 'react';
 import LogoGoogle from '../../assets/img/logo googleg 48dp.png';
-import IconButton from '../../components/IconButton';
+import LoginImage from '../../assets/img/LoginImage.png';
 import {
-  IconButtonStyles,
-  LinkStyles,
+  StyleBrButton,
   baseStyle,
-  boxGoogle,
-  boxInputs,
   cardMediaStyles,
-  typographyTitleStyles
+  textFieldBrOne,
+  IconButtonStyles,
+  typographyTitleStyles,
+  boxGoogle,
+  textFieldBrTwo,
+  boxInputs,
+  LinkStyles,
 } from './styles';
+import IconButton from '../../components/IconButton';
 
 const RegisterPage: React.FC = () => {
   const handleLogin = () => {
@@ -28,6 +31,32 @@ const RegisterPage: React.FC = () => {
   return (
     <Box sx={baseStyle}>
 
+      <Box sx={boxGoogle}>
+
+        <Typography
+          variant="h3"
+          component="h1"
+          sx={typographyTitleStyles}
+        >
+          Entre no Orange Portfolio
+        </Typography>
+
+        <IconButton
+          title={'Entrar com Google'}
+          icon={<img src={LogoGoogle} alt="Google Logo" />}
+          onClick={() => {
+            // Lógica para entrar com o Google
+          }}
+          sx={IconButtonStyles}
+          aria-label='Botão Entrar com Google'
+        />
+
+      </Box>
+
+      <Typography component="h2" variant="h6">
+        Faça login com email
+      </Typography>
+
       <CardMedia
         component="img"
         image={LoginImage}
@@ -35,30 +64,28 @@ const RegisterPage: React.FC = () => {
 
       <Box sx={boxInputs}>
 
-        <Box sx={boxGoogle}>
-
-          <Typography
-            variant="h3"
-            component="h1"
-            sx={typographyTitleStyles}
-          >
-            Entre no Orange Portfolio
-          </Typography>
-
-          <IconButton
-            title={'Entrar com Google'}
-            icon={<img src={LogoGoogle} alt="Google Logo" />}
-            onClick={() => {
-              // Lógica para entrar com o Google
-            }}
-            sx={IconButtonStyles}
-            aria-label='Botão Entrar com Google'
+        <StyleBrButton>
+          <TextField sx={textFieldBrOne}
+            margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Nome"
+            name="name"
+            autoComplete="name"
+            autoFocus
           />
+          <TextField sx={textFieldBrTwo}
+            margin="normal"
+            required
+            fullWidth
+            name="lastName"
+            label="Sobrenome"
+            id="lastName"
+            autoComplete="lastName"
+          />
+        </StyleBrButton>
 
-        </Box>
-        <Typography component="h2" variant="h6">
-          Faça login com email
-        </Typography>
 
         <TextField
           margin="normal"

@@ -78,7 +78,7 @@ export const list = {
     marginLeft: '4rem'
 }
 
-export const ListItemButton = styled('button')({
+export const ListItemButton = styled('a')({
     backgroundColor: '#111133',
     color: 'white',
     width: '110px',
@@ -96,7 +96,7 @@ export const ListItemButton = styled('button')({
     },
 });
 
-export const ListItemButtonModal = styled('button')({
+export const ListItemButtonModal = styled('a')({
     backgroundColor: 'white',
     color: 'black',
     width: '110px',

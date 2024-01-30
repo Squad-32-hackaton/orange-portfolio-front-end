@@ -3,7 +3,7 @@ import { theme } from "../../styles/theme";
 export const container = {
  width: '100%',
  minHeight: '100vh',
- maxWidth: '80rem',
+//  maxWidth: '80rem',
  display: 'flex',
  flexDirection: 'column',
  backgroundColor: '#fff',

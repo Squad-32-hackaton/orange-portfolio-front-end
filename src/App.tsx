@@ -7,6 +7,7 @@ import LoginPage from './screens/Auth';
 import '@fontsource/roboto'
 import { BrowserRouter } from 'react-router-dom';
 import authService from './services/authService';
+import RegisterPage from './screens/Register';
 // import DetailProject from './screens/DetailProject/index'
 // import MyPortfolio from './screens/MyPortfolio';
 
@@ -28,6 +29,7 @@ function App() {
         {/* <DetailProject/> */}
         {/* <MyPortfolio/> */}
         { isAuthenticated ? <Home /> : <LoginPage /> }
+        {/* <RegisterPage /> */}
       </ThemeProvider>
     </BrowserRouter>
   )
