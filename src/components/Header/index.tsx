@@ -1,5 +1,5 @@
-import {  AppBar, Box, Drawer,  List,  ListItem,  ListItemText,  Slide,  Stack,  Toolbar } from '@mui/material'
-import { appBarContainer, container, Image, listContainer } from './styles'
+import { AppBar, Box, Drawer, List, ListItem, Stack, Toolbar } from '@mui/material'
+import { appBarContainer, container, Image, listContainer, DivLine, listContainerFull, ListItemButton, list, listItem, toolbar, ListItemButtonModal } from './styles'
 import Logo from '../../assets/img/Logo.png'
 import IconButton from '@mui/material/IconButton';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -11,82 +11,81 @@ import { menuIconButton } from '../../screens/Home/styles';
 
 export default function Header() {
 
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  function toggleDrawer () {   
-    setDrawerOpen(!drawerOpen);
-  }
+  const handleDrawerOpen = () => {
+    setDrawerOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setDrawerOpen(false);
+  };
 
   return (
     <Box sx={appBarContainer}>
       <AppBar position='relative'>
         <Box sx={container}>
-          <Toolbar sx={{ 
-            width:'100%', 
-            display:'flex', 
-            justifyContent:'space-between'}}
-          >
-          <Stack direction='row' alignItems='center'>
+          <Toolbar sx={toolbar}>
+            <Stack direction='row' alignItems='center'>
               <IconButton
                 size="large"
                 edge="start"
                 color="inherit"
                 aria-label="menu"
-                onClick={() =>  toggleDrawer()}
+                onClick={() => handleDrawerOpen()}
                 sx={menuIconButton}
               >
-                <MenuIcon /> 
+                <MenuIcon />
               </IconButton>
 
-              <Image src={Logo}/>
- 
-              <List sx={listContainer}>
-                <ListItem >
-                  <ListItemText primary="Meus projetos" />
-                </ListItem>
-                <ListItem >
-                  <ListItemText primary="Descobrir" />
-                </ListItem>
+              <Image src={Logo} />
+
+              <Drawer sx={listContainer} anchor="top" open={drawerOpen} onClose={handleDrawerClose}>
+                <List>
+                  <ListItem>
+                    <ListItemButtonModal>Meus projetos</ListItemButtonModal>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemButtonModal>Descobrir</ListItemButtonModal>
+                  </ListItem>
+                  <DivLine></DivLine>
+                  <ListItem sx={listItem}>
+                    <ListItemButtonModal>Configurações</ListItemButtonModal>
+                  </ListItem>
+                </List>
+              </Drawer>
+
+              <List sx={listContainerFull}>
+                <List sx={list}>
+                  <ListItem>
+                    <ListItemButton>Meus projetos</ListItemButton>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemButton>Descobrir</ListItemButton>
+                  </ListItem>
+                </List>
               </List>
-          </Stack>    
 
-          <Stack direction='row' alignItems='center' gap={2}>
-              <Avatar src={ProfilePhoto}/>
+            </Stack>
+
+            <Stack direction='row' alignItems='center' gap={2}>
+              <Avatar src={ProfilePhoto} />
               <IconButton
-                  size="large"
-                  edge="start"
-                  color="inherit"
-                  aria-label="notifications"
-                  sx={{ mr: 2 }}
-                >
-                  <NotificationsIcon />
-                </IconButton>
-          </Stack>             
-        </Toolbar>
-      </Box>
-      
-    </AppBar>    
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="notifications"
+                sx={{ mr: 2 }}
+              >
+                <NotificationsIcon />
+              </IconButton>
+            </Stack>
+          </Toolbar>
 
-    <Drawer
-        anchor="top"
-        open={drawerOpen}
-        onClose={() => toggleDrawer()}
-        
-      >
-        <Slide>
-          <List>
-            <ListItem >
-              <ListItemText primary="Home" />
-            </ListItem>
-            <ListItem >
-              <ListItemText primary="Sobre" />
-            </ListItem>
-            <ListItem >
-              <ListItemText primary="Contato" />
-            </ListItem>
-          </List>
-        </Slide>
-      </Drawer>
-  </Box>
+        </Box>
+
+      </AppBar>
+
+    </Box>
   )
 }
