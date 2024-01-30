@@ -1,10 +1,13 @@
 import { Outlet } from 'react-router-dom'
 import Header from '../components/Header'
 
-export function DefaultLayout() {
+interface RouteProps {
+  isAuthenticated: boolean
+}
+export function DefaultLayout({ isAuthenticated }: RouteProps) {
   return (
     <div>
-      <Header />
+      {isAuthenticated && <Header />}
       <Outlet />
     </div>
   )

@@ -1,4 +1,3 @@
-
 import {
   AppBar,
   Box,
@@ -6,13 +5,23 @@ import {
   List,
   ListItem,
   ListItemText,
-  Slide,
   Stack,
   Toolbar,
 } from '@mui/material'
 
-import { AppBar, Box, Drawer, List, ListItem, Stack, Toolbar } from '@mui/material'
-import { appBarContainer, container, Image, listContainer, DivLine, listContainerFull, ListItemButton, list, listItem, toolbar, ListItemButtonModal } from './styles'
+import {
+  appBarContainer,
+  container,
+  Image,
+  listContainer,
+  DivLine,
+  listContainerFull,
+  ListItemButton,
+  list,
+  listItem,
+  toolbar,
+  ListItemButtonModal,
+} from './styles'
 
 import Logo from '../../assets/img/Logo.png'
 import IconButton from '@mui/material/IconButton'
@@ -25,22 +34,22 @@ import { menuIconButton } from '../../screens/Home/styles'
 import { Link } from 'react-router-dom'
 
 export default function Header() {
- const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   const handleDrawerOpen = () => {
-    setDrawerOpen(true);
-  };
+    setDrawerOpen(true)
+  }
 
   const handleDrawerClose = () => {
-    setDrawerOpen(false);
-  };
+    setDrawerOpen(false)
+  }
 
   return (
     <Box sx={appBarContainer}>
       <AppBar position="relative">
         <Box sx={container}>
           <Toolbar sx={toolbar}>
-            <Stack direction='row' alignItems='center'>
+            <Stack direction="row" alignItems="center">
               <IconButton
                 size="large"
                 edge="start"
@@ -51,7 +60,7 @@ export default function Header() {
               >
                 <MenuIcon />
               </IconButton>
-              
+
               <Link to="/">
                 <Image src={Logo} />
               </Link>
@@ -69,8 +78,12 @@ export default function Header() {
             </Stack>
 
             <Stack direction="row" alignItems="center" gap={2}>
-
-              <Drawer sx={listContainer} anchor="top" open={drawerOpen} onClose={handleDrawerClose}>
+              <Drawer
+                sx={listContainer}
+                anchor="top"
+                open={drawerOpen}
+                onClose={handleDrawerClose}
+              >
                 <List>
                   <ListItem>
                     <ListItemButtonModal>Meus projetos</ListItemButtonModal>
@@ -95,11 +108,9 @@ export default function Header() {
                   </ListItem>
                 </List>
               </List>
-
             </Stack>
 
-            <Stack direction='row' alignItems='center' gap={2}>
-
+            <Stack direction="row" alignItems="center" gap={2}>
               <Avatar src={ProfilePhoto} />
               <IconButton
                 size="large"

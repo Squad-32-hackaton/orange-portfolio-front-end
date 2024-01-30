@@ -30,10 +30,7 @@ export default function Home() {
         children={<ProjectModal handleClose={handleCreateANewProject} />}
         open={openModal}
       />
-      <Profile
-        handleCreateANewProject={handleCreateANewProject}
-        nameUser="Camila Soares"
-      />
+      <Profile handleCreateANewProject={handleCreateANewProject} />
 
       <Box sx={projectSectionContainer}>
         <Box sx={inputContainer}>
