@@ -6,21 +6,19 @@ import Home from './screens/Home/Index';
 import LoginPage from './screens/Auth';
 import '@fontsource/roboto'
 import { BrowserRouter } from 'react-router-dom';
-import DetailProject from './screens/DetailProject/index'
-import MyPortfolio from './screens/MyPortfolio';
-
-interface UserData {
-  email: string;
-}
+import authService from './services/authService';
+// import DetailProject from './screens/DetailProject/index'
+// import MyPortfolio from './screens/MyPortfolio';
 
 function App() {
-  const [userData, setUserData] = useState<UserData | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
   useEffect(() => {
-    const user = sessionStorage.getItem('user');
-    if (user) {
-      setUserData(JSON.parse(user));
-    }
+    const checkAuthentication = async () => {
+      setIsAuthenticated(authService.isAuthenticated());
+    };
+
+    checkAuthentication();
   }, []);
 
   return (
@@ -29,8 +27,7 @@ function App() {
         {/* <Home /> */}
         {/* <DetailProject/> */}
         {/* <MyPortfolio/> */}
-        {/* { userData ? <Home /> : <LoginPage /> } */}
-         <Home />
+        { isAuthenticated ? <Home /> : <LoginPage /> }
       </ThemeProvider>
     </BrowserRouter>
   )
