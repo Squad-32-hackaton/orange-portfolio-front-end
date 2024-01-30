@@ -6,19 +6,20 @@ interface LoginData {
 }
 
 interface UserData {
-  email: string;
+  email?: string;
+  user_id: string;
 }
 
 const authService = {
   login: async (loginData: LoginData): Promise<AxiosResponse | { status: number; data: { error: string } }> => {
     try {
       const response = await axios.post('https://orangeportfoliosquad32.software/login', loginData);
-
       sessionStorage.setItem('user', JSON.stringify(response.data.user));
       sessionStorage.setItem('token', response.data.token);
 
       return { status: response.status, data: { error: 'Login bem-sucedido' } };
     } catch (error) {
+     
       if (axios.isAxiosError(error)) {
         const status = error.response?.status || 500;
         return { status, data: { error: 'Credenciais inválidas' } };
@@ -27,7 +28,7 @@ const authService = {
     }
   },
 
-  logout: (): Promise<AxiosResponse> => {
+  logout: (): Promise<{ status: number; data: { message: string } }> => {
     sessionStorage.removeItem('user');
     sessionStorage.removeItem('token');
 
