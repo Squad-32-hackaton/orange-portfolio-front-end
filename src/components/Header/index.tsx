@@ -1,17 +1,31 @@
+
+import {
+  AppBar,
+  Box,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Slide,
+  Stack,
+  Toolbar,
+} from '@mui/material'
+
 import { AppBar, Box, Drawer, List, ListItem, Stack, Toolbar } from '@mui/material'
 import { appBarContainer, container, Image, listContainer, DivLine, listContainerFull, ListItemButton, list, listItem, toolbar, ListItemButtonModal } from './styles'
+
 import Logo from '../../assets/img/Logo.png'
-import IconButton from '@mui/material/IconButton';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MenuIcon from '@mui/icons-material/Menu';
+import IconButton from '@mui/material/IconButton'
+import NotificationsIcon from '@mui/icons-material/Notifications'
+import MenuIcon from '@mui/icons-material/Menu'
 import Avatar from '@mui/material/Avatar'
 import ProfilePhoto from '../../assets/img/ProfileImage.png'
-import { useState } from 'react';
-import { menuIconButton } from '../../screens/Home/styles';
+import { useState } from 'react'
+import { menuIconButton } from '../../screens/Home/styles'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
-
-  const [drawerOpen, setDrawerOpen] = useState(false);
+ const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setDrawerOpen(true);
@@ -23,7 +37,7 @@ export default function Header() {
 
   return (
     <Box sx={appBarContainer}>
-      <AppBar position='relative'>
+      <AppBar position="relative">
         <Box sx={container}>
           <Toolbar sx={toolbar}>
             <Stack direction='row' alignItems='center'>
@@ -37,8 +51,24 @@ export default function Header() {
               >
                 <MenuIcon />
               </IconButton>
+              
+              <Link to="/">
+                <Image src={Logo} />
+              </Link>
 
-              <Image src={Logo} />
+              <List sx={listContainer}>
+                <ListItem>
+                  <Link to={'/my-portfolio'}>
+                    <ListItemText primary="Meus projetos" />
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <ListItemText primary="Descobrir" />
+                </ListItem>
+              </List>
+            </Stack>
+
+            <Stack direction="row" alignItems="center" gap={2}>
 
               <Drawer sx={listContainer} anchor="top" open={drawerOpen} onClose={handleDrawerClose}>
                 <List>
@@ -69,6 +99,7 @@ export default function Header() {
             </Stack>
 
             <Stack direction='row' alignItems='center' gap={2}>
+
               <Avatar src={ProfilePhoto} />
               <IconButton
                 size="large"
@@ -81,11 +112,8 @@ export default function Header() {
               </IconButton>
             </Stack>
           </Toolbar>
-
         </Box>
-
       </AppBar>
-
     </Box>
   )
 }

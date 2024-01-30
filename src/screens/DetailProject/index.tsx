@@ -1,22 +1,15 @@
-import Header from '../../components/Header'
 import { Container, Title } from './styles'
-import CardProject from '../../components/CardProject';
-import Detail from '../../components/Detail';
+import CardProject from '../../components/CardProject'
+import Detail from '../../components/Detail'
 
 export default function DetailProject() {
-
   return (
-   <Container >
-
-      <Header />
-
+    <Container>
       <Title>Ecommerce One Page</Title>
 
-      <CardProject/>
+      <CardProject />
 
-      <Detail/>
-      
-   </Container>
-
+      <Detail />
+    </Container>
   )
 }

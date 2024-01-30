@@ -1,7 +1,7 @@
-import { styled } from "@mui/system";
-import { theme } from "../../styles/theme";
+import { styled } from '@mui/system'
+import { theme } from '../../styles/theme'
 
-// Styled Components 
+// Styled Components
 
 export const appBarContainer = {
     width: '100%',
@@ -24,10 +24,36 @@ export const toolbar = {
 // Image Component
 
 export const Image = styled('img')({
-    width: '5.30rem',
+      width: '5.30rem',
     height: '2rem',
     backgroundSize: 'cover'
 })
+
+export const listContainer = {
+  display: 'flex',
+  width: '300px',
+  alignItems: 'center',
+  gap: '3px',
+  ml: '6.25rem',
+  textDeorator: 'none',
+
+  span: {
+    textAlign: 'center',
+  },
+
+  a: {
+    textDecoration: 'none',
+    color: '#fff',
+  },
+
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  },
+}
+export const appBarContainer = {
+  width: '100%',
+}
+=======
 
 export const listContainer = {
     width: '9.75rem',
@@ -113,4 +139,3 @@ export const ListItemButtonModal = styled('button')({
         outline: 'none',
     },
 });
-
