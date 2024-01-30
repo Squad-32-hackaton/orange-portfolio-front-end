@@ -26,83 +26,112 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <Box sx={baseStyle}>
+    <>
+      <CssBaseline />
+      <Container
+        component="main"
+        maxWidth="md"
+        sx={ContainerStyles}
+      >
+        <Box
+          sx={BoxStyles}
+        >
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6} display={{ xs: 'none', sm: 'block' }}>
+              <CardMedia
+                component="img"
+                alt="Login Image"
+                height="100%"
+                image={LoginImage}
+                sx={CardMediaStyles}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography
+                variant="h3"
+                component="h1"
+                sx={TypographyTitleStyles}
+              >
+                Entre no Orange Portfolio
+              </Typography>
 
-      <CardMedia
-        component="img"
-        image={LoginImage}
-        sx={cardMediaStyles} />
+              <IconButton 
+                title={'Entrar com Google'} 
+                icon={<img src={LogoGoogle} alt="Google Logo" />} 
+                onClick={() => {
+                  // Lógica para entrar com o Google
+                }}
+                sx={IconButtonStyles}
+                aria-label='Botão Entrar com Google'
+              /> 
 
-      <Box sx={boxInputs}>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                sx={GridStyles}
+              >
+                <Typography component="h2" variant="h6">
+                  Faça login com email
+                </Typography>
 
-        <Box sx={boxGoogle}>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const email = e.currentTarget.email.value;
+                    const password = e.currentTarget.password.value;
+                    handleLogin(email, password);
+                  }}
+                >
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email address"
+                    name="email"
+                    autoComplete="email"
+                    autoFocus
+                  />
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                  />
 
-          <Typography
-            variant="h3"
-            component="h1"
-            sx={typographyTitleStyles}
-          >
-            Entre no Orange Portfolio
-          </Typography>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    sx={{ mt: 1 }}
+                    aria-label='Botão Entrar'
+                  >
+                    Entrar
+                  </Button>
+                </form>
 
-          <IconButton
-            title={'Entrar com Google'}
-            icon={<img src={LogoGoogle} alt="Google Logo" />}
-            onClick={() => {
-              // Lógica para entrar com o Google
-            }}
-            sx={IconButtonStyles}
-            aria-label='Botão Entrar com Google'
-          />
+                <Link
+                  component={RouterLink}
+                  to="/signup"
+                  variant="body2"
+                  sx={LinkStyles}
+                >
+                  Cadastre-se
+                </Link>
 
+              </Grid>
+            </Grid>
+          </Grid>
         </Box>
-        <Typography component="h2" variant="h6">
-          Faça login com email
-        </Typography>
-
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="email"
-          label="Email address"
-          type="email"
-          id="email"
-          autoComplete="email"
-        />
-
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="password"
-          label="Password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-        />
-
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          sx={{ mt: 1, backgroundColor: '#FF5522' }}
-          aria-label='Botão Entrar'
-        >
-          Entrar
-        </Button>
-        <Link
-          component={RouterLink}
-          to="/signup"
-          variant="body2"
-          sx={LinkStyles}
-        >
-          Cadastre-se
-        </Link>
-      </Box>
-    </Box>
+      </Container>
+    </>
   );
 };
 
-export default RegisterPage;
+export default LoginPage;

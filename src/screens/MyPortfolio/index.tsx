@@ -1,42 +1,32 @@
-import Header from '../../components/Header'
 import { Container, Title, inputContainer, textField, DivCards } from './styles'
-import CardProject from '../../components/CardProject';
-import { TextField } from '@mui/material';
-import { InputContainer } from '../Home/styles';
+import CardProject from '../../components/CardProject'
+import { Box, TextField } from '@mui/material'
 
 export default function MyPortfolio() {
-
   return (
-      <Container >
+    <Container>
+      <Title>
+        Junte-se à comunidade de inovação, inspiração e descobertas,
+        transformando experiências em conexões inesquecíveis
+      </Title>
 
-        <Header />
+      <Box sx={inputContainer}>
+        <TextField label="Buscar tags" sx={textField} />
+      </Box>
 
-        <Title>Junte-se à comunidade de inovação, inspiração e descobertas, transformando experiências em conexões inesquecíveis</Title>
-
-        <InputContainer sx={inputContainer}>
-          <TextField label='Buscar tags' sx={textField} />
-        </InputContainer>
-
-        <div>
-
+      <div>
         <DivCards>
+          <CardProject />
 
-        <CardProject />
+          <CardProject />
 
-        <CardProject />
+          <CardProject />
 
-        <CardProject />
+          <CardProject />
 
-        <CardProject />
-
-        <CardProject />
-
+          <CardProject />
         </DivCards>
-
-        </div>
-
-      </Container>
-
-
+      </div>
+    </Container>
   )
 }
