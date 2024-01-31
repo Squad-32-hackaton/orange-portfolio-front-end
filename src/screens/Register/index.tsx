@@ -2,27 +2,21 @@ import {
   Box,
   Button,
   CardMedia,
-  Link,
   TextField,
   Typography
 } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
 import React from 'react';
-import LogoGoogle from '../../assets/img/logo googleg 48dp.png';
-import LoginImage from '../../assets/img/LoginImage.png';
+import LoginImage from '../../assets/img/img-tela-cadastro.png';
 import {
-  // StyleBrButton,
   baseStyle,
-  cardMediaStyles,
-  // textFieldBrOne,
-  IconButtonStyles,
-  typographyTitleStyles,
   boxGoogle,
-  // textFieldBrTwo,
   boxInputs,
-  LinkStyles,
+  cardMediaStyles,
+  styleBrButton,
+  textFieldBrOne,
+  textFieldBrTwo,
+  typographyTitleStyles
 } from './styles';
-import IconButton from '../../components/IconButton';
 
 const RegisterPage: React.FC = () => {
   const handleLogin = () => {
@@ -30,32 +24,7 @@ const RegisterPage: React.FC = () => {
 
   return (
     <Box sx={baseStyle}>
-
       <Box sx={boxGoogle}>
-
-        <Typography
-          variant="h3"
-          component="h1"
-          sx={typographyTitleStyles}
-        >
-          Entre no Orange Portfolio
-        </Typography>
-
-        <IconButton
-          title={'Entrar com Google'}
-          icon={<img src={LogoGoogle} alt="Google Logo" />}
-          onClick={() => {
-            // Lógica para entrar com o Google
-          }}
-          sx={IconButtonStyles}
-          aria-label='Botão Entrar com Google'
-        />
-
-      </Box>
-
-      <Typography component="h2" variant="h6">
-        Faça login com email
-      </Typography>
 
       <CardMedia
         component="img"
@@ -64,7 +33,15 @@ const RegisterPage: React.FC = () => {
 
       <Box sx={boxInputs}>
 
-        <StyleBrButton>
+      <Typography
+          variant="h3"
+          component="h1"
+          sx={typographyTitleStyles}
+        >
+          Cadastre-se
+        </Typography>
+
+        <Box sx={styleBrButton}>
           <TextField sx={textFieldBrOne}
             margin="normal"
             required
@@ -84,8 +61,9 @@ const RegisterPage: React.FC = () => {
             id="lastName"
             autoComplete="lastName"
           />
-        </StyleBrButton>
+        </Box>
 
+        <Box />
 
         <TextField
           margin="normal"
@@ -119,14 +97,7 @@ const RegisterPage: React.FC = () => {
         >
           Entrar
         </Button>
-        <Link
-          component={RouterLink}
-          to="/signup"
-          variant="body2"
-          sx={LinkStyles}
-        >
-          Cadastre-se
-        </Link>
+        </Box>
       </Box>
     </Box>
   );
