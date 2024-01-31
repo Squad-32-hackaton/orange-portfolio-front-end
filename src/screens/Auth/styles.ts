@@ -4,11 +4,14 @@ import { theme } from "../../styles/theme";
 export const baseStyle ={
   padding:'2rem',
 
-
   [theme.breakpoints.up('md')]: {
     display:'flex',
-    justifyContent:'space-between',
     padding:'0',
+    justifyContent: 'space-between',
+  },
+
+  [theme.breakpoints.up('xl')]: {
+    justifyContent: 'center',
   }
 
 }
@@ -18,8 +21,9 @@ export const boxInputs = {
   [theme.breakpoints.up('md')]: {
     marginTop:'15rem',
     marginLeft:'5rem',
-    marginRight:'3rem',
-  }
+    marginRight:'2rem',
+    justifyContent: 'space-between',
+  },
 
 }
 
@@ -33,7 +37,7 @@ export const cardMediaStyles = {
   [theme.breakpoints.up('md')]: {
     display:'block',
     marginLeftt:'1rem',
-  }
+  },
 
 };
 
@@ -53,10 +57,22 @@ export const IconButtonStyles = {
 };
 
 export const boxGoogle = {
-  display:'flex',
-  flexDirection:'column',
-  alignItems:'center',
+  width: '100%',
+  flexDirection:'row',
   marginTop:'4rem',
+  justifyContent: 'center',
+
+  [theme.breakpoints.up('md')]: {
+    justifyContent:'space-between',
+
+  },
+
+  [theme.breakpoints.up('xl')]: {
+    justifyContent:'center',
+
+  }
+
+
 }
 
 export const typographyTitleStyles = {
