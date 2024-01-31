@@ -25,27 +25,6 @@ export const Image = styled('img')({
   backgroundSize: 'cover',
 })
 
-// export const listContainer = {
-//   display: 'flex',
-//   width: '300px',
-//   alignItems: 'center',
-//   gap: '3px',
-//   ml: '6.25rem',
-//   textDeorator: 'none',
-
-//   span: {
-//     textAlign: 'center',
-//   },
-
-//   a: {
-//     textDecoration: 'none',
-//     color: '#fff',
-//   },
-
-//   [theme.breakpoints.down('md')]: {
-//     display: 'none',
-//   },
-// }
 export const appBarContainer = {
   width: '100%',
 }
@@ -98,48 +77,24 @@ export const list = {
   marginLeft: '4rem',
 }
 
-<<<<<<< HEAD
 export const ListItemButton = styled('a')({
     backgroundColor: '#111133',
     color: 'white',
     width: '110px',
     padding: '0',
-=======
-export const ListItemButton = styled('button')({
-  backgroundColor: '#111133',
-  color: 'white',
-  width: '110px',
-  padding: '0',
-  outline: 'none',
-
-  '&:hover': {
->>>>>>> develop
     outline: 'none',
-  },
 
   '&:active': {
     outline: 'none',
   },
 })
 
-<<<<<<< HEAD
 export const ListItemButtonModal = styled('a')({
     backgroundColor: 'white',
     color: 'black',
     width: '110px',
     padding: '0',
-=======
-export const ListItemButtonModal = styled('button')({
-  backgroundColor: 'white',
-  color: 'black',
-  width: '110px',
-  padding: '0',
-  outline: 'none',
-
-  '&:hover': {
->>>>>>> develop
     outline: 'none',
-  },
 
   '&:active': {
     outline: 'none',

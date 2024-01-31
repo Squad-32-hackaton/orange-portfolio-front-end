@@ -1,40 +1,5 @@
+import { SxProps } from "@mui/material";
 import { theme } from "../../styles/theme";
-import { SxProps, styled } from "@mui/material";
-
-export const StyleBrButton = styled ('div')({
-
-  [theme.breakpoints.up('md')]: {
-    display:'flex'
-  }
-})
-
-export const textFieldBrOne = {
-
-  [theme.breakpoints.up('md')]: {
-    marginRight:'1rem',
-  }
-}
-
-export const textFieldBrTwo = {
-
-  [theme.breakpoints.up('md')]: {
-    marginLeftt:'1rem',
-  }
-}
-
-export const cardMediaStyles = {
-  width: '32.8rem',
-  height:'51.4rem',
-  objectFit: 'cover',
-  marginBottom: '0.05rem',
-  display:'none',
-
-  [theme.breakpoints.up('md')]: {
-    display:'block',
-    marginLeftt:'1rem',
-  }
-
-};
 
 export const baseStyle ={
   padding:'2rem',
@@ -50,14 +15,27 @@ export const baseStyle ={
 
 export const boxInputs = {
 
-
   [theme.breakpoints.up('md')]: {
     marginTop:'15rem',
     marginLeft:'5rem',
-    marginRight:'5rem',
+    marginRight:'3rem',
   }
 
 }
+
+export const cardMediaStyles = {
+  width: '32.8rem',
+  height:'51.4rem',
+  objectFit: 'cover',
+  marginBottom: '0.05rem',
+  display:'none',
+
+  [theme.breakpoints.up('md')]: {
+    display:'block',
+    marginLeftt:'1rem',
+  }
+
+};
 
 export const IconButtonStyles = {
   backgroundColor: 'white',

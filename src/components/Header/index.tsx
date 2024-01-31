@@ -65,16 +65,17 @@ export default function Header() {
                 <Image src={Logo} />
               </Link>
 
-              <List sx={listContainer}>
-                <ListItem>
-                  <Link to={'/my-portfolio'}>
-                    <ListItemText primary="Meus projetos" />
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="Descobrir" />
-                </ListItem>
+              <List sx={listContainerFull}>
+                <List sx={list}>
+                  <ListItem>
+                    <ListItemButton>Meus projetos</ListItemButton>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemButton>Descobrir</ListItemButton>
+                  </ListItem>
+                </List>
               </List>
+
             </Stack>
 
             <Stack direction="row" alignItems="center" gap={2}>
@@ -98,16 +99,6 @@ export default function Header() {
                 </List>
               </Drawer>
 
-              <List sx={listContainerFull}>
-                <List sx={list}>
-                  <ListItem>
-                    <ListItemButton>Meus projetos</ListItemButton>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemButton>Descobrir</ListItemButton>
-                  </ListItem>
-                </List>
-              </List>
             </Stack>
 
             <Stack direction="row" alignItems="center" gap={2}>

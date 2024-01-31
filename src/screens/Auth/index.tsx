@@ -6,131 +6,110 @@ import {
   TextField,
   Typography
 } from '@mui/material';
-import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import LoginImage from '../../assets/img/LoginImage.png';
+import React from 'react';
 import LogoGoogle from '../../assets/img/logo googleg 48dp.png';
-import IconButton from '../../components/IconButton';
+import LoginImage from '../../assets/img/LoginImage.png';
 import {
-  IconButtonStyles,
-  LinkStyles,
+  // StyleBrButton,
   baseStyle,
-  boxGoogle,
-  boxInputs,
   cardMediaStyles,
-  typographyTitleStyles
+  // textFieldBrOne,
+  IconButtonStyles,
+  typographyTitleStyles,
+  boxGoogle,
+  // textFieldBrTwo,
+  boxInputs,
+  LinkStyles,
 } from './styles';
+import IconButton from '../../components/IconButton';
 
-const RegisterPage: React.FC = () => {
+const LoginPage: React.FC = () => {
   const handleLogin = () => {
   };
 
   return (
-    <>
-      <CssBaseline />
-      <Container
-        component="main"
-        maxWidth="md"
-        sx={ContainerStyles}
-      >
-        <Box
-          sx={BoxStyles}
-        >
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6} display={{ xs: 'none', sm: 'block' }}>
-              <CardMedia
-                component="img"
-                alt="Login Image"
-                height="100%"
-                image={LoginImage}
-                sx={CardMediaStyles}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography
-                variant="h3"
-                component="h1"
-                sx={TypographyTitleStyles}
-              >
-                Entre no Orange Portfolio
-              </Typography>
+    <Box sx={baseStyle}>
 
-              <IconButton 
-                title={'Entrar com Google'} 
-                icon={<img src={LogoGoogle} alt="Google Logo" />} 
-                onClick={() => {
-                  // Lógica para entrar com o Google
-                }}
-                sx={IconButtonStyles}
-                aria-label='Botão Entrar com Google'
-              /> 
+      <CardMedia
+        component="img"
+        image={LoginImage}
+        sx={cardMediaStyles} />
 
-              <Grid
-                item
-                xs={12}
-                sm={12}
-                sx={GridStyles}
-              >
-                <Typography component="h2" variant="h6">
-                  Faça login com email
-                </Typography>
+      <Box sx={boxInputs}>
 
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    const email = e.currentTarget.email.value;
-                    const password = e.currentTarget.password.value;
-                    handleLogin(email, password);
-                  }}
-                >
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="email"
-                    label="Email address"
-                    name="email"
-                    autoComplete="email"
-                    autoFocus
-                  />
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
-                  />
+        <Box sx={boxGoogle}>
 
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    sx={{ mt: 1 }}
-                    aria-label='Botão Entrar'
-                  >
-                    Entrar
-                  </Button>
-                </form>
 
-                <Link
-                  component={RouterLink}
-                  to="/signup"
-                  variant="body2"
-                  sx={LinkStyles}
-                >
-                  Cadastre-se
-                </Link>
+          <Typography
+            variant="h3"
+            component="h1"
+            sx={typographyTitleStyles}
+          >
+            Entre no Orange Portfolio
+          </Typography>
 
-              </Grid>
-            </Grid>
-          </Grid>
+          <IconButton
+            title={'Entrar com Google'}
+            icon={<img src={LogoGoogle} alt="Google Logo" />}
+            onClick={() => {
+              // Lógica para entrar com o Google
+            }}
+            sx={IconButtonStyles}
+            aria-label='Botão Entrar com Google'
+          />
+
+
         </Box>
-      </Container>
-    </>
+
+
+
+        <Typography component="h2" variant="h6">
+          Faça login com email
+        </Typography>
+
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          name="email"
+          label="Email address"
+          type="email"
+          id="email"
+          autoComplete="email"
+        />
+
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+        />
+
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          sx={{ mt: 1, backgroundColor: '#FF5522' }}
+          aria-label='Botão Entrar'
+        >
+          Entrar
+        </Button>
+        <Link
+          component={RouterLink}
+          to="/signup"
+          variant="body2"
+          sx={LinkStyles}
+        >
+          Cadastre-se
+        </Link>
+      </Box>
+    </Box>
   );
 };
 
