@@ -11,14 +11,14 @@ import React from 'react';
 import LogoGoogle from '../../assets/img/logo googleg 48dp.png';
 import LoginImage from '../../assets/img/LoginImage.png';
 import {
-  StyleBrButton,
+  // StyleBrButton,
   baseStyle,
   cardMediaStyles,
-  textFieldBrOne,
+  // textFieldBrOne,
   IconButtonStyles,
   typographyTitleStyles,
   boxGoogle,
-  textFieldBrTwo,
+  // textFieldBrTwo,
   boxInputs,
   LinkStyles,
 } from './styles';
