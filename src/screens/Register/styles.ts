@@ -4,7 +4,6 @@ import { theme } from "../../styles/theme";
 export const baseStyle ={
   padding:'2rem',
 
-
   [theme.breakpoints.up('md')]: {
     display:'flex',
     justifyContent:'space-between',
@@ -18,6 +17,7 @@ export const boxInputs = {
   [theme.breakpoints.up('md')]: {
     marginTop:'15rem',
     marginLeft:'5rem',
+    marginRight:'2rem',
   }
 
 }
@@ -52,15 +52,31 @@ export const IconButtonStyles = {
 };
 
 export const boxGoogle = {
+  width: '100%',
   display:'flex',
-  flexDirection:'column',
-  alignItems:'center',
+  flexDirection:'row',
   marginTop:'4rem',
+  justifyContent: 'center',
+
+  [theme.breakpoints.up('md')]: {
+    justifyContent:'space-between',
+
+  },
+
+  [theme.breakpoints.up('xl')]: {
+    justifyContent:'center',
+
+  }
+
+
 }
 
 export const typographyTitleStyles = {
+  display:'flex',
   fontSize:'1.5rem',
-  marginBottom:'2rem',
+  marginBottom:'1rem',
+  justifyContent: 'center',
+
 }
 
 export const LinkStyles : SxProps = {
@@ -77,7 +93,27 @@ export const LinkStyles : SxProps = {
   textDecoration: 'none',
 };
 
-export const Styles : SxProps = {
+export const styleBrButton = {
+
+
+  [theme.breakpoints.up('md')]: {
+    display:'flex',
+  }
   
-};
+}
+
+export const textFieldBrOne = {
+
+  [theme.breakpoints.up('md')]: {
+    marginRight:'0.5rem',
+  }
+  
+}
+
+export const textFieldBrTwo = {
+  
+  [theme.breakpoints.up('md')]: {
+    marginLeft:'0.5rem',
+  }
+}
 

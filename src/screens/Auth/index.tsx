@@ -11,14 +11,11 @@ import React from 'react';
 import LogoGoogle from '../../assets/img/logo googleg 48dp.png';
 import LoginImage from '../../assets/img/LoginImage.png';
 import {
-  // StyleBrButton,
   baseStyle,
   cardMediaStyles,
-  // textFieldBrOne,
   IconButtonStyles,
   typographyTitleStyles,
   boxGoogle,
-  // textFieldBrTwo,
   boxInputs,
   LinkStyles,
 } from './styles';
@@ -30,16 +27,13 @@ const LoginPage: React.FC = () => {
 
   return (
     <Box sx={baseStyle}>
-
       <CardMedia
         component="img"
         image={LoginImage}
         sx={cardMediaStyles} />
 
       <Box sx={boxInputs}>
-
         <Box sx={boxGoogle}>
-
 
           <Typography
             variant="h3"
@@ -59,55 +53,51 @@ const LoginPage: React.FC = () => {
             aria-label='Botão Entrar com Google'
           />
 
+          <Typography component="h2" variant="h6">
+            Faça login com email
+          </Typography>
 
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="email"
+            label="Email address"
+            type="email"
+            id="email"
+            autoComplete="email"
+          />
+
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            sx={{ mt: 1, backgroundColor: '#FF5522' }}
+            aria-label='Botão Entrar'
+          >
+            Entrar
+          </Button>
+          <Link
+            component={RouterLink}
+            to="/signup"
+            variant="body2"
+            sx={LinkStyles}
+          >
+            Cadastre-se
+          </Link>
         </Box>
-
-
-
-        <Typography component="h2" variant="h6">
-          Faça login com email
-        </Typography>
-
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="email"
-          label="Email address"
-          type="email"
-          id="email"
-          autoComplete="email"
-        />
-
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="password"
-          label="Password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-        />
-
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          sx={{ mt: 1, backgroundColor: '#FF5522' }}
-          aria-label='Botão Entrar'
-        >
-          Entrar
-        </Button>
-        <Link
-          component={RouterLink}
-          to="/signup"
-          variant="body2"
-          sx={LinkStyles}
-        >
-          Cadastre-se
-        </Link>
       </Box>
     </Box>
   );
