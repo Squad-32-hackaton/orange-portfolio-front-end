@@ -4,48 +4,45 @@ import {
   CardMedia,
   Link,
   TextField,
-  Typography
-} from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
-import React from 'react';
-import LogoGoogle from '../../assets/img/logo googleg 48dp.png';
-import LoginImage from '../../assets/img/LoginImage.png';
+  Typography,
+} from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
+import LogoGoogle from '../../assets/img/logo googleg 48dp.png'
+import LoginImage from '../../assets/img/LoginImage.png'
 import {
-  // StyleBrButton,
   baseStyle,
   cardMediaStyles,
-  // textFieldBrOne,
   IconButtonStyles,
   typographyTitleStyles,
   boxGoogle,
-  // textFieldBrTwo,
   boxInputs,
   LinkStyles,
-} from './styles';
-import IconButton from '../../components/IconButton';
+} from './styles'
+import IconButton from '../../components/IconButton'
+import authService from '../../services/authService'
 
-const LoginPage: React.FC = () => {
-  const handleLogin = () => {
-  };
+export default function LoginPage() {
+  const handleLogin = async (email: string, password: string) => {
+    try {
+      const response = await authService.login({ email, password })
+
+      if (response.status === 200) {
+        console.log('Login bem-sucedido')
+      } else {
+        console.error(response.data.error)
+      }
+    } catch (error) {
+      console.error('Erro ao fazer login:', error)
+    }
+  }
 
   return (
     <Box sx={baseStyle}>
-
-      <CardMedia
-        component="img"
-        image={LoginImage}
-        sx={cardMediaStyles} />
+      <CardMedia component="img" image={LoginImage} sx={cardMediaStyles} />
 
       <Box sx={boxInputs}>
-
         <Box sx={boxGoogle}>
-
-
-          <Typography
-            variant="h3"
-            component="h1"
-            sx={typographyTitleStyles}
-          >
+          <Typography variant="h3" component="h1" sx={typographyTitleStyles}>
             Entre no Orange Portfolio
           </Typography>
 
@@ -56,53 +53,57 @@ const LoginPage: React.FC = () => {
               // Lógica para entrar com o Google
             }}
             sx={IconButtonStyles}
-            aria-label='Botão Entrar com Google'
+            aria-label="Botão Entrar com Google"
           />
-
-
         </Box>
-
-
 
         <Typography component="h2" variant="h6">
           Faça login com email
         </Typography>
-
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="email"
-          label="Email address"
-          type="email"
-          id="email"
-          autoComplete="email"
-        />
-
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="password"
-          label="Password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-        />
-
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          sx={{ mt: 1, backgroundColor: '#FF5522' }}
-          aria-label='Botão Entrar'
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            const email = e.currentTarget.email.value
+            const password = e.currentTarget.password.value
+            handleLogin(email, password)
+          }}
         >
-          Entrar
-        </Button>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="email"
+            label="Email address"
+            type="email"
+            id="email"
+            autoComplete="email"
+          />
+
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            sx={{ mt: 1, backgroundColor: '#FF5522' }}
+            aria-label="Botão Entrar"
+          >
+            Entrar
+          </Button>
+        </form>
         <Link
           component={RouterLink}
-          to="/signup"
+          to="/register-user"
           variant="body2"
           sx={LinkStyles}
         >
@@ -110,7 +111,5 @@ const LoginPage: React.FC = () => {
         </Link>
       </Box>
     </Box>
-  );
-};
-
-export default LoginPage;
+  )
+}
