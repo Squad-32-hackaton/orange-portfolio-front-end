@@ -1,21 +1,36 @@
-import { Button, Stack, Typography } from '@mui/material'
+import { Box, Button, Input, Stack, Typography } from '@mui/material'
 import {
-  ProjectModalMain,
-  ProjectModalContainer,
-  ProjectModalContent,
+  projectModalMain,
+  projectModalContainer,
+  projectModalContent,
+  image,
 } from './styles'
 import TextField from '@mui/material/TextField'
 import UploaderImage from '../UploaderImage'
+import { useState } from 'react'
 
 type ProjectModalProps = {
   handleClose: () => void
 }
 
 export default function ProjectModal({ handleClose }: ProjectModalProps) {
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [previewImage, setPreviewImage] = useState('')
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function handleGetImageFile(event: any) {
+    const image = event.target.files[0]
+    setSelectedImage(image)
+
+    const previewImage = URL.createObjectURL(image)
+    setPreviewImage(previewImage)
+    console.log(image)
+  }
+
   return (
-    <ProjectModalMain>
-      <ProjectModalContainer>
-        <ProjectModalContent>
+    <Box sx={projectModalMain}>
+      <Box sx={projectModalContainer}>
+        <Box sx={projectModalContent}>
           <Typography
             sx={{
               color: '#515255',
@@ -41,13 +56,25 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
             Selecione o conteúdo que você deseja fazer upload
           </Typography>
 
-          <UploaderImage
-            texts={[
-              {
-                content: 'Compartilhe seu talento com milhares de pessoas',
-                type: 'subTitle',
-              },
-            ]}
+          {selectedImage ? (
+            <img src={previewImage} alt="" style={image} />
+          ) : (
+            <label htmlFor="imageUploader">
+              <UploaderImage
+                texts={[
+                  {
+                    content: 'Compartilhe seu talento com milhares de pessoas',
+                    type: 'subTitle',
+                  },
+                ]}
+              />
+            </label>
+          )}
+          <Input
+            type="file"
+            id="imageUploader"
+            sx={{ display: 'none' }}
+            onChange={handleGetImageFile}
           />
 
           <Typography variant="body1" color="#00000091">
@@ -71,8 +98,8 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
               Cancelar
             </Button>
           </Stack>
-        </ProjectModalContent>
-      </ProjectModalContainer>
-    </ProjectModalMain>
+        </Box>
+      </Box>
+    </Box>
   )
 }
