@@ -5,7 +5,7 @@ import '@fontsource/roboto'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
@@ -14,5 +14,3 @@ function App() {
     </BrowserRouter>
   )
 }
-
-export default App
