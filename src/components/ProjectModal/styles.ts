@@ -5,6 +5,10 @@ export const projectModalMain = {
   height: '100vh',
   maxHeight: '100vh',
   overflow: 'hidden',
+
+  hover: {
+    cursor: 'pointer',
+  },
 }
 
 export const projectModalContainer = {

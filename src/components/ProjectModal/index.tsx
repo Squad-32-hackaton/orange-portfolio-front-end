@@ -25,6 +25,7 @@ type FormSchemaProps = {
   title: string
   tags: string[]
   description: string
+  image: FileList
 }
 
 type ProjectModalProps = {
@@ -43,7 +44,21 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
     // formState: { erros },
   } = useForm<FormSchemaProps>()
 
-  const onSubmit: SubmitHandler<FormSchemaProps> = (data) => console.log(data)
+  const onSubmit: SubmitHandler<FormSchemaProps> = ({
+    description,
+    image,
+    tags,
+    title,
+  }: FormSchemaProps) => {
+    const object = {
+      title,
+      description,
+      tags,
+      image,
+    }
+
+    console.log(object)
+  }
 
   // Uploader Image Logic
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -111,6 +126,7 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
               type="file"
               id="imageUploader"
               sx={{ display: 'none' }}
+              {...register('image')}
               onChange={handleGetImageFile}
             />
 
