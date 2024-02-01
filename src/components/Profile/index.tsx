@@ -33,25 +33,25 @@ export default function Profile({ handleCreateANewProject }: ProfileProps) {
   const [user, setUser] = useState<UserProps>({} as UserProps)
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const query = useQuery({
-    queryKey: ['users'],
-    queryFn: async () => {
-      try {
-        const response = await axios.get(
-          'https://5a89-2804-868-d043-2252-2d74-8774-3013-58ff.ngrok-free.app/users',
-          {
-            headers: {
-              'ngrok-skip-browser-warning': 'true',
-            },
-          },
-        )
-        setUser(response.data[0])
-        return response.data[0]
-      } catch (error) {
-        throw new Error('erro ao fazer requisição' + error)
-      }
-    },
-  })
+  // const query = useQuery({
+  //   queryKey: ['users'],
+  //   queryFn: async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         'https://5a89-2804-868-d043-2252-2d74-8774-3013-58ff.ngrok-free.app/users',
+  //         {
+  //           headers: {
+  //             'ngrok-skip-browser-warning': 'true',
+  //           },
+  //         },
+  //       )
+  //       setUser(response.data[0])
+  //       return response.data[0]
+  //     } catch (error) {
+  //       throw new Error('erro ao fazer requisição' + error)
+  //     }
+  //   },
+  // })
 
   return (
     <Box sx={profileContainer}>
