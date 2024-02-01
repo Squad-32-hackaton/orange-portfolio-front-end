@@ -1,3 +1,10 @@
+export const formTag = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '10px',
+}
 export const projectModalMain = {
   display: 'flex',
   alignItems: 'center',

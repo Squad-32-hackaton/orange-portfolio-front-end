@@ -8,24 +8,25 @@ import {
   imageContainerTitle,
   submitButton,
   cancelButton,
+  formTag,
 } from './styles'
-// import { z } from 'zod'
+import { z } from 'zod'
 import TextField from '@mui/material/TextField'
 import UploaderImage from '../UploaderImage'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-// const FormSchema = z.object({
-//   title: z.string(),
-//   tags: z.string().array().nonempty(),
-//   description: z.string().min(15),
-// })
+const formSchema = z.object({
+  title: z.string().min(2, 'Deve declarar o titulo do projeto'),
+  tags: z.string().array().nonempty('Declare as tecnologias usadas no projeto'),
+  description: z.string().min(15, 'A descrição deve ter + 15 caracteres'),
+})
 
 type FormSchemaProps = {
   title: string
-  tags: string[]
+  tags: string
   description: string
-  image: FileList
+  image: File
 }
 
 type ProjectModalProps = {
@@ -41,20 +42,32 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
   const {
     register,
     handleSubmit,
-    // formState: { erros },
+    // formState: { errors },
   } = useForm<FormSchemaProps>()
 
-  const onSubmit: SubmitHandler<FormSchemaProps> = ({
+  const onSubmit: SubmitHandler<FormSchemaProps> = async ({
     description,
-    image,
     tags,
     title,
   }: FormSchemaProps) => {
+    const tagsArray = tags.split(',')
+
     const object = {
       title,
       description,
-      tags,
-      image,
+      tags: tagsArray,
+      image: previewImage,
+    }
+
+    try {
+      await formSchema.parseAsync(object)
+      console.log('Dados Válidos:', object)
+    } catch (error: any) {
+      if (error instanceof z.ZodError) {
+        console.error('Erro de validação:', error.errors)
+      } else {
+        console.error('Ocorre um erro:', error)
+      }
     }
 
     console.log(object)
@@ -70,18 +83,9 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
     setPreviewImage(previewImage)
     console.log(image)
   }
-
+  //
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '10px',
-      }}
-    >
+    <form onSubmit={handleSubmit(onSubmit)} style={formTag}>
       <Box sx={projectModalMain}>
         <Box sx={projectModalContainer}>
           <Box sx={projectModalContent}>
