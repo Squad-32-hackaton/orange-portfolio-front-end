@@ -15,6 +15,7 @@ import TextField from '@mui/material/TextField'
 import UploaderImage from '../UploaderImage'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { createNewProjectService } from '../../services/createProjectService'
 
 const formSchema = z.object({
   title: z.string().min(2, 'Deve declarar o titulo do projeto'),
@@ -22,11 +23,11 @@ const formSchema = z.object({
   description: z.string().min(15, 'A descrição deve ter + 15 caracteres'),
 })
 
-type FormSchemaProps = {
+export type FormSchemaProps = {
   title: string
   tags: string
   description: string
-  image: File
+  image: string
 }
 
 type ProjectModalProps = {
@@ -61,7 +62,7 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
 
     try {
       await formSchema.parseAsync(object)
-      console.log('Dados Válidos:', object)
+      await createNewProjectService(object)
     } catch (error: any) {
       if (error instanceof z.ZodError) {
         console.error('Erro de validação:', error.errors)

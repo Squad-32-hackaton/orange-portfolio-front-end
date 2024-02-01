@@ -11,13 +11,13 @@ import MyPortfolio from './screens/MyPortfolio'
 export function Router() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true)
 
-  useEffect(() => {
-    const checkAuthentication = async () => {
-      setIsAuthenticated(authService.isAuthenticated())
-    }
+  // useEffect(() => {
+  //   const checkAuthentication = async () => {
+  //     setIsAuthenticated(authService.isAuthenticated())
+  //   }
 
-    checkAuthentication()
-  }, [])
+  //   checkAuthentication()
+  // }, [])
 
   return (
     <Routes>
