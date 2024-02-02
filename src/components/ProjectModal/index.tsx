@@ -15,10 +15,6 @@ import TextField from '@mui/material/TextField'
 import UploaderImage from '../UploaderImage'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import {
-  createNewProjectService,
-  getProjectsUserService,
-} from '../../services/createProjectService'
 
 const formSchema = z.object({
   title: z.string().min(2, 'Deve declarar o titulo do projeto'),
@@ -67,9 +63,8 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
     }
 
     try {
-      await formSchema.parseAsync(object)
-      // await createNewProjectService(object)
-      await getProjectsUserService()
+      const parse = await formSchema.parseAsync(object)
+      console.log(parse)
     } catch (error: any) {
       if (error instanceof z.ZodError) {
         console.error('Erro de validação:', error.errors)

@@ -1,6 +1,6 @@
-import { container, title, inputContainer, textField, divCards } from './styles'
+import { container, title, inputContainer, textField } from './styles'
 import CardProject from '../../components/CardProject'
-import { Box, TextField, Typography } from '@mui/material'
+import { Box, Grid, TextField, Typography } from '@mui/material'
 
 export default function Discover() {
   return (
@@ -14,17 +14,27 @@ export default function Discover() {
         <TextField label="Buscar tags" sx={textField} />
       </Box>
 
-      <Box sx={divCards}>
-        <CardProject />
-
-        <CardProject />
-
-        <CardProject />
-
-        <CardProject />
-
-        <CardProject />
-      </Box>
+      <Grid
+        container
+        direction="row"
+        justifyContent="start"
+        alignItems="center"
+        spacing={4}
+        sx={{ padding: '32px' }}
+      >
+        <Grid item xs={4}>
+          <CardProject />
+        </Grid>
+        <Grid item xs={4}>
+          <CardProject />
+        </Grid>
+        <Grid item xs={4}>
+          <CardProject />
+        </Grid>
+        <Grid item xs={4}>
+          <CardProject />
+        </Grid>
+      </Grid>
     </Box>
   )
 }

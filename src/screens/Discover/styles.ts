@@ -6,7 +6,6 @@ export const container = {
   flexDirection: 'column',
   backgroundColor: '#fff',
   alignItems: 'center',
-  overflow: 'scroll',
   gap: '1rem',
 }
 
@@ -20,15 +19,9 @@ export const title = {
   marginBottom: '2.5rem',
   textAlign: 'center',
   width: '19.5rem',
+  color: '#00000081',
 
   [theme.breakpoints.up('md')]: {
-    width: '48.3rem',
-    fontSize: '2.12rem',
-    lineHeight: '2.12rem',
-    letterSpacing: '0.25px',
-  },
-
-  [theme.breakpoints.up('lg')]: {
     width: '48.3rem',
     fontSize: '2.12rem',
     lineHeight: '2.12rem',

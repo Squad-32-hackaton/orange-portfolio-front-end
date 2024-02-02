@@ -10,18 +10,25 @@ import Profile from '../../components/Profile'
 import TextField from '@mui/material/TextField'
 import { Typography } from '@mui/material'
 import Modal from '@mui/material/Modal'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import ProjectModal from '../../components/ProjectModal'
 import UploaderImage from '../../components/UploaderImage'
 
 import Box from '@mui/material/Box'
+import { ProjectsContext } from '../../contexts/ProjectsContext'
+import CardProject from '../../components/CardProject'
 
 export default function Home() {
   const [openModal, setOpenModal] = useState<boolean>(false)
+  const { projects, getProjectsUserService } = useContext(ProjectsContext)
 
   function handleCreateANewProject() {
     setOpenModal(!openModal)
   }
+
+  useEffect(() => {
+    getProjectsUserService()
+  }, [])
 
   return (
     <Box sx={container}>
@@ -45,15 +52,20 @@ export default function Home() {
         </Box>
 
         <Box sx={uploaderContainer}>
-          <UploaderImage
-            texts={[
-              { content: 'Adicione seu primeiro projeto', type: 'title' },
-              {
-                content: 'compartilhe seu talento com milhares de pessoas',
-                type: 'subTitle',
-              },
-            ]}
-          />
+          {!projects && (
+            <UploaderImage
+              texts={[
+                { content: 'Adicione seu primeiro projeto', type: 'title' },
+                {
+                  content: 'compartilhe seu talento com milhares de pessoas',
+                  type: 'subTitle',
+                },
+              ]}
+            />
+          )}
+
+          {projects &&
+            projects.map((item) => <CardProject key={item.project_id} />)}
         </Box>
       </Box>
     </Box>

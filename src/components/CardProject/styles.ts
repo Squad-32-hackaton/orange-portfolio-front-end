@@ -1,53 +1,57 @@
-import { styled } from '@mui/system'
 import { theme } from '../../styles/theme'
 
-export const Section = styled('section')({
+export const container = {
   display: 'flex',
   width: '100%',
   height: '100%',
   justifyContent: 'center',
+  borderRadius: '4px',
 
-  [theme.breakpoints.up('md')]: {
-    width: '46%',
-    justifyContent: 'start',
-    margin: '1rem',
-  },
+  // [theme.breakpoints.up('md')]: {
+  //   width: '46%',
+  //   justifyContent: 'start',
+  //   margin: '1rem',
+  // },
 
-  [theme.breakpoints.up('lg')]: {
-    width: '30%',
-    justifyContent: 'start',
-    margin: '1rem',
-  },
+  // [theme.breakpoints.up('lg')]: {
+  //   width: '30%',
+  //   justifyContent: 'start',
+  //   margin: '1rem',
+  // },
 
-  [theme.breakpoints.up('xl')]: {
-    width: '23%',
-    justifyContent: 'start',
-    margin: '1rem',
-  },
-})
+  // [theme.breakpoints.up('xl')]: {
+  //   width: '23%',
+  //   justifyContent: 'start',
+  //   margin: '1rem',
+  // },
+}
 
-export const Aling = styled('div')({
+export const aling = {
   width: '100%',
   height: '100%',
-})
 
-export const Image = styled('img')({
-  width: '19.5rem',
-  display: 'flex',
-  margin: 'auto',
-
-  [theme.breakpoints.up('md')]: {
+  img: {
     width: '100%',
-    height: '100%',
   },
+}
 
-  [theme.breakpoints.up('lg')]: {
-    width: '100%',
-    height: '100%',
-  },
-})
+// export const image = {
+//   width: '19.5rem',
+//   display: 'flex',
+//   margin: 'auto',
 
-export const DivForaInfos = styled('div')({
+//   [theme.breakpoints.up('md')]: {
+//     width: '100%',
+//     height: '100%',
+//   },
+
+//   [theme.breakpoints.up('lg')]: {
+//     width: '100%',
+//     height: '100%',
+//   },
+// }
+
+export const divForaInfos = {
   display: 'flex',
   justifyContent: 'space-evenly',
   alignItems: 'center',
@@ -59,9 +63,9 @@ export const DivForaInfos = styled('div')({
   [theme.breakpoints.up('lg')]: {
     width: '100%',
   },
-})
+}
 
-export const DivInfos = styled('div')({
+export const divInfos = {
   display: 'flex',
   alignItems: 'center',
 
@@ -72,32 +76,30 @@ export const DivInfos = styled('div')({
   [theme.breakpoints.up('lg')]: {
     width: '100%',
   },
-})
+}
 
-export const Profile = styled('img')({
+export const profile = {
   borderRadius: '90px',
   width: '1.5rem',
   height: '1.5rem',
   marginRight: '1rem',
-})
+}
 
-export const Text = styled('h4')({})
-
-export const DivTags = styled('div')({
+export const divTags = {
   display: 'flex',
   justifyContent: 'space-evenly',
   alignItems: 'center',
 
-  [theme.breakpoints.up('md')]: {
-    display: 'none',
-  },
+  // [theme.breakpoints.up('md')]: {
+  //   display: 'none',
+  // },
 
-  [theme.breakpoints.up('lg')]: {
-    display: 'none',
-  },
-})
+  // [theme.breakpoints.up('lg')]: {
+  //   display: 'none',
+  // },
+}
 
-export const Tag = styled('div')({
+export const tag = {
   backgroundColor: 'rgba(0, 0, 0, 0.08)',
   color: 'black',
   borderRadius: '100px',
@@ -109,4 +111,4 @@ export const Tag = styled('div')({
   [theme.breakpoints.up('lg')]: {
     padding: '0.75rem',
   },
-})
+}

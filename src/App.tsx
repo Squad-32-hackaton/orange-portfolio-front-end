@@ -5,15 +5,18 @@ import '@fontsource/roboto'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
 import { AuthProvider } from './contexts/AuthContext'
+import { ProjectsContextProvider } from './contexts/ProjectsContext'
 
 export default function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <Router />
-        </ThemeProvider>
-      </BrowserRouter>
-    </AuthProvider>
+    <ProjectsContextProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <Router />
+          </ThemeProvider>
+        </BrowserRouter>
+      </AuthProvider>
+    </ProjectsContextProvider>
   )
 }
