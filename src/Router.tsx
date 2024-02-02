@@ -3,21 +3,22 @@ import { DefaultLayout } from './layouts/DefaultLayout'
 import DetailProject from './screens/DetailProject'
 import authService from './services/authService'
 import { useEffect, useState } from 'react'
-import Home from './screens/Home/'
+import Home from './screens/Home'
 import LoginPage from './screens/Auth'
 import RegisterPage from './screens/Register'
 import MyPortfolio from './screens/MyPortfolio'
 
 export function Router() {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true)
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
 
-  // useEffect(() => {
-  //   const checkAuthentication = async () => {
-  //     setIsAuthenticated(authService.isAuthenticated())
-  //   }
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      return setIsAuthenticated(authService.isAuthenticated())
+    }
 
-  //   checkAuthentication()
-  // }, [])
+    checkAuthentication()
+    console.log(checkAuthentication())
+  }, [isAuthenticated])
 
   return (
     <Routes>

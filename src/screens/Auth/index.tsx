@@ -27,12 +27,12 @@ export default function LoginPage() {
       const response = await authService.login({ email, password })
 
       if (response.status === 200) {
-        console.log('Login bem-sucedido')
+        // console.log('Login bem-sucedido')
       } else {
-        console.error(response.data.error)
+        // console.error(response.data.error)
       }
     } catch (error) {
-      console.error('Erro ao fazer login:', error)
+      // console.error('Erro ao fazer login:', error)
     }
   }
 

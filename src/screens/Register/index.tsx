@@ -1,12 +1,5 @@
-import {
-  Box,
-  Button,
-  CardMedia,
-  TextField,
-  Typography
-} from '@mui/material';
-import React from 'react';
-import LoginImage from '../../assets/img/img-tela-cadastro.png';
+import { Box, Button, CardMedia, TextField, Typography } from '@mui/material'
+import LoginImage from '../../assets/img/img-tela-cadastro.png'
 import {
   baseStyle,
   boxGoogle,
@@ -15,92 +8,118 @@ import {
   styleBrButton,
   textFieldBrOne,
   textFieldBrTwo,
-  typographyTitleStyles
-} from './styles';
+  typographyTitleStyles,
+} from './styles'
+import registerService from '../../services/registerService'
 
-const RegisterPage: React.FC = () => {
-  const handleLogin = () => {
-  };
+export default function RegisterPage() {
+  const handleRegister = async (
+    firstName: string,
+    lastName: string,
+    email: string,
+    avatar: string,
+    password: string,
+  ) => {
+    try {
+      const response = await registerService.registerUser({
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        avatar,
+        password,
+      })
+
+      if (response.status === 200) {
+        console.log('Login bem-sucedido')
+      } else {
+        console.error(response.data.error)
+      }
+    } catch (error) {
+      console.error('Erro ao fazer login:', error)
+    }
+  }
 
   return (
     <Box sx={baseStyle}>
       <Box sx={boxGoogle}>
+        <CardMedia component="img" image={LoginImage} sx={cardMediaStyles} />
 
-      <CardMedia
-        component="img"
-        image={LoginImage}
-        sx={cardMediaStyles} />
+        <Box sx={boxInputs}>
+          <Typography variant="h3" component="h1" sx={typographyTitleStyles}>
+            Cadastre-se
+          </Typography>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              const firstName = e.currentTarget.firstName.value
+              const lastName = e.currentTarget.lastName.value
+              const email = e.currentTarget.email.value
+              const avatar = e.currentTarget.avatar.value
+              const password = e.currentTarget.password.value
+              handleRegister(firstName, lastName, email, avatar, password)
+            }}
+          >
+            <Box sx={styleBrButton}>
+              <TextField
+                sx={textFieldBrOne}
+                margin="normal"
+                required
+                fullWidth
+                id="firstName"
+                label="Nome"
+                name="firstName"
+                autoComplete="firstName"
+                autoFocus
+              />
+              <TextField
+                sx={textFieldBrTwo}
+                margin="normal"
+                required
+                fullWidth
+                name="lastName"
+                label="Sobrenome"
+                id="lastName"
+                autoComplete="lastName"
+              />
+            </Box>
 
-      <Box sx={boxInputs}>
+            <Box />
 
-      <Typography
-          variant="h3"
-          component="h1"
-          sx={typographyTitleStyles}
-        >
-          Cadastre-se
-        </Typography>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="email"
+              label="Email address"
+              type="email"
+              id="email"
+              autoComplete="email"
+            />
 
-        <Box sx={styleBrButton}>
-          <TextField sx={textFieldBrOne}
-            margin="normal"
-            required
-            fullWidth
-            id="name"
-            label="Nome"
-            name="name"
-            autoComplete="name"
-            autoFocus
-          />
-          <TextField sx={textFieldBrTwo}
-            margin="normal"
-            required
-            fullWidth
-            name="lastName"
-            label="Sobrenome"
-            id="lastName"
-            autoComplete="lastName"
-          />
-        </Box>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
 
-        <Box />
-
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="email"
-          label="Email address"
-          type="email"
-          id="email"
-          autoComplete="email"
-        />
-
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="password"
-          label="Password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-        />
-
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          sx={{ mt: 1, backgroundColor: '#FF5522' }}
-          aria-label='Botão Entrar'
-        >
-          Entrar
-        </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              sx={{ mt: 1, backgroundColor: '#FF5522' }}
+              aria-label="Botão Entrar"
+            >
+              Entrar
+            </Button>
+          </form>
         </Box>
       </Box>
     </Box>
-  );
-};
-
-export default RegisterPage;
+  )
+}
