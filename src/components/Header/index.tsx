@@ -4,34 +4,33 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemText,
   Stack,
-  Toolbar,
+  Toolbar
 } from '@mui/material'
 
 import {
+  DivLine,
+  Image,
+  ListItemButtonHeader,
+  ListItemButtonModal,
   appBarContainer,
   container,
-  Image,
-  listContainer,
-  DivLine,
-  listContainerFull,
-  ListItemButton,
   list,
+  listContainer,
+  listContainerFull,
   listItem,
-  toolbar,
-  ListItemButtonModal,
+  toolbar
 } from './styles'
 
-import Logo from '../../assets/img/Logo.png'
-import IconButton from '@mui/material/IconButton'
-import NotificationsIcon from '@mui/icons-material/Notifications'
 import MenuIcon from '@mui/icons-material/Menu'
+import NotificationsIcon from '@mui/icons-material/Notifications'
 import Avatar from '@mui/material/Avatar'
-import ProfilePhoto from '../../assets/img/ProfileImage.png'
+import IconButton from '@mui/material/IconButton'
 import { useState } from 'react'
-import { menuIconButton } from '../../screens/Home/styles'
 import { Link } from 'react-router-dom'
+import Logo from '../../assets/img/Logo.png'
+import ProfilePhoto from '../../assets/img/ProfileImage.png'
+import { menuIconButton } from '../../screens/Home/styles'
 
 export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false)
@@ -68,10 +67,10 @@ export default function Header() {
               <List sx={listContainerFull}>
                 <List sx={list}>
                   <ListItem>
-                    <ListItemButton>Meus projetos</ListItemButton>
+                  <ListItemButtonHeader><Link to={'/my-portfolio'}>Meus projetos</Link></ListItemButtonHeader>
                   </ListItem>
                   <ListItem>
-                    <ListItemButton>Descobrir</ListItemButton>
+                  <ListItemButtonHeader><Link to={'/discover'}>Descobrir</Link></ListItemButtonHeader>
                   </ListItem>
                 </List>
               </List>
@@ -87,14 +86,14 @@ export default function Header() {
               >
                 <List>
                   <ListItem>
-                    <ListItemButtonModal>Meus projetos</ListItemButtonModal>
+                    <ListItemButtonModal><Link to={'/my-portfolio'}>Meus projetos</Link></ListItemButtonModal>
                   </ListItem>
                   <ListItem>
-                    <ListItemButtonModal>Descobrir</ListItemButtonModal>
+                  <ListItemButtonModal><Link to={'/discover'}>Descobrir</Link></ListItemButtonModal>
                   </ListItem>
                   <DivLine></DivLine>
                   <ListItem sx={listItem}>
-                    <ListItemButtonModal>Configurações</ListItemButtonModal>
+                  <ListItemButtonModal><Link to={'#'}>Configurações</Link></ListItemButtonModal>
                   </ListItem>
                 </List>
               </Drawer>

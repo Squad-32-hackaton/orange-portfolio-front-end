@@ -3,7 +3,7 @@ import { theme } from '../../styles/theme'
 export const profileContainer = {
   width: '19.5rem',
   height: '14.75rem',
-  marginTop: '3.5rem',
+  marginTop: '5.5rem',
   marginBottom: '2.5rem',
 
   [theme.breakpoints.up('md')]: {

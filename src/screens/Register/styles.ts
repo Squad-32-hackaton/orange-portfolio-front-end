@@ -14,9 +14,9 @@ export const baseStyle = {
 
 export const boxInputs = {
   [theme.breakpoints.up('md')]: {
-    marginTop: '15rem',
+    marginTop: '10rem',
     marginLeft: '5rem',
-    marginRight: '2rem',
+    marginRight: '7rem',
   },
 }
 
@@ -69,6 +69,10 @@ export const typographyTitleStyles = {
   fontSize: '1.5rem',
   marginBottom: '1rem',
   justifyContent: 'center',
+
+  [theme.breakpoints.up('md')]: {
+    fontSize: '3rem'
+  },
 }
 
 export const LinkStyles: SxProps = {

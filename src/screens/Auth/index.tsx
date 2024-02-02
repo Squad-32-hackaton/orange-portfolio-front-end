@@ -17,6 +17,7 @@ import {
   boxGoogle,
   boxInputs,
   LinkStyles,
+  centerGoogle,
 } from './styles'
 import IconButton from '../../components/IconButton'
 import authService from '../../services/authService'
@@ -42,19 +43,22 @@ export default function LoginPage() {
 
       <Box sx={boxInputs}>
         <Box sx={boxGoogle}>
-          <Typography variant="h3" component="h1" sx={typographyTitleStyles}>
-            Entre no Orange Portfolio
-          </Typography>
+          <Box sx={centerGoogle}>
+            <Typography variant="h3" component="h1" sx={typographyTitleStyles}>
+              Entre no Orange Portfolio
+            </Typography>
 
-          <IconButton
-            title={'Entrar com Google'}
-            icon={<img src={LogoGoogle} alt="Google Logo" />}
-            onClick={() => {
-              // Lógica para entrar com o Google
-            }}
-            sx={IconButtonStyles}
-            aria-label="Botão Entrar com Google"
-          />
+
+            <IconButton
+              title={'Entrar com Google'}
+              icon={<img src={LogoGoogle} alt="Google Logo" />}
+              onClick={() => {
+                // Lógica para entrar com o Google
+              }}
+              sx={IconButtonStyles}
+              aria-label="Botão Entrar com Google"
+            />
+          </Box>
 
           <Typography component="h2" variant="h6">
             Faça login com email
@@ -102,7 +106,7 @@ export default function LoginPage() {
           </form>
           <Link
             component={RouterLink}
-            to="/signup"
+            to="/register-user"
             variant="body2"
             sx={LinkStyles}
           >

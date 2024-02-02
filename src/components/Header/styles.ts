@@ -89,8 +89,8 @@ export const ListItemButton = styled('a')({
   },
 })
 
-export const ListItemButtonModal = styled('a')({
-    backgroundColor: 'white',
+export const ListItemButtonHeader = styled('a')({
+    // backgroundColor: 'white',
     color: 'black',
     width: '110px',
     padding: '0',
@@ -99,4 +99,40 @@ export const ListItemButtonModal = styled('a')({
   '&:active': {
     outline: 'none',
   },
+
+  '& a:-webkit-any-link' : {
+    textDecoration: 'none',
+    color:'white',
+    backgroundColor:'#111133',
+  },
+
+  '&.css-nlxunp': {
+    backgroundColor: '#111133',
+},
+
 })
+
+export const ListItemButtonModal = styled('a')({
+  backgroundColor: 'white',
+  color: 'black',
+  width: '110px',
+  padding: '0',
+  outline: 'none',
+
+'&:active': {
+  outline: 'none',
+},
+
+ '& a:-webkit-any-link': {
+  backgroundColor: 'white',
+  textDecoration: 'none',
+  color:'black',
+},
+
+'&.css-nlxunp': {
+  backgroundColor: '#111133',
+},
+
+})
+
+
