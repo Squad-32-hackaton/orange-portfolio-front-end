@@ -21,14 +21,17 @@ import {
 } from './styles'
 import IconButton from '../../components/IconButton'
 import authService from '../../services/authService'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
 
 export default function LoginPage() {
+  const { checkAuthentication } = useContext(AuthContext)
   const handleLogin = async (email: string, password: string) => {
     try {
       const response = await authService.login({ email, password })
 
       if (response.status === 200) {
-        // console.log('Login bem-sucedido')
+        checkAuthentication()
       } else {
         // console.error(response.data.error)
       }
@@ -47,7 +50,6 @@ export default function LoginPage() {
             <Typography variant="h3" component="h1" sx={typographyTitleStyles}>
               Entre no Orange Portfolio
             </Typography>
-
 
             <IconButton
               title={'Entrar com Google'}

@@ -15,7 +15,10 @@ import TextField from '@mui/material/TextField'
 import UploaderImage from '../UploaderImage'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { createNewProjectService } from '../../services/createProjectService'
+import {
+  createNewProjectService,
+  getProjectsUserService,
+} from '../../services/createProjectService'
 
 const formSchema = z.object({
   title: z.string().min(2, 'Deve declarar o titulo do projeto'),
@@ -26,8 +29,9 @@ const formSchema = z.object({
 export type FormSchemaProps = {
   title: string
   tags: string
+  link: string
   description: string
-  image: string
+  image_id: number
 }
 
 type ProjectModalProps = {
@@ -49,6 +53,7 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
   const onSubmit: SubmitHandler<FormSchemaProps> = async ({
     description,
     tags,
+    link,
     title,
   }: FormSchemaProps) => {
     const tagsArray = tags.split(',')
@@ -56,13 +61,15 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
     const object = {
       title,
       description,
+      link,
       tags: tagsArray,
-      image: previewImage,
+      image_id: 1,
     }
 
     try {
       await formSchema.parseAsync(object)
-      await createNewProjectService(object)
+      // await createNewProjectService(object)
+      await getProjectsUserService()
     } catch (error: any) {
       if (error instanceof z.ZodError) {
         console.error('Erro de validação:', error.errors)
@@ -102,6 +109,11 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
             />
 
             <TextField
+              placeholder="Link"
+              {...register('link', { required: true })}
+            />
+
+            <TextField
               placeholder="Descrição"
               {...register('description', { required: true })}
               multiline
@@ -131,7 +143,7 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
               type="file"
               id="imageUploader"
               sx={{ display: 'none' }}
-              {...register('image')}
+              {...register('image_id')}
               onChange={handleGetImageFile}
             />
 

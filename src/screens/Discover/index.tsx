@@ -1,32 +1,30 @@
-import { Container, Title, inputContainer, textField, DivCards } from './styles'
+import { container, title, inputContainer, textField, divCards } from './styles'
 import CardProject from '../../components/CardProject'
-import { Box, TextField } from '@mui/material'
+import { Box, TextField, Typography } from '@mui/material'
 
 export default function Discover() {
   return (
-    <Container>
-      <Title>
+    <Box sx={container}>
+      <Typography sx={title}>
         Junte-se à comunidade de inovação, inspiração e descobertas,
         transformando experiências em conexões inesquecíveis
-      </Title>
+      </Typography>
 
       <Box sx={inputContainer}>
         <TextField label="Buscar tags" sx={textField} />
       </Box>
 
-      <div>
-        <DivCards>
-          <CardProject />
+      <Box sx={divCards}>
+        <CardProject />
 
-          <CardProject />
+        <CardProject />
 
-          <CardProject />
+        <CardProject />
 
-          <CardProject />
+        <CardProject />
 
-          <CardProject />
-        </DivCards>
-      </div>
-    </Container>
+        <CardProject />
+      </Box>
+    </Box>
   )
 }

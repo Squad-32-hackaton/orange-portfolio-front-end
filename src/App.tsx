@@ -4,13 +4,16 @@ import { theme } from './styles/theme'
 import '@fontsource/roboto'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
+import { AuthProvider } from './contexts/AuthContext'
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Router />
-      </ThemeProvider>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <Router />
+        </ThemeProvider>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }

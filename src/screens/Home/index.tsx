@@ -27,7 +27,11 @@ export default function Home() {
     <Box sx={container}>
       <Modal
         // eslint-disable-next-line react/no-children-prop
-        children={<ProjectModal handleClose={handleCreateANewProject} />}
+        children={
+          <div>
+            <ProjectModal handleClose={handleCreateANewProject} />
+          </div>
+        }
         open={openModal}
       />
       <Profile handleCreateANewProject={handleCreateANewProject} />

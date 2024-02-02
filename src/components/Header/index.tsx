@@ -5,7 +5,7 @@ import {
   List,
   ListItem,
   Stack,
-  Toolbar
+  Toolbar,
 } from '@mui/material'
 
 import {
@@ -19,7 +19,7 @@ import {
   listContainer,
   listContainerFull,
   listItem,
-  toolbar
+  toolbar,
 } from './styles'
 
 import MenuIcon from '@mui/icons-material/Menu'
@@ -67,14 +67,17 @@ export default function Header() {
               <List sx={listContainerFull}>
                 <List sx={list}>
                   <ListItem>
-                  <ListItemButtonHeader><Link to={'/my-portfolio'}>Meus projetos</Link></ListItemButtonHeader>
+                    <ListItemButtonHeader>
+                      <Link to={'/my-portfolio'}>Meus projetos</Link>
+                    </ListItemButtonHeader>
                   </ListItem>
                   <ListItem>
-                  <ListItemButtonHeader><Link to={'/discover'}>Descobrir</Link></ListItemButtonHeader>
+                    <ListItemButtonHeader>
+                      <Link to={'/'}>Descobrir</Link>
+                    </ListItemButtonHeader>
                   </ListItem>
                 </List>
               </List>
-
             </Stack>
 
             <Stack direction="row" alignItems="center" gap={2}>
@@ -86,18 +89,23 @@ export default function Header() {
               >
                 <List>
                   <ListItem>
-                    <ListItemButtonModal><Link to={'/my-portfolio'}>Meus projetos</Link></ListItemButtonModal>
+                    <ListItemButtonModal>
+                      <Link to={'/my-portfolio'}>Meus projetos</Link>
+                    </ListItemButtonModal>
                   </ListItem>
                   <ListItem>
-                  <ListItemButtonModal><Link to={'/discover'}>Descobrir</Link></ListItemButtonModal>
+                    <ListItemButtonModal>
+                      <Link to={'/'}>Descobrir</Link>
+                    </ListItemButtonModal>
                   </ListItem>
                   <DivLine></DivLine>
                   <ListItem sx={listItem}>
-                  <ListItemButtonModal><Link to={'#'}>Configurações</Link></ListItemButtonModal>
+                    <ListItemButtonModal>
+                      <Link to={'#'}>Configurações</Link>
+                    </ListItemButtonModal>
                   </ListItem>
                 </List>
               </Drawer>
-
             </Stack>
 
             <Stack direction="row" alignItems="center" gap={2}>
