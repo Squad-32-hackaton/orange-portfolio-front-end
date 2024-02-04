@@ -1,19 +1,22 @@
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles'
 import './App.css'
-import { theme } from './styles/theme';
-import Home from './screens/Home/Index';
+import { theme } from './styles/theme'
 import '@fontsource/roboto'
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './Router'
+import { AuthProvider } from './contexts/AuthContext'
+import { ProjectsContextProvider } from './contexts/ProjectsContext'
 
-function App() {
-
+export default function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Home />
-      </ThemeProvider>
-    </BrowserRouter>
+    <ProjectsContextProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <Router />
+          </ThemeProvider>
+        </BrowserRouter>
+      </AuthProvider>
+    </ProjectsContextProvider>
   )
 }
-
-export default App
