@@ -1,5 +1,5 @@
 import { Box, Button, CardMedia, TextField, Typography } from '@mui/material'
-import LoginImage from '../../assets/img/img-tela-cadastro.png'
+import LoginImage from '../../assets/img/RegisterImage.png'
 import {
   baseStyle,
   boxGoogle,
@@ -17,7 +17,6 @@ export default function RegisterPage() {
     firstName: string,
     lastName: string,
     email: string,
-    avatar: string,
     password: string,
   ) => {
     try {
@@ -25,7 +24,6 @@ export default function RegisterPage() {
         first_name: firstName,
         last_name: lastName,
         email,
-        avatar,
         password,
       })
 
@@ -54,9 +52,8 @@ export default function RegisterPage() {
               const firstName = e.currentTarget.firstName.value
               const lastName = e.currentTarget.lastName.value
               const email = e.currentTarget.email.value
-              const avatar = e.currentTarget.avatar.value
               const password = e.currentTarget.password.value
-              handleRegister(firstName, lastName, email, avatar, password)
+              handleRegister(firstName, lastName, email, password)
             }}
           >
             <Box sx={styleBrButton}>
@@ -113,9 +110,9 @@ export default function RegisterPage() {
               variant="contained"
               color="primary"
               sx={{ mt: 1, backgroundColor: '#FF5522' }}
-              aria-label="Botão Entrar"
+              aria-label="Botão Cadastrar"
             >
-              Entrar
+              Cadastrar
             </Button>
           </form>
         </Box>

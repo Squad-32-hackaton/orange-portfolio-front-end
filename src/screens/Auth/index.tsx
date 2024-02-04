@@ -23,9 +23,11 @@ import IconButton from '../../components/IconButton'
 import authService from '../../services/authService'
 import { useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
+import AuthGoogleContext from '../../contexts/AuthGoogleContext'
 
 export default function LoginPage() {
   const { checkAuthentication } = useContext(AuthContext)
+
   const handleLogin = async (email: string, password: string) => {
     try {
       const response = await authService.login({ email, password })
@@ -33,10 +35,19 @@ export default function LoginPage() {
       if (response.status === 200) {
         checkAuthentication()
       } else {
-        // console.error(response.data.error)
+        console.error(response.data.error)
       }
     } catch (error) {
-      // console.error('Erro ao fazer login:', error)
+      console.error('Erro ao fazer login:', error)
+    }
+  }
+
+  const handleGoogleLogin = async () => {
+    try {
+      await AuthGoogleContext.loginWithGoogle()
+      checkAuthentication()
+    } catch (error) {
+      console.error('Erro ao fazer login com o Google:', error)
     }
   }
 
@@ -54,9 +65,7 @@ export default function LoginPage() {
             <IconButton
               title={'Entrar com Google'}
               icon={<img src={LogoGoogle} alt="Google Logo" />}
-              onClick={() => {
-                // Lógica para entrar com o Google
-              }}
+              onClick={handleGoogleLogin}
               sx={IconButtonStyles}
               aria-label="Botão Entrar com Google"
             />

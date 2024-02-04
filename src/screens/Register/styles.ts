@@ -69,6 +69,7 @@ export const typographyTitleStyles = {
   fontSize: '1.5rem',
   marginBottom: '1rem',
   justifyContent: 'center',
+  color: '#000',
 
   [theme.breakpoints.up('md')]: {
     fontSize: '3rem'

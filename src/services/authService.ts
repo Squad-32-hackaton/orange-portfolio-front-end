@@ -5,11 +5,6 @@ interface LoginData {
   password: string
 }
 
-interface UserData {
-  email?: string
-  user_id: string
-}
-
 const authService = {
   login: async (
     loginData: LoginData,
@@ -19,8 +14,7 @@ const authService = {
         'https://orangeportfoliosquad32.software/login',
         loginData,
       )
-      sessionStorage.setItem('user', JSON.stringify(response.data.user))
-      sessionStorage.setItem('token', response.data.token)
+      sessionStorage.setItem('token', response.data)
 
       return { status: response.status, data: { error: 'Login bem-sucedido' } }
     } catch (error) {
@@ -31,9 +25,7 @@ const authService = {
       return { status: 500, data: { error: 'Erro desconhecido' } }
     }
   },
-
   logout: (): Promise<{ status: number; data: { message: string } }> => {
-    sessionStorage.removeItem('user')
     sessionStorage.removeItem('token')
 
     return Promise.resolve({
@@ -43,17 +35,9 @@ const authService = {
   },
 
   isAuthenticated: (): boolean => {
-    const user = sessionStorage.getItem('user')
     const token = sessionStorage.getItem('token')
-
-    return !!user && !!token
-  },
-
-  getUserInfo: (): UserData | null => {
-    const user = sessionStorage.getItem('user')
-    return user ? JSON.parse(user) : null
+    return !!token
   },
 }
 
 export default authService
-
