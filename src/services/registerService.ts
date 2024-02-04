@@ -17,14 +17,16 @@ const userService = {
         userData,
       )
 
-      return {
-        status: response.status,
-        data: { error: 'Cadastro bem-sucedido' },
-      }
+      return response
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        const status = error.response?.status || 500
-        return { status, data: { error: 'Erro no cadastro de usuário' } }
+        const status = error.response?.status || 500 || 400
+        return {
+          status,
+          data: {
+            error: error.response?.data.errors,
+          },
+        }
       }
       return { status: 500, data: { error: 'Erro desconhecido' } }
     }
