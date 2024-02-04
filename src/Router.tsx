@@ -5,7 +5,7 @@ import Home from './screens/Home'
 import LoginPage from './screens/Auth'
 import RegisterPage from './screens/Register'
 import Discover from './screens/Discover'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from './contexts/AuthContext'
 
 export function Router() {
@@ -15,6 +15,7 @@ export function Router() {
     checkAuthentication()
   }, [isAuthenticated])
 
+  
   return (
     <Routes>
       <Route

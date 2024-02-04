@@ -9,8 +9,13 @@ import {
   submitButton,
   cancelButton,
   formTag,
+  inputContainer,
+  imageContainer,
+  buttonContainer,
 } from './styles'
+
 import { z } from 'zod'
+
 import TextField from '@mui/material/TextField'
 import UploaderImage from '../UploaderImage'
 import { useContext, useState } from 'react'
@@ -19,7 +24,10 @@ import { ProjectsContext } from '../../contexts/ProjectsContext'
 import { ModalContext } from '../../contexts/ModalsContext'
 
 const formSchema = z.object({
-  title: z.string().min(2, 'Deve declarar o titulo do projeto'),
+  title: z
+    .string()
+    .min(2, 'Deve declarar o titulo do projeto')
+    .max(50, 'O campo deve ter menos que 50 caracteres'),
   tags: z.string().array().nonempty('Declare as tecnologias usadas no projeto'),
   description: z.string().min(15, 'A descrição deve ter + 15 caracteres'),
 })
@@ -94,8 +102,6 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
         console.error('Ocorre um erro:', error)
       }
     }
-
-    console.log(object)
   }
 
   // Uploader Image Logic
@@ -113,87 +119,88 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
   }
   //
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={formTag}>
+    <form onSubmit={handleSubmit(onSubmit)} className={{ formTag }}>
       <Box sx={projectModalMain}>
         <Box sx={projectModalContainer}>
+          <Typography sx={modalTitle}> Adicionar projeto</Typography>
           <Box sx={projectModalContent}>
-            <Typography sx={modalTitle}> Adicionar projeto</Typography>
-            <TextField
-              placeholder="Titulo"
-              {...register('title', { required: true })}
-            />
+            <Box sx={inputContainer}>
+              <TextField
+                placeholder="Titulo"
+                {...register('title', { required: true })}
+              />
 
-            <TextField
-              placeholder="Tags"
-              {...register('tags', { required: true })}
-            />
+              <TextField
+                placeholder="Tags"
+                {...register('tags', { required: true })}
+              />
 
-            <TextField
-              placeholder="Link"
-              {...register('link', { required: true })}
-            />
+              <TextField
+                placeholder="Link"
+                {...register('link', { required: true })}
+              />
 
-            <TextField
-              placeholder="Descrição"
-              {...register('description', { required: true })}
-              multiline
-              minRows={2}
-            />
+              <TextField
+                placeholder="Descrição"
+                {...register('description', { required: true })}
+                multiline
+                minRows={2}
+              />
+            </Box>
+            <Box sx={imageContainer}>
+              <Typography variant="body1" sx={imageContainerTitle}>
+                Selecione o conteúdo que você deseja fazer upload
+              </Typography>
 
-            <Typography variant="body1" sx={imageContainerTitle}>
-              Selecione o conteúdo que você deseja fazer upload
-            </Typography>
-
-            {selectedImage ? (
-              <img src={previewImage} alt="" style={image} />
-            ) : (
-              <label htmlFor="imageUploader">
-                <UploaderImage
-                  texts={[
-                    {
-                      content:
-                        'Compartilhe seu talento com milhares de pessoas',
-                      type: 'subTitle',
-                    },
-                  ]}
-                />
-              </label>
-            )}
-            <Input
-              type="file"
-              id="imageUploader"
-              sx={{ display: 'none' }}
-              {...register('image_id')}
-              onChange={handleGetImageFile}
-            />
-
-            <Typography variant="body1" color="#00000091">
-              Visualizar publicação
-            </Typography>
-
-            <Stack
-              direction="row"
-              spacing={2}
-              sx={{ justifyContent: 'space-between' }}
-            >
-              <Button
-                variant="contained"
-                sx={submitButton}
-                size="large"
-                type="submit"
-              >
-                Salvar
-              </Button>
-              <Button
-                variant="contained"
-                sx={cancelButton}
-                size="large"
-                onClick={() => handleClose()}
-              >
-                Cancelar
-              </Button>
-            </Stack>
+              {selectedImage ? (
+                <img src={previewImage} alt="" style={image} />
+              ) : (
+                <label htmlFor="imageUploader">
+                  <UploaderImage
+                    texts={[
+                      {
+                        content:
+                          'Compartilhe seu talento com milhares de pessoas',
+                        type: 'subTitle',
+                      },
+                    ]}
+                  />
+                </label>
+              )}
+              <Input
+                type="file"
+                id="imageUploader"
+                sx={{ display: 'none' }}
+                {...register('image_id')}
+                onChange={handleGetImageFile}
+              />
+            </Box>
           </Box>
+          <Typography
+            variant="body1"
+            color="#00000091"
+            sx={{ padding: '1rem 1.5rem' }}
+          >
+            Visualizar publicação
+          </Typography>
+          <Stack direction="row" spacing={2} sx={buttonContainer}>
+            <Button
+              variant="contained"
+              sx={submitButton}
+              size="large"
+              type="submit"
+            >
+              Salvar
+            </Button>
+            <Button
+              variant="contained"
+              sx={cancelButton}
+              size="large"
+              onClick={() => handleClose()}
+            >
+              Cancelar
+            </Button>
+          </Stack>
         </Box>
       </Box>
     </form>
