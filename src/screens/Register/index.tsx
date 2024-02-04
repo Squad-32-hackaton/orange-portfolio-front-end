@@ -11,8 +11,11 @@ import {
   typographyTitleStyles,
 } from './styles'
 import registerService from '../../services/registerService'
+import { useState } from 'react'
 
 export default function RegisterPage() {
+  const [errors, setErrors] = useState()
+
   const handleRegister = async (
     firstName: string,
     lastName: string,
@@ -30,10 +33,10 @@ export default function RegisterPage() {
       if (response.status === 200) {
         console.log('Login bem-sucedido')
       } else {
-        console.error(response.data.error)
+        setErrors(response.data.error || 'Falha no registro.')
       }
     } catch (error) {
-      console.error('Erro ao fazer login:', error)
+      console.error('Erro ao fazer registro:', error)
     }
   }
 
@@ -67,6 +70,8 @@ export default function RegisterPage() {
                 name="firstName"
                 autoComplete="firstName"
                 autoFocus
+                error={Boolean(errors)}
+                helperText={errors}
               />
               <TextField
                 sx={textFieldBrTwo}
@@ -77,6 +82,8 @@ export default function RegisterPage() {
                 label="Sobrenome"
                 id="lastName"
                 autoComplete="lastName"
+                error={Boolean(errors)}
+                helperText={errors}
               />
             </Box>
 
@@ -91,6 +98,8 @@ export default function RegisterPage() {
               type="email"
               id="email"
               autoComplete="email"
+              error={Boolean(errors)}
+              helperText={errors}
             />
 
             <TextField
@@ -102,6 +111,8 @@ export default function RegisterPage() {
               type="password"
               id="password"
               autoComplete="current-password"
+              error={Boolean(errors)}
+              helperText={errors}
             />
 
             <Button

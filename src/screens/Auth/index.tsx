@@ -37,7 +37,7 @@ export default function LoginPage() {
       if (response.status === 200) {
         checkAuthentication()
       } else {
-        setErrors(response.data.errors || 'Falha na autenticação.')
+        setErrors(response.data.error || 'Falha na autenticação.')
       }
     } catch (error) {
       console.error('Erro ao fazer login:', error)
