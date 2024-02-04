@@ -71,6 +71,7 @@ export const boxGoogle = {
 export const typographyTitleStyles = {
   fontSize: '1.5rem',
   marginBottom: '1rem',
+  color: '#000',
 
   [theme.breakpoints.up('md')]: {
     fontSize: '3rem',
@@ -94,7 +95,7 @@ export const LinkStyles: SxProps = {
 export const Styles: SxProps = {}
 
 export const centerGoogle = {
-  display:'flex',
-  flexDirection:'column',
-  alignItems:'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
 }
