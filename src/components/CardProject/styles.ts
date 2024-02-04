@@ -33,6 +33,9 @@ export const aling = {
   img: {
     width: '100%',
   },
+  hover: {
+    display: 'none',
+  },
 }
 
 // export const image = {
@@ -99,7 +102,7 @@ export const divTags = {
   // },
 }
 
-export const tag = {
+export const tagStyle = {
   backgroundColor: 'rgba(0, 0, 0, 0.08)',
   color: 'black',
   borderRadius: '100px',
@@ -112,3 +115,12 @@ export const tag = {
     padding: '0.75rem',
   },
 }
+
+export const imageContainer = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  position: 'relative',
+}
+
+export const userName = { color: '#000', padding: '.25rem .5rem' }

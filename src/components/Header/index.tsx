@@ -9,10 +9,10 @@ import {
 } from '@mui/material'
 
 import {
-  DivLine,
+  divLine,
   Image,
-  ListItemButtonHeader,
-  ListItemButtonModal,
+  listItemButtonHeader,
+  listItemButtonModal,
   appBarContainer,
   container,
   list,
@@ -67,14 +67,14 @@ export default function Header() {
               <List sx={listContainerFull}>
                 <List sx={list}>
                   <ListItem>
-                    <ListItemButtonHeader>
-                      <Link to={'/my-portfolio'}>Meus projetos</Link>
-                    </ListItemButtonHeader>
+                    <Box sx={listItemButtonHeader}>
+                      <Link to={'/'}>Meus projetos</Link>
+                    </Box>
                   </ListItem>
                   <ListItem>
-                    <ListItemButtonHeader>
-                      <Link to={'/'}>Descobrir</Link>
-                    </ListItemButtonHeader>
+                    <Box sx={listItemButtonHeader}>
+                      <Link to={'/my-portfolio'}>Descobrir</Link>
+                    </Box>
                   </ListItem>
                 </List>
               </List>
@@ -89,20 +89,20 @@ export default function Header() {
               >
                 <List>
                   <ListItem>
-                    <ListItemButtonModal>
-                      <Link to={'/my-portfolio'}>Meus projetos</Link>
-                    </ListItemButtonModal>
+                    <Box sx={listItemButtonModal}>
+                      <Link to={'/'}>Meus projetos</Link>
+                    </Box>
                   </ListItem>
                   <ListItem>
-                    <ListItemButtonModal>
-                      <Link to={'/'}>Descobrir</Link>
-                    </ListItemButtonModal>
+                    <Box sx={listItemButtonModal}>
+                      <Link to={'/my-portfolio'}>Descobrir</Link>
+                    </Box>
                   </ListItem>
-                  <DivLine></DivLine>
+                  <Box sx={divLine}></Box>
                   <ListItem sx={listItem}>
-                    <ListItemButtonModal>
+                    <Box sx={listItemButtonModal}>
                       <Link to={'#'}>Configurações</Link>
-                    </ListItemButtonModal>
+                    </Box>
                   </ListItem>
                 </List>
               </Drawer>

@@ -1,13 +1,19 @@
 import { Container, Title } from './styles'
 import CardProject from '../../components/CardProject'
 import Detail from '../../components/Detail'
+import { useParams } from 'react-router-dom'
+import { ProjectsContext } from '../../contexts/ProjectsContext'
+import { useContext, useEffect, useState } from 'react'
 
 export default function DetailProject() {
+  const { id } = useParams()
+  const { projects } = useContext(ProjectsContext)
+
   return (
     <Container>
-      <Title>Ecommerce One Page</Title>
+      <Title></Title>
 
-      <CardProject />
+      <CardProject name="" avatar="" />
 
       <Detail />
     </Container>

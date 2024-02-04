@@ -6,17 +6,20 @@ import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
 import { AuthProvider } from './contexts/AuthContext'
 import { ProjectsContextProvider } from './contexts/ProjectsContext'
+import { ModalContextProvider } from './contexts/ModalsContext'
 
 export default function App() {
   return (
-    <ProjectsContextProvider>
-      <AuthProvider>
-        <BrowserRouter>
-          <ThemeProvider theme={theme}>
-            <Router />
-          </ThemeProvider>
-        </BrowserRouter>
-      </AuthProvider>
-    </ProjectsContextProvider>
+    <AuthProvider>
+      <ProjectsContextProvider>
+        <ModalContextProvider>
+          <BrowserRouter>
+            <ThemeProvider theme={theme}>
+              <Router />
+            </ThemeProvider>
+          </BrowserRouter>
+        </ModalContextProvider>
+      </ProjectsContextProvider>
+    </AuthProvider>
   )
 }

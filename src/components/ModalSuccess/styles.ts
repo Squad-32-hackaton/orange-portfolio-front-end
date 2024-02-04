@@ -9,6 +9,7 @@ export const ModalContainer = styled('div')({
   flexDirection: 'column',
   paddingBottom: '1rem',
   paddingTop: '1rem',
+  color: '#000',
 
   [theme.breakpoints.up('md')]: {
     width: '21.9rem',

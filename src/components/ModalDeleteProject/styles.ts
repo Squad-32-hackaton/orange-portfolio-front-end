@@ -49,6 +49,7 @@ export const Section = styled('section')({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  color: '#000',
 })
 
 export const Buttons = styled('div')({

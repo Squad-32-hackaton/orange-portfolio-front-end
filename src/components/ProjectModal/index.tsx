@@ -13,8 +13,10 @@ import {
 import { z } from 'zod'
 import TextField from '@mui/material/TextField'
 import UploaderImage from '../UploaderImage'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { ProjectsContext } from '../../contexts/ProjectsContext'
+import { ModalContext } from '../../contexts/ModalsContext'
 
 const formSchema = z.object({
   title: z.string().min(2, 'Deve declarar o titulo do projeto'),
@@ -38,7 +40,11 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
   // Local States
   const [selectedImage, setSelectedImage] = useState(null)
   const [previewImage, setPreviewImage] = useState('')
+  const { createNewProjectService, postImageUserService } =
+    useContext(ProjectsContext)
 
+  const { changeModalSuccessState, handleSetCurrentModalType } =
+    useContext(ModalContext)
   // React-Hook-Form Logic
   const {
     register,
@@ -52,6 +58,18 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
     link,
     title,
   }: FormSchemaProps) => {
+    let imageId = {}
+
+    try {
+      if (selectedImage) {
+        const formData = new FormData()
+        formData.append('file', selectedImage)
+        const res = await postImageUserService(formData)
+        imageId = res.image.image_id
+      }
+    } catch (error) {
+      console.log(error)
+    }
     const tagsArray = tags.split(',')
 
     const object = {
@@ -59,12 +77,16 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
       description,
       link,
       tags: tagsArray,
-      image_id: 1,
+      image_id: imageId,
     }
 
     try {
       const parse = await formSchema.parseAsync(object)
-      console.log(parse)
+      if (parse) {
+        handleSetCurrentModalType('add')
+        const res = createNewProjectService(object)
+        changeModalSuccessState(true)
+      }
     } catch (error: any) {
       if (error instanceof z.ZodError) {
         console.error('Erro de validação:', error.errors)
@@ -84,7 +106,10 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
 
     const previewImage = URL.createObjectURL(image)
     setPreviewImage(previewImage)
-    console.log(image)
+
+    const formData = new FormData()
+    formData.append('file', image)
+    console.log(formData.values())
   }
   //
   return (

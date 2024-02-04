@@ -21,12 +21,11 @@ export function Router() {
         path="/"
         element={<DefaultLayout isAuthenticated={isAuthenticated} />}
       >
-        <Route
-          path="/"
-          element={isAuthenticated ? <Discover /> : <LoginPage />}
-        />
-        <Route path="/my-portfolio" element={<Home />} />
-        <Route path="/detail-project" element={<DetailProject />} />
+        <Route path="/" element={isAuthenticated ? <Home /> : <LoginPage />} />
+        <Route path="/my-portfolio" element={<Discover />} />
+        <Route path="/detail-project">
+          <Route path=":id" element={<DetailProject />} />
+        </Route>
         <Route path="/register-user" element={<RegisterPage />} />
       </Route>
     </Routes>

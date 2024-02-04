@@ -1,8 +1,18 @@
+import { useContext, useEffect } from 'react'
 import { container, title, inputContainer, textField } from './styles'
-import CardProject from '../../components/CardProject'
 import { Box, Grid, TextField, Typography } from '@mui/material'
+import { ProjectsContext } from '../../contexts/ProjectsContext'
+import CardProject from '../../components/CardProject'
+import { Link } from 'react-router-dom'
 
 export default function Discover() {
+  const { discorverProjects, getOthersUserProjectsService } =
+    useContext(ProjectsContext)
+
+  useEffect(() => {
+    getOthersUserProjectsService()
+  }, [])
+
   return (
     <Box sx={container}>
       <Typography sx={title}>
@@ -22,18 +32,21 @@ export default function Discover() {
         spacing={4}
         sx={{ padding: '32px' }}
       >
-        <Grid item xs={4}>
-          <CardProject />
-        </Grid>
-        <Grid item xs={4}>
-          <CardProject />
-        </Grid>
-        <Grid item xs={4}>
-          <CardProject />
-        </Grid>
-        <Grid item xs={4}>
-          <CardProject />
-        </Grid>
+        {discorverProjects &&
+          discorverProjects.map((project) => {
+            return (
+              <Grid item xs={4} key={project.project_id}>
+                <Link to={`/detail-project/${project.project_id}`}>
+                  <CardProject
+                    name={project.user.name}
+                    avatar=""
+                    tags={project.tags}
+                    projectId={Number(project.project_id)}
+                  />
+                </Link>
+              </Grid>
+            )
+          })}
       </Grid>
     </Box>
   )
