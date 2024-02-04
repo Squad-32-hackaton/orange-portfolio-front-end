@@ -21,12 +21,14 @@ import {
 } from './styles'
 import IconButton from '../../components/IconButton'
 import authService from '../../services/authService'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import AuthGoogleContext from '../../contexts/AuthGoogleContext'
 
 export default function LoginPage() {
   const { checkAuthentication } = useContext(AuthContext)
+  const [formData, setFormData] = useState({ email: '', password: '' })
+  const [errors, setErrors] = useState()
 
   const handleLogin = async (email: string, password: string) => {
     try {
@@ -35,7 +37,7 @@ export default function LoginPage() {
       if (response.status === 200) {
         checkAuthentication()
       } else {
-        console.error(response.data.error)
+        setErrors(response.data.errors || 'Falha na autenticação.')
       }
     } catch (error) {
       console.error('Erro ao fazer login:', error)
@@ -91,6 +93,12 @@ export default function LoginPage() {
               type="email"
               id="email"
               autoComplete="email"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+              error={Boolean(errors)}
+              helperText={errors}
             />
 
             <TextField
@@ -102,6 +110,12 @@ export default function LoginPage() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={formData.password}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+              error={Boolean(errors)}
+              helperText={errors}
             />
 
             <Button
