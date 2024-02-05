@@ -29,6 +29,7 @@ export interface ProjectsDTO {
   link: string
   tags: string[]
   image: string
+  creationDate: string
 }
 
 interface ProjectsContextProps {
@@ -44,6 +45,7 @@ interface ProjectsContextProps {
   postImageUserService: (image: string) => Promise<ImageDataProps>
   handleDeleteUserProject: (id: number) => Promise<void>
   handleSetCurrentProject: (projectId: number) => void
+  handleEditUserProject: (data: any) => Promise<void>
 }
 
 interface IProviderProps {
@@ -67,7 +69,6 @@ export const ProjectsContextProvider = ({ children }: IProviderProps) => {
   const { user } = useContext(AuthContext)
 
   function handleSetCurrentProject(projectId: number) {
-    console.log('setou', projectId)
     setCurrentProjectId(projectId)
   }
 
@@ -100,7 +101,7 @@ export const ProjectsContextProvider = ({ children }: IProviderProps) => {
     }
   }
 
-  async function postImageUserService(image: any) {
+  async function postImageUserService(image: string) {
     try {
       // const res = await api.post(`/users/${user.user_id}/projects`, data)
       const res = await api.post('/upload', image, {
@@ -134,6 +135,18 @@ export const ProjectsContextProvider = ({ children }: IProviderProps) => {
       console.log(error)
     }
   }
+
+  async function handleEditUserProject(data: any) {
+    try {
+      const res = await api.put(
+        `users/${user.user_id}/projects/${currentProjectId}`,
+        data,
+      )
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <ProjectsContext.Provider
       value={{
@@ -147,6 +160,7 @@ export const ProjectsContextProvider = ({ children }: IProviderProps) => {
         handleDeleteUserProject,
         currentProjectId,
         handleSetCurrentProject,
+        handleEditUserProject,
       }}
     >
       {children}

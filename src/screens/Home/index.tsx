@@ -24,12 +24,8 @@ import ModalDeleteProject from '../../components/ModalDeleteProject'
 
 export default function Home() {
   const { projects, getProjectsUserService } = useContext(ProjectsContext)
-  const {
-    modalSuccessOpen,
-    handleModalCreateANewProject,
-    openProjectModal,
-    openModalDelete,
-  } = useContext(ModalContext)
+  const { modalSuccessOpen, openProjectModal, openModalDelete } =
+    useContext(ModalContext)
 
   useEffect(() => {
     getProjectsUserService()
@@ -61,7 +57,7 @@ export default function Home() {
         // eslint-disable-next-line react/no-children-prop
         children={
           <div>
-            <ProjectModal handleClose={handleModalCreateANewProject} />
+            <ProjectModal />
           </div>
         }
         open={openProjectModal}
@@ -105,6 +101,7 @@ export default function Home() {
                     tags={project.tags}
                     projectId={Number(project.project_id)}
                     image={project.image}
+                    creationAt={project.creationDate}
                   />
                 </Grid>
               ))}
