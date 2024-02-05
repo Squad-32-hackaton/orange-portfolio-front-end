@@ -4,6 +4,9 @@ export const container = {
   display: 'flex',
   width: '100%',
   height: '100%',
+  maxWidth:'36rem',
+  maxHeight:'25.6rem',
+
   justifyContent: 'center',
   borderRadius: '4px',
 
@@ -134,27 +137,5 @@ export const userName = {
 
 }
 
-export const penIcon = {
-  padding: '2px',
-  background: '#FFCC99',
-  borderRadius: '50%',
-  color: '#000000',
-  border: 'none',
-
-}
-
-export const iconContainer = {
-  position: 'relative',
-  right: '60px',
-  top: '10px',
-
-}
-
-export const menuListContainer = {
-  ul: {
-    width: '208px',
-
-  },
-}
 
 

@@ -10,7 +10,6 @@ export const iconContainer = {
   position: 'relative',
   right: '60px',
   top: '10px',
-  display:'none',
 
 }
 
