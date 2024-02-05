@@ -1,71 +1,72 @@
 import {
-  Section,
-  Top,
-  Profile,
+  section,
+  top,
+  profile,
   Photo,
-  Name,
-  Data,
-  Title,
-  Tags,
-  Tag,
-  Paragraph,
-  DivPhoto,
-  Description,
-  DivNameDate,
-  TextDescription,
-  ModalContainer,
+  name,
+  data,
+  title,
+  tags,
+  tag,
+  paragraph,
+  divPhoto,
+  description,
+  divNameDate,
+  textDescription,
+  modalContainer,
   Image,
-  DivImg,
+  divImg,
   styleIcon,
-  ButtonClose,
+  buttonClose,
 } from './styles'
 import ProfilePhoto from '../../assets/img/ProfileImage.png'
 import CloseIcon from '@mui/icons-material/Close'
 import ImageProject from '../../assets/img/CardProjectLarge.png'
+import { Box } from '@mui/material'
 
 export default function ModalCardProjectDesktop() {
   return (
-    <Section>
-      <ModalContainer>
-        <ButtonClose>
+    <Box sx={section}>
+      <Box sx={modalContainer}>
+        <Box sx={buttonClose}>
           <CloseIcon sx={styleIcon} />
-        </ButtonClose>
-        <Top>
-          <Profile>
-            <DivPhoto>
+        </Box>
+        <Box sx={top}>
+          <Box sx={profile}>
+            <Box sx={divPhoto}>
               <Photo src={ProfilePhoto} />
-            </DivPhoto>
-            <DivNameDate>
-              <Name>Bianca Martin </Name>
-              <Data>02/24</Data>
-            </DivNameDate>
-          </Profile>
-          <Title> Ecommerce One Page</Title>
-          <Tags>
-            <Tag>UX</Tag>
-            <Tag>Web</Tag>
-          </Tags>
-        </Top>
+            </Box>
+            <Box sx={divNameDate}>
+              <Box sx={name}>Bianca Martin </Box>
+              <Box sx={data}>02/24</Box>
+            </Box>
+          </Box>
+          <Box sx={title}> Ecommerce One Page</Box>
+          <Box sx={tags}>
+            <Box sx={tag}>UX</Box>
+            <Box sx={tag}>Web</Box>
+          </Box>
+        </Box>
 
-        <DivImg>
+        <Box sx={divImg}>
           <Image src={ImageProject} />
-        </DivImg>
+        </Box>
 
-        <Description>
-          <Paragraph>
+        <Box sx={description}>
+          <Box sx={paragraph}>
             Temos o prazer de compartilhar com vocês uma variação do nosso
             primeiro recurso gratuito. É um modelo de IA. Tentamos redesenhar
             uma versão mais minimalista do nosso primeiro projeto.
-          </Paragraph>
-          <TextDescription>
+          </Box>
+          <Box sx={textDescription}>
             {' '}
             Download <br />
             <a href="https://gumroad.com/products/wxCSL">
               https://gumroad.com/products/wxCSL
             </a>
-          </TextDescription>
-        </Description>
-      </ModalContainer>
-    </Section>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   )
 }

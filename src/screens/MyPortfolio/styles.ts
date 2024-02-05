@@ -1,7 +1,6 @@
-import { styled } from '@mui/system'
 import { theme } from '../../styles/theme'
 
-export const Container = styled('div')({
+export const container = {
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -9,9 +8,9 @@ export const Container = styled('div')({
   alignItems: 'center',
   overflow: 'scroll',
   gap: '1rem',
-})
+}
 
-export const Title = styled('h2')({
+export const title = {
   padding: '0',
   margin: '0',
   fontSize: '1.5rem',
@@ -35,7 +34,7 @@ export const Title = styled('h2')({
     lineHeight: '2.12rem',
     letterSpacing: '0.25px',
   },
-})
+}
 
 export const inputContainer = {
   alignItems: 'center',
@@ -67,7 +66,7 @@ export const textField = {
   },
 }
 
-export const DivCards = styled('div')({
+export const divCards = {
   [theme.breakpoints.up('md')]: {
     width: '100%',
     display: 'flex',
@@ -79,4 +78,4 @@ export const DivCards = styled('div')({
     display: 'flex',
     flexWrap: 'wrap',
   },
-})
+}

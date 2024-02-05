@@ -1,7 +1,6 @@
-import { styled } from '@mui/system'
 import { theme } from '../../styles/theme'
 
-export const ModalContainer = styled('div')({
+export const modalContainer = {
   backgroundColor: 'white',
   width: '19.5rem',
   display: 'flex',
@@ -19,23 +18,24 @@ export const ModalContainer = styled('div')({
     width: '21.9rem',
     paddingTop: '0',
   },
-})
+}
 
-export const Paragraph = styled('p')({
+export const paragraph = {
   textAlign: 'start',
   paddingLeft: '1rem',
-})
+}
 
-export const Section = styled('section')({
+export const section = {
   width: '100%',
   height: '100%',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   lineHeight: '1.5rem',
-})
+  marginTop: '23rem',
+}
 
-export const Title = styled('h5')({
+export const title = {
   textAlign: 'center',
   fontSize: '1.5rem',
   marginTop: '1rem',
@@ -52,7 +52,7 @@ export const Title = styled('h5')({
   [theme.breakpoints.up('xl')]: {
     paddingTop: '1rem',
   },
-})
+}
 
 export const circle = {
   color: 'red',
