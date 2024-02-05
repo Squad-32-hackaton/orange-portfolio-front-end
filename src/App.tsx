@@ -11,15 +11,15 @@ import { ModalContextProvider } from './contexts/ModalsContext'
 export default function App() {
   return (
     <AuthProvider>
-      <ProjectsContextProvider>
-        <ModalContextProvider>
+      <ModalContextProvider>
+        <ProjectsContextProvider>
           <BrowserRouter>
             <ThemeProvider theme={theme}>
               <Router />
             </ThemeProvider>
           </BrowserRouter>
-        </ModalContextProvider>
-      </ProjectsContextProvider>
+        </ProjectsContextProvider>
+      </ModalContextProvider>
     </AuthProvider>
   )
 }

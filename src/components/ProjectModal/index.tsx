@@ -59,7 +59,6 @@ export default function ProjectModal() {
   const {
     changeModalSuccessState,
     handleSetCurrentModalType,
-    currentModalType,
     handleCloseAllModals,
     currentType,
   } = useContext(ModalContext)
@@ -100,7 +99,10 @@ export default function ProjectModal() {
       image_id: imageId,
     }
 
-    if (currentModalType === 'add') {
+    console.log('caiu na funcao')
+    console.log(currentType)
+
+    if (currentType === 'add') {
       try {
         const parse = await formSchema.parseAsync(object)
         if (parse) {

@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import authService from '../services/authService'
 import { api } from '../services/api'
 
@@ -29,15 +29,19 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
-  async function checkAuthentication() {
+  function checkAuthentication() {
     const res = authService.isAuthenticated()
     if (!res) {
       setIsAuthenticated(false)
     } else {
       setIsAuthenticated(true)
-      await getUserData()
+      getUserData()
     }
   }
+
+  useEffect(() => {
+    checkAuthentication()
+  }, [])
 
   return (
     <AuthContext.Provider
