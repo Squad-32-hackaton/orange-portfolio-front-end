@@ -18,9 +18,9 @@ import { z } from 'zod'
 
 import TextField from '@mui/material/TextField'
 import UploaderImage from '../UploaderImage'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { ProjectsContext } from '../../contexts/ProjectsContext'
+import { ProjectsContext, ProjectsDTO } from '../../contexts/ProjectsContext'
 import { ModalContext } from '../../contexts/ModalsContext'
 
 const formSchema = z.object({
@@ -40,16 +40,21 @@ export type FormSchemaProps = {
   image_id: number
 }
 
-type ProjectModalProps = {
-  handleClose: () => void
-}
-
-export default function ProjectModal({ handleClose }: ProjectModalProps) {
+export default function ProjectModal() {
   // Local States
   const [selectedImage, setSelectedImage] = useState(null)
   const [previewImage, setPreviewImage] = useState('')
-  const { createNewProjectService, postImageUserService } =
-    useContext(ProjectsContext)
+  const [selectEditProject, setSelectedEditProject] = useState<ProjectsDTO>(
+    {} as ProjectsDTO,
+  )
+
+  const {
+    createNewProjectService,
+    postImageUserService,
+    projects,
+    currentProjectId,
+    handleEditUserProject,
+  } = useContext(ProjectsContext)
 
   const {
     changeModalSuccessState,
@@ -58,6 +63,7 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
     handleCloseAllModals,
     currentType,
   } = useContext(ModalContext)
+
   // React-Hook-Form Logic
   const {
     register,
@@ -72,6 +78,7 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
     title,
   }: FormSchemaProps) => {
     let imageId = {}
+    console.log(selectEditProject)
 
     try {
       if (selectedImage) {
@@ -93,18 +100,27 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
       image_id: imageId,
     }
 
-    try {
-      const parse = await formSchema.parseAsync(object)
-      if (parse) {
-        handleSetCurrentModalType('add')
-        const res = createNewProjectService(object)
-        changeModalSuccessState(true)
+    if (currentModalType === 'add') {
+      try {
+        const parse = await formSchema.parseAsync(object)
+        if (parse) {
+          handleSetCurrentModalType('add')
+          const res = createNewProjectService(object)
+          changeModalSuccessState(true)
+        }
+      } catch (error: any) {
+        if (error instanceof z.ZodError) {
+          console.error('Erro de validação:', error.errors)
+        } else {
+          console.error('Ocorre um erro:', error)
+        }
       }
-    } catch (error: any) {
-      if (error instanceof z.ZodError) {
-        console.error('Erro de validação:', error.errors)
-      } else {
-        console.error('Ocorre um erro:', error)
+    } else {
+      try {
+        await handleEditUserProject(object)
+        changeModalSuccessState(true)
+      } catch (error) {
+        console.log(error)
       }
     }
   }
@@ -122,6 +138,18 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
     formData.append('file', image)
     console.log(formData.values())
   }
+
+  function getCurrentProjectToEdit() {
+    const project = projects.filter(
+      (project) => Number(project.project_id) === currentProjectId,
+    )
+
+    setSelectedEditProject(project[0])
+  }
+
+  useEffect(() => {
+    getCurrentProjectToEdit()
+  }, [])
   //
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={{ formTag }}>
@@ -133,7 +161,7 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
           <Box sx={projectModalContent}>
             <Box sx={inputContainer}>
               <TextField
-                placeholder="Titulo"
+                placeholder={'Titulo'}
                 {...register('title', { required: true })}
               />
 
@@ -174,6 +202,7 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
                   />
                 </label>
               )}
+
               <Input
                 type="file"
                 id="imageUploader"

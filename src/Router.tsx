@@ -13,6 +13,7 @@ export function Router() {
 
   useEffect(() => {
     checkAuthentication()
+    console.log(isAuthenticated)
   }, [isAuthenticated])
 
   return (

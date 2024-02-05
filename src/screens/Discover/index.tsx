@@ -1,5 +1,11 @@
 import { useContext, useEffect } from 'react'
-import { container, title, inputContainer, textField, boxInputs } from './styles'
+import {
+  container,
+  title,
+  inputContainer,
+  textField,
+  boxInputs,
+} from './styles'
 import { Box, Grid, TextField, Typography } from '@mui/material'
 import { ProjectsContext } from '../../contexts/ProjectsContext'
 import CardProject from '../../components/CardProject'
@@ -20,9 +26,9 @@ export default function Discover() {
         transformando experiências em conexões inesquecíveis
       </Typography>
       <Box sx={boxInputs}>
-      <Box sx={inputContainer}>
-        <TextField label="Buscar tags" sx={textField} />
-      </Box>
+        <Box sx={inputContainer}>
+          <TextField label="Buscar tags" sx={textField} />
+        </Box>
       </Box>
 
       <Grid
@@ -32,13 +38,15 @@ export default function Discover() {
         alignItems="center"
         spacing={4}
         sx={{ padding: '32px' }}
-        
       >
         {discorverProjects &&
           discorverProjects.map((project) => {
             return (
               <Grid item xs={12} sm={6} md={4} key={project.project_id}>
-                <Link style={{textDecoration:'none'}} to={`/detail-project/${project.project_id}`}>
+                <Link
+                  style={{ textDecoration: 'none' }}
+                  to={`/detail-project/${project.project_id}`}
+                >
                   <CardProject
                     name={project.user.name}
                     avatar=""

@@ -26,13 +26,23 @@ interface CardDataProps {
   tags: string[]
   projectId: number
   image: string
+  creationAt: string
 }
 
-
-export default function CardProject({ name, tags, projectId, image }: CardDataProps) {
+export default function CardProject({
+  name,
+  tags,
+  projectId,
+  image,
+  creationAt,
+}: CardDataProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
-  const { handleOpenDeleteModal } = useContext(ModalContext)
+  const {
+    handleOpenDeleteModal,
+    handleSetCurrentModalType,
+    handleModalCreateANewProject,
+  } = useContext(ModalContext)
   const { handleSetCurrentProject } = useContext(ProjectsContext)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -42,55 +52,63 @@ export default function CardProject({ name, tags, projectId, image }: CardDataPr
     setAnchorEl(null)
   }
 
-  const [isHovered, setIsHovered] = React.useState(false);
+  const [isHovered, setIsHovered] = React.useState(false)
 
+  function handleEditProject() {
+    handleSetCurrentModalType('edit')
+    handleModalCreateANewProject()
+  }
 
   return (
     <Box
-    sx={container}
-    onMouseEnter={() => setIsHovered(true)}
-    onMouseLeave={() => setIsHovered(false)}
-  >
-    <Box sx={aling}>
-      <Box sx={imageContainer}>
-        <img src={`https://orangeportfoliosquad32.software/images/${image}`} alt="" />
+      sx={container}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Box sx={aling}>
+        <Box sx={imageContainer}>
+          <img
+            src={`https://orangeportfoliosquad32.software/images/${image}`}
+            alt=""
+          />
 
-        {isHovered && (
-          <Box
-            sx={iconContainer}
-            onClick={() => handleSetCurrentProject(projectId)}
-          >
-            <Button
-              id="basic-button"
-              aria-controls={open ? 'basic-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
-              onClick={handleClick}
-              style={{minWidth: '0'}}
+          {isHovered && (
+            <Box
+              sx={iconContainer}
+              onClick={() => handleSetCurrentProject(projectId)}
             >
-              <Edit sx={penIcon} />
-            </Button>
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-              sx={menuListContainer}
-            >
-              <MenuItem onClick={handleClose}>Editar</MenuItem>
-              <MenuItem onClick={handleOpenDeleteModal}>Excluir</MenuItem>
-            </Menu>
-          </Box>
-        )}
-
+              <Button
+                id="basic-button"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+                style={{ minWidth: '0' }}
+              >
+                <Edit sx={penIcon} />
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'basic-button',
+                }}
+                sx={menuListContainer}
+              >
+                <MenuItem onClick={handleEditProject}>Editar</MenuItem>
+                <MenuItem onClick={handleOpenDeleteModal}>Excluir</MenuItem>
+              </Menu>
+            </Box>
+          )}
         </Box>
         <Box sx={divForaInfos}>
           <Box sx={divInfos}>
             <Avatar src={ProfilePhoto} />
-            <Typography sx={userName}>{`${name}`} . 02/24</Typography>
+            <Typography sx={userName}>
+              {`${name}`} . {creationAt}{' '}
+            </Typography>
           </Box>
           <Box sx={divTags}>
             {tags &&
