@@ -12,22 +12,24 @@ import {
   menuListContainer,
 } from './styles'
 
-import Card from '../../assets/img/CardProjectLarge.png'
-
 import ProfilePhoto from '../../assets/img/ProfileImage.png'
+
 import { Avatar, Box, Button, Menu, MenuItem, Typography } from '@mui/material'
 import { ProjectsContext } from '../../contexts/ProjectsContext'
 import React, { useContext } from 'react'
 import { ModalContext } from '../../contexts/ModalsContext'
 import { Edit } from '@mui/icons-material'
+
 interface CardDataProps {
   name: string
   avatar: string
   tags: string[]
   projectId: number
+  image: string
 }
 
-export default function CardProject({ name, tags, projectId }: CardDataProps) {
+
+export default function CardProject({ name, tags, projectId, image }: CardDataProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
   const { handleOpenDeleteModal } = useContext(ModalContext)
@@ -51,7 +53,7 @@ export default function CardProject({ name, tags, projectId }: CardDataProps) {
   >
     <Box sx={aling}>
       <Box sx={imageContainer}>
-        <img src={Card} alt="" />
+        <img src={`https://orangeportfoliosquad32.software/images/${image}`} alt="" />
 
         {isHovered && (
           <Box

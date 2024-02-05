@@ -44,6 +44,7 @@ export default function Discover() {
                     avatar=""
                     tags={project.tags}
                     projectId={Number(project.project_id)}
+                    image={project.image}
                   />
                 </Link>
               </Grid>

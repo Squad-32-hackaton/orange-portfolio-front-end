@@ -2,7 +2,6 @@ import { createContext, useContext, useState } from 'react'
 
 import { api } from '../services/api'
 import { AuthContext } from './AuthContext'
-import { ModalContext } from './ModalsContext'
 
 interface ProjectDetailsProps {
   project_id: string
@@ -29,7 +28,7 @@ export interface ProjectsDTO {
   }
   link: string
   tags: string[]
-  image: ImageDataProps
+  image: string
 }
 
 interface ProjectsContextProps {
@@ -42,7 +41,7 @@ interface ProjectsContextProps {
   ) => Promise<ProjectDetailsProps | undefined>
   createNewProjectService: (data: any) => void
   getOthersUserProjectsService: () => Promise<void>
-  postImageUserService: (image: any) => Promise<ImageDataProps>
+  postImageUserService: (image: string) => Promise<ImageDataProps>
   handleDeleteUserProject: (id: number) => Promise<void>
   handleSetCurrentProject: (projectId: number) => void
 }

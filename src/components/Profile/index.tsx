@@ -14,14 +14,17 @@ import { Avatar, Box, Typography } from '@mui/material'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
+import { ModalContext } from '../../contexts/ModalsContext'
 
-interface ProfileProps {
-  handleCreateANewProject: () => void
-}
-
-export default function Profile({ handleCreateANewProject }: ProfileProps) {
+export default function Profile() {
   const { user } = useContext(AuthContext)
+  const { handleSetCurrentModalType, handleModalCreateANewProject } =
+    useContext(ModalContext)
 
+  function handleOpenCreateProjectModal() {
+    handleSetCurrentModalType('add')
+    handleModalCreateANewProject()
+  }
   return (
     <Box sx={profileContainer}>
       <Box sx={imageContainer}>
@@ -41,7 +44,7 @@ export default function Profile({ handleCreateANewProject }: ProfileProps) {
           color="inherit"
           size="large"
           sx={buttonProfile}
-          onClick={() => handleCreateANewProject()}
+          onClick={handleOpenCreateProjectModal}
         >
           ADICIONAR PROJETO
         </Button>

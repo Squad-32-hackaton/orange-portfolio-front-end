@@ -51,8 +51,13 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
   const { createNewProjectService, postImageUserService } =
     useContext(ProjectsContext)
 
-  const { changeModalSuccessState, handleSetCurrentModalType } =
-    useContext(ModalContext)
+  const {
+    changeModalSuccessState,
+    handleSetCurrentModalType,
+    currentModalType,
+    handleCloseAllModals,
+    currentType,
+  } = useContext(ModalContext)
   // React-Hook-Form Logic
   const {
     register,
@@ -122,7 +127,9 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
     <form onSubmit={handleSubmit(onSubmit)} className={{ formTag }}>
       <Box sx={projectModalMain}>
         <Box sx={projectModalContainer}>
-          <Typography sx={modalTitle}> Adicionar projeto</Typography>
+          <Typography sx={modalTitle}>
+            {currentType === 'add' ? 'Adicionar' : 'Editar'} projeto
+          </Typography>
           <Box sx={projectModalContent}>
             <Box sx={inputContainer}>
               <TextField
@@ -196,7 +203,7 @@ export default function ProjectModal({ handleClose }: ProjectModalProps) {
               variant="contained"
               sx={cancelButton}
               size="large"
-              onClick={() => handleClose()}
+              onClick={() => handleCloseAllModals()}
             >
               Cancelar
             </Button>
