@@ -69,7 +69,7 @@ export default function CardProject({
         <Box sx={imageContainer}>
           <img
             src={`https://orangeportfoliosquad32.software/images/${image}`}
-            alt=""
+            alt="Imagem do projeto"
           />
 
           {isHovered && (
