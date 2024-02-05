@@ -1,22 +1,22 @@
 import { styled } from '@mui/system'
 import { theme } from '../../styles/theme'
 
-export const Section = styled('div')({
+export const section = {
   display: 'flex',
   justifyContent: 'center',
   marginTop: '7.5rem',
-})
+}
 
-export const ModalContainer = styled('div')({
+export const modalContainer = {
   width: '65.1rem',
   backgroundColor: 'white',
 
   [theme.breakpoints.down('md')]: {
     width: '50rem',
   },
-})
+}
 
-export const ButtonClose = styled('button')({
+export const buttonClose = {
   backgroundColor: 'white',
   float: 'right',
   marginTop: '1rem',
@@ -26,13 +26,13 @@ export const ButtonClose = styled('button')({
   '&:focus': {
     outline: 'none',
   },
-})
+}
 
 export const styleIcon = {
   fontSize: '2rem',
 }
 
-export const Top = styled('div')({
+export const top = {
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
@@ -40,43 +40,45 @@ export const Top = styled('div')({
   paddingRight: '4.5rem',
   alignItems: 'center',
   marginTop: '3.5rem',
-})
+}
 
-export const Profile = styled('div')({
+export const profile = {
   display: 'flex',
   alignItems: 'center',
-})
+}
 
-export const DivPhoto = styled('div')({})
+export const divPhoto = {
 
-export const Photo = styled('img')({
+}
+
+export const Photo = styled ('img') ({
   width: '2.5rem',
   borderRadius: '90px',
 })
 
-export const DivNameDate = styled('div')({
+export const divNameDate = {
   marginLeft: '0.75rem',
-})
+}
 
-export const Name = styled('h5')({
+export const name = {
   margin: '0',
   fontSize: '1rem',
-})
+}
 
-export const Data = styled('h5')({
+export const data = {
   margin: '0',
   fontSize: '1rem',
-})
+}
 
-export const Title = styled('h2')({
+export const title = {
   fontSize: '1.5rem',
-})
+}
 
-export const Tags = styled('div')({
+export const tags = {
   display: 'flex',
-})
+}
 
-export const Tag = styled('div')({
+export const tag = {
   backgroundColor: 'rgba(0, 0, 0, 0.08)',
   color: 'black',
   borderRadius: '100px',
@@ -84,15 +86,15 @@ export const Tag = styled('div')({
   paddingTop: '0.43rem',
   paddingBottom: '0.43rem',
   marginLeft: '0.62rem',
-})
+}
 
-export const DivImg = styled('div')({
+export const divImg = {
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   marginTop: '1rem',
-})
+}
 
 export const Image = styled('img')({
   width: '52rem',
@@ -102,19 +104,19 @@ export const Image = styled('img')({
   },
 })
 
-export const Description = styled('div')({
+export const description = {
   marginLeft: '6.3rem',
   marginRight: '6.3rem',
-})
+}
 
-export const Paragraph = styled('p')({
+export const paragraph = {
   letterSpacing: '0.5px',
   lineHeight: '1rem',
   marginTop: '4rem',
-})
+}
 
-export const TextDescription = styled('div')({
+export const textDescription = {
   letterSpacing: '0.5px',
   lineHeight: '1rem',
   marginBottom: '6.1rem',
-})
+}

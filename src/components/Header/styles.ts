@@ -53,10 +53,10 @@ export const listContainer = {
   },
 }
 
-export const DivLine = styled('div')({
+export const divLine = {
   border: '1px solid black',
   opacity: '0.1',
-})
+}
 
 export const listItem = {
   paddingBottom: '3rem',
@@ -77,62 +77,58 @@ export const list = {
   marginLeft: '4rem',
 }
 
-export const ListItemButton = styled('a')({
-    backgroundColor: '#111133',
-    color: 'white',
-    width: '110px',
-    padding: '0',
-    outline: 'none',
+export const listItemButton = {
+  backgroundColor: '#111133',
+  color: 'white',
+  width: '110px',
+  padding: '0',
+  outline: 'none',
 
   '&:active': {
     outline: 'none',
   },
-})
+}
 
-export const ListItemButtonHeader = styled('a')({
-    // backgroundColor: 'white',
-    color: 'black',
-    width: '110px',
-    padding: '0',
-    outline: 'none',
+export const listItemButtonHeader = {
+  // backgroundColor: 'white',
+  color: 'black',
+  width: '110px',
+  padding: '0',
+  outline: 'none',
 
   '&:active': {
     outline: 'none',
   },
 
-  '& a:-webkit-any-link' : {
+  '& a:-webkit-any-link': {
     textDecoration: 'none',
-    color:'white',
-    backgroundColor:'#111133',
+    color: 'white',
+    backgroundColor: '#111133',
   },
 
   '&.css-nlxunp': {
     backgroundColor: '#111133',
-},
+  },
+}
 
-})
-
-export const ListItemButtonModal = styled('a')({
+export const listItemButtonModal = {
   backgroundColor: 'white',
   color: 'black',
   width: '110px',
   padding: '0',
   outline: 'none',
 
-'&:active': {
-  outline: 'none',
-},
+  '&:active': {
+    outline: 'none',
+  },
 
- '& a:-webkit-any-link': {
-  backgroundColor: 'white',
-  textDecoration: 'none',
-  color:'black',
-},
+  '& a:-webkit-any-link': {
+    backgroundColor: 'white',
+    textDecoration: 'none',
+    color: 'black',
+  },
 
-'&.css-nlxunp': {
-  backgroundColor: '#111133',
-},
-
-})
-
-
+  '&.css-nlxunp': {
+    backgroundColor: '#111133',
+  },
+}

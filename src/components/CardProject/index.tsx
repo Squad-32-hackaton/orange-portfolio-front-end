@@ -3,30 +3,122 @@ import {
   divInfos,
   divForaInfos,
   divTags,
-  tag,
+  tagStyle,
   aling,
+  imageContainer,
+  userName,
+  iconContainer,
+  penIcon,
+  menuListContainer,
 } from './styles'
 
-import Card from '../../assets/img/CardProjectLarge.png'
-
 import ProfilePhoto from '../../assets/img/ProfileImage.png'
-import { Avatar, Box, Typography } from '@mui/material'
 
-export default function CardProject() {
+import { Avatar, Box, Button, Menu, MenuItem, Typography } from '@mui/material'
+import { ProjectsContext } from '../../contexts/ProjectsContext'
+import React, { useContext } from 'react'
+import { ModalContext } from '../../contexts/ModalsContext'
+import { Edit } from '@mui/icons-material'
+
+interface CardDataProps {
+  name: string
+  avatar: string
+  tags: string[]
+  projectId: number
+  image: string
+  creationAt: string
+}
+
+export default function CardProject({
+  name,
+  tags,
+  projectId,
+  image,
+  creationAt,
+}: CardDataProps) {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const open = Boolean(anchorEl)
+  const {
+    handleOpenDeleteModal,
+    handleSetCurrentModalType,
+    handleModalCreateANewProject,
+  } = useContext(ModalContext)
+  const { handleSetCurrentProject } = useContext(ProjectsContext)
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  const [isHovered, setIsHovered] = React.useState(false)
+
+  function handleEditProject() {
+    handleSetCurrentModalType('edit')
+    handleModalCreateANewProject()
+  }
+
   return (
-    <Box sx={container}>
+    <Box
+      sx={container}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <Box sx={aling}>
-        <img src={Card} alt="" />
+        <Box sx={imageContainer}>
+          <img
+            src={`https://orangeportfoliosquad32.software/images/${image}`}
+            alt="Imagem do projeto"
+          />
+
+          {isHovered && (
+            <Box
+              sx={iconContainer}
+              onClick={() => handleSetCurrentProject(projectId)}
+            >
+              <Button
+                id="basic-button"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+                style={{ minWidth: '0' }}
+              >
+                <Edit sx={penIcon} />
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'basic-button',
+                }}
+                sx={menuListContainer}
+              >
+                <MenuItem onClick={handleEditProject}>Editar</MenuItem>
+                <MenuItem onClick={handleOpenDeleteModal}>Excluir</MenuItem>
+              </Menu>
+            </Box>
+          )}
+        </Box>
         <Box sx={divForaInfos}>
           <Box sx={divInfos}>
             <Avatar src={ProfilePhoto} />
-            <Typography sx={{ color: '#000', padding: '.25rem .5rem' }}>
-              Bianca Martin . 02/24
+            <Typography sx={userName}>
+              {`${name}`} . {creationAt}{' '}
             </Typography>
           </Box>
           <Box sx={divTags}>
-            <Box sx={tag}>UX</Box>
-            <Box sx={tag}>UX</Box>
+            {tags &&
+              tags.map((tag) => {
+                return (
+                  <Box sx={tagStyle} key={tag}>
+                    {tag}
+                  </Box>
+                )
+              })}
           </Box>
         </Box>
       </Box>

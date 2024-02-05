@@ -1,7 +1,7 @@
 import { styled } from '@mui/system'
 import { theme } from '../../styles/theme'
 
-export const ModalContainer = styled('div')({
+export const modalContainer = {
   backgroundColor: 'white',
   width: '19.5rem',
   flexDirection: 'column',
@@ -12,9 +12,9 @@ export const ModalContainer = styled('div')({
     width: '26.3rem',
     paddingTop: '0',
   },
-})
+}
 
-export const Title = styled('h5')({
+export const title = {
   textAlign: 'start',
   fontSize: '1.5rem',
   paddingLeft: '1.5rem',
@@ -28,9 +28,9 @@ export const Title = styled('h5')({
     margin: '2rem',
     paddingLeft: '0',
   },
-})
+}
 
-export const Paragraph = styled('p')({
+export const paragraph = {
   textAlign: 'start',
   paddingLeft: '1.5rem',
   fontsize: '1rem',
@@ -41,17 +41,18 @@ export const Paragraph = styled('p')({
     paddingLeft: '2rem',
     paddingRight: '4rem',
   },
-})
+}
 
-export const Section = styled('section')({
+export const section = {
   width: '100%',
   height: '100%',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-})
+  color: '#000',
+}
 
-export const Buttons = styled('div')({
+export const buttons = {
   display: 'flex',
   justifyContent: 'start',
   paddingLeft: '1rem',
@@ -59,7 +60,7 @@ export const Buttons = styled('div')({
   [theme.breakpoints.up('xl')]: {
     paddingLeft: '2rem',
   },
-})
+}
 
 export const text = {
   textAlign: 'start',

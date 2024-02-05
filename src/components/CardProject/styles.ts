@@ -4,6 +4,9 @@ export const container = {
   display: 'flex',
   width: '100%',
   height: '100%',
+  maxWidth:'36rem',
+  maxHeight:'25.6rem',
+
   justifyContent: 'center',
   borderRadius: '4px',
 
@@ -33,6 +36,9 @@ export const aling = {
   img: {
     width: '100%',
   },
+  hover: {
+    display: 'none',
+  },
 }
 
 // export const image = {
@@ -55,6 +61,7 @@ export const divForaInfos = {
   display: 'flex',
   justifyContent: 'space-evenly',
   alignItems: 'center',
+  height:'3.5rem',
 
   [theme.breakpoints.up('md')]: {
     width: '100%',
@@ -99,7 +106,7 @@ export const divTags = {
   // },
 }
 
-export const tag = {
+export const tagStyle = {
   backgroundColor: 'rgba(0, 0, 0, 0.08)',
   color: 'black',
   borderRadius: '100px',
@@ -112,3 +119,44 @@ export const tag = {
     padding: '0.75rem',
   },
 }
+
+export const imageContainer = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  position: 'relative',
+}
+
+export const userName = {
+  display: 'flex',
+  color: '#000',
+  padding: '.25rem .5rem',
+  height:'3.5rem',
+  flexDirection: 'column',
+  justifyContent: 'center',
+
+}
+
+export const penIcon = {
+  padding: '2px',
+  background: '#FFCC99',
+  borderRadius: '50%',
+  color: '#000000',
+  border: 'none',
+}
+
+export const iconContainer = {
+  position: 'relative',
+  right: '60px',
+  top: '10px',
+
+}
+
+export const menuListContainer = {
+  ul: {
+    width: '208px',
+  },
+}
+
+
+

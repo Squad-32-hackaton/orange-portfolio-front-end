@@ -1,15 +1,35 @@
-import { Container, Title } from './styles'
+import { container, title } from './styles'
 import CardProject from '../../components/CardProject'
 import Detail from '../../components/Detail'
+import { useParams } from 'react-router-dom'
+import { ProjectsContext, ProjectsDTO } from '../../contexts/ProjectsContext'
+import { useContext, useEffect, useState } from 'react'
+import { Box } from '@mui/material'
 
 export default function DetailProject() {
-  return (
-    <Container>
-      <Title>Ecommerce One Page</Title>
+  const { id } = useParams()
+  const { projects } = useContext(ProjectsContext)
+  const [currentProject, setCurrentProject] = useState<ProjectsDTO>()
 
-      <CardProject />
+  useEffect(() => {
+    const project = projects.find((project) => project.project_id === id)
+    setCurrentProject(project)
+  }, [])
+
+  return (
+    <Box sx={container}>
+      <Box sx={title}></Box>
+
+      <CardProject
+        name={currentProject!.user.name}
+        avatar={currentProject!.user.avatar}
+        creationAt={currentProject!.creationDate}
+        image={currentProject!.image}
+        projectId={Number(currentProject!.project_id)}
+        tags={currentProject!.tags}
+      />
 
       <Detail />
-    </Container>
+    </Box>
   )
 }
