@@ -74,7 +74,7 @@ export const ProjectsContextProvider = ({ children }: IProviderProps) => {
 
   async function getProjectsUserService() {
     try {
-      const res = await api.get('/users/1/projects')
+      const res = await api.get(`/users/${user.user_id}/projects`)
       setProjecs(res.data.projects)
     } catch (error) {
       throw new Error('houve um erro durante a requisição:' + error)
