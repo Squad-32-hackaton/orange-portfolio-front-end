@@ -9,26 +9,32 @@ import {
   userName,
 } from './styles'
 
-import Card from '../../assets/img/CardProjectLarge.png'
-
 import ProfilePhoto from '../../assets/img/ProfileImage.png'
-import { Avatar, Box, Button, Typography } from '@mui/material'
+import { Avatar, Box, Typography } from '@mui/material'
 import { CardProjectDrawer } from '../CardProjectDrawer'
-import { ProjectsContext } from '../../contexts/ProjectsContext'
-import { useContext } from 'react'
+
 interface CardDataProps {
   name: string
   avatar: string
   tags: string[]
   projectId: number
+  image: string
 }
 
-export default function CardProject({ name, tags, projectId }: CardDataProps) {
+export default function CardProject({
+  name,
+  tags,
+  projectId,
+  image,
+}: CardDataProps) {
   return (
     <Box sx={container}>
       <Box sx={aling}>
         <Box sx={imageContainer}>
-          <img src={Card} alt="" />
+          <img
+            src={`https://orangeportfoliosquad32.software/images/${image}`}
+            alt=""
+          />
 
           <CardProjectDrawer projectId={projectId} />
         </Box>

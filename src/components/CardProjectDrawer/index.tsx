@@ -8,7 +8,11 @@ import { ProjectsContext } from '../../contexts/ProjectsContext'
 export function CardProjectDrawer(props) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
-  const { handleOpenDeleteModal } = useContext(ModalContext)
+  const {
+    handleOpenDeleteModal,
+    handleSetCurrentModalType,
+    handleModalCreateANewProject,
+  } = useContext(ModalContext)
   const { handleSetCurrentProject } = useContext(ProjectsContext)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -17,6 +21,12 @@ export function CardProjectDrawer(props) {
   const handleClose = () => {
     setAnchorEl(null)
   }
+
+  function handleEditProject() {
+    handleSetCurrentModalType('edit')
+    handleModalCreateANewProject()
+  }
+
   return (
     <Box
       sx={iconContainer}
@@ -41,7 +51,7 @@ export function CardProjectDrawer(props) {
         }}
         sx={menuListContainer}
       >
-        <MenuItem onClick={handleClose}>Editar</MenuItem>
+        <MenuItem onClick={handleEditProject}>Editar</MenuItem>
         <MenuItem onClick={handleOpenDeleteModal}>Excluir</MenuItem>
       </Menu>
     </Box>

@@ -66,7 +66,7 @@ export default function Home() {
         }
         open={openProjectModal}
       />
-      <Profile handleCreateANewProject={handleModalCreateANewProject} />
+      <Profile />
 
       <Box sx={projectSectionContainer}>
         <Box sx={inputContainer}>
@@ -104,6 +104,7 @@ export default function Home() {
                     avatar=""
                     tags={project.tags}
                     projectId={Number(project.project_id)}
+                    image={project.image}
                   />
                 </Grid>
               ))}
