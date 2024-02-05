@@ -86,9 +86,13 @@ export default function RegisterPage() {
         setopenSnackbarSuccess(true)
         setTimeout(() => {
           handleLogin(email, password)
-        }, 6000)
+        }, 4000)
         checkAuthentication()
+        setTimeout(() => {
+          window.location.href = '/'
+        }, 6000)
       } else {
+        setErrors(response.data.error)
         setopenSnackbarError(true)
       }
     } catch (error: any) {
