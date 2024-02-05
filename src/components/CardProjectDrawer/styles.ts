@@ -10,6 +10,8 @@ export const iconContainer = {
   position: 'relative',
   right: '60px',
   top: '10px',
+  display:'none',
+
 }
 
 export const menuListContainer = {
@@ -17,3 +19,4 @@ export const menuListContainer = {
     width: '208px',
   },
 }
+

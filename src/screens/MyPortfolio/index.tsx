@@ -1,21 +1,21 @@
-import { Container, Title, inputContainer, textField, DivCards } from './styles'
+import { container,title, inputContainer, textField, divCards } from './styles'
 import CardProject from '../../components/CardProject'
 import { Box, TextField } from '@mui/material'
 
 export default function MyPortfolio() {
   return (
-    <Container>
-      <Title>
+    <Box sx={container}>
+      <Box sx={title}>
         Junte-se à comunidade de inovação, inspiração e descobertas,
         transformando experiências em conexões inesquecíveis
-      </Title>
+      </Box>
 
       <Box sx={inputContainer}>
         <TextField label="Buscar tags" sx={textField} />
       </Box>
 
-      <div>
-        <DivCards>
+      <>
+        <Box sx={divCards}>
           <CardProject />
 
           <CardProject />
@@ -25,8 +25,8 @@ export default function MyPortfolio() {
           <CardProject />
 
           <CardProject />
-        </DivCards>
-      </div>
-    </Container>
+        </Box>
+      </>
+    </Box>
   )
 }
