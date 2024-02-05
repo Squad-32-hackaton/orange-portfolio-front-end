@@ -1,7 +1,6 @@
-import { styled } from '@mui/system'
 import { theme } from '../../styles/theme'
 
-export const Container = styled('div')({
+export const container = {
   width: '100%',
   minHeight: '100vh',
   display: 'flex',
@@ -12,11 +11,11 @@ export const Container = styled('div')({
   gap: '1rem',
 
   [theme.breakpoints.up('xl')]: {},
-})
+}
 
-export const Title = styled('h2')({
+export const title = {
   padding: '0',
   margin: '0',
   marginTop: '3.12rem',
   marginBottom: '0.5rem',
-})
+}

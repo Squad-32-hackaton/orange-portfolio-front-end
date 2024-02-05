@@ -1,18 +1,17 @@
-import { styled } from '@mui/system'
 
-export const Section = styled('section')({
+export const section = {
   display: 'flex',
   width: '100%',
   height: '100%',
   justifyContent: 'center',
-})
+}
 
-export const Aling = styled('div')({
+export const aling = {
   width: '19.5rem',
-})
+}
 
-export const Text = styled('p')({
+export const text = {
   marginBottom: '2rem',
   fontSize: '1rem',
   lineHeight: '1rem',
-})
+}

@@ -32,6 +32,7 @@ export const title = {
 export const inputContainer = {
   alignItems: 'center',
 
+
   [theme.breakpoints.up('md')]: {
     flexDirection: 'row',
     AlignItems: 'start',
@@ -71,4 +72,14 @@ export const divCards = {
     display: 'flex',
     flexWrap: 'wrap',
   },
+}
+
+export const boxInputs = {
+
+
+  [theme.breakpoints.up('md')]: {
+    display:'flex', 
+    width:'100%'
+  },
+
 }

@@ -1,17 +1,18 @@
 import Button from '@mui/material/Button'
 import DangerousIcon from '@mui/icons-material/Dangerous'
-import { ModalContainer, button, circle, Title, Section } from './styles'
+import { modalContainer, button, circle, title, section } from './styles'
+import { Box } from '@mui/material'
 
 export default function ModalError() {
   return (
-    <Section>
-      <ModalContainer>
-        <Title>Houve um erro ao adicionar o projeto!</Title>
+    <Box sx={section}>
+      <Box sx={modalContainer}>
+        <Box sx={title}>Houve um erro ao adicionar o projeto!</Box>
         <DangerousIcon sx={circle} />
         <Button variant="contained" sx={button}>
           voltar para projetos
         </Button>
-      </ModalContainer>
-    </Section>
+      </Box>
+    </Box>
   )
 }

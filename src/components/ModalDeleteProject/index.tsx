@@ -1,17 +1,18 @@
 import Button from '@mui/material/Button'
 import {
-  ModalContainer,
-  Title,
+  modalContainer,
+  title,
   firstButton,
   secondButton,
-  Paragraph,
-  Section,
-  Buttons,
+  paragraph,
+  section,
+  buttons,
 } from './styles'
 
 import { useContext } from 'react'
 import { ProjectsContext } from '../../contexts/ProjectsContext'
 import { ModalContext } from '../../contexts/ModalsContext'
+import { Box } from '@mui/material'
 
 export default function ModalDeleteProject() {
   const {
@@ -32,13 +33,13 @@ export default function ModalDeleteProject() {
     }
   }
   return (
-    <Section>
-      <ModalContainer>
-        <Title>Deseja Excluir?</Title>
-        <Paragraph>
+    <Box sx={section}>
+      <Box sx={modalContainer}>
+        <Box sx={title}>Deseja Excluir?</Box>
+        <Box sx={paragraph}>
           Se você prosseguir irá excluir o projeto do seu portfólio
-        </Paragraph>
-        <Buttons>
+        </Box>
+        <Box sx={buttons}>
           <Button
             variant="contained"
             sx={firstButton}
@@ -53,8 +54,8 @@ export default function ModalDeleteProject() {
           >
             Cancelar
           </Button>
-        </Buttons>
-      </ModalContainer>
-    </Section>
+        </Box>
+      </Box>
+    </Box>
   )
 }

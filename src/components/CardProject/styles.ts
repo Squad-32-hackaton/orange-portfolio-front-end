@@ -58,6 +58,7 @@ export const divForaInfos = {
   display: 'flex',
   justifyContent: 'space-evenly',
   alignItems: 'center',
+  height:'3.5rem',
 
   [theme.breakpoints.up('md')]: {
     width: '100%',
@@ -123,4 +124,37 @@ export const imageContainer = {
   position: 'relative',
 }
 
-export const userName = { color: '#000', padding: '.25rem .5rem' }
+export const userName = {
+  display: 'flex',
+  color: '#000',
+  padding: '.25rem .5rem',
+  height:'3.5rem',
+  flexDirection: 'column',
+  justifyContent: 'center',
+
+}
+
+export const penIcon = {
+  padding: '2px',
+  background: '#FFCC99',
+  borderRadius: '50%',
+  color: '#000000',
+  border: 'none',
+
+}
+
+export const iconContainer = {
+  position: 'relative',
+  right: '60px',
+  top: '10px',
+
+}
+
+export const menuListContainer = {
+  ul: {
+    width: '208px',
+
+  },
+}
+
+

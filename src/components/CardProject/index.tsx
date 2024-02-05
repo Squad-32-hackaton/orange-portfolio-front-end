@@ -7,11 +7,18 @@ import {
   aling,
   imageContainer,
   userName,
+  iconContainer,
+  penIcon,
+  menuListContainer,
 } from './styles'
 
 import ProfilePhoto from '../../assets/img/ProfileImage.png'
-import { Avatar, Box, Typography } from '@mui/material'
-import { CardProjectDrawer } from '../CardProjectDrawer'
+
+import { Avatar, Box, Button, Menu, MenuItem, Typography } from '@mui/material'
+import { ProjectsContext } from '../../contexts/ProjectsContext'
+import React, { useContext } from 'react'
+import { ModalContext } from '../../contexts/ModalsContext'
+import { Edit } from '@mui/icons-material'
 
 interface CardDataProps {
   name: string
@@ -21,22 +28,64 @@ interface CardDataProps {
   image: string
 }
 
-export default function CardProject({
-  name,
-  tags,
-  projectId,
-  image,
-}: CardDataProps) {
-  return (
-    <Box sx={container}>
-      <Box sx={aling}>
-        <Box sx={imageContainer}>
-          <img
-            src={`https://orangeportfoliosquad32.software/images/${image}`}
-            alt=""
-          />
 
-          <CardProjectDrawer projectId={projectId} />
+export default function CardProject({ name, tags, projectId, image }: CardDataProps) {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const open = Boolean(anchorEl)
+  const { handleOpenDeleteModal } = useContext(ModalContext)
+  const { handleSetCurrentProject } = useContext(ProjectsContext)
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  const [isHovered, setIsHovered] = React.useState(false);
+
+
+  return (
+    <Box
+    sx={container}
+    onMouseEnter={() => setIsHovered(true)}
+    onMouseLeave={() => setIsHovered(false)}
+  >
+    <Box sx={aling}>
+      <Box sx={imageContainer}>
+        <img src={`https://orangeportfoliosquad32.software/images/${image}`} alt="" />
+
+        {isHovered && (
+          <Box
+            sx={iconContainer}
+            onClick={() => handleSetCurrentProject(projectId)}
+          >
+            <Button
+              id="basic-button"
+              aria-controls={open ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClick}
+              style={{minWidth: '0'}}
+            >
+              <Edit sx={penIcon} />
+            </Button>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+              sx={menuListContainer}
+            >
+              <MenuItem onClick={handleClose}>Editar</MenuItem>
+              <MenuItem onClick={handleOpenDeleteModal}>Excluir</MenuItem>
+            </Menu>
+          </Box>
+        )}
+
         </Box>
         <Box sx={divForaInfos}>
           <Box sx={divInfos}>
