@@ -94,7 +94,7 @@ export default function Home() {
           >
             {projects &&
               projects.map((project) => (
-                <Grid item xs={12} sm={6} md={4} key={project.project_id}>
+                <Grid item xl={3} xs={12} sm={6} md={4} key={project.project_id}>
                   <CardProject
                     name={project.user.name}
                     avatar=""
