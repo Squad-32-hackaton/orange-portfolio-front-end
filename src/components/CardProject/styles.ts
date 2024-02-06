@@ -4,8 +4,7 @@ export const container = {
   display: 'flex',
   width: '100%',
   height: '100%',
-  maxWidth:'36rem',
-  maxHeight:'25.6rem',
+  backgroundColor:'#f5f5f5',
 
   justifyContent: 'center',
   borderRadius: '4px',
@@ -124,7 +123,10 @@ export const imageContainer = {
   width: '100%',
   height: '100%',
   display: 'flex',
+  // justifyContent: 'center',
   position: 'relative',
+  maxWidth:'36rem',
+  maxHeight:'25.6rem',
 }
 
 export const userName = {
