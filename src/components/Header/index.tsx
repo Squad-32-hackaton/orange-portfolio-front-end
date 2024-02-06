@@ -31,6 +31,8 @@ import { Link } from 'react-router-dom'
 import Logo from '../../assets/img/Logo.png'
 import ProfilePhoto from '../../assets/img/ProfileImage.png'
 import { menuIconButton } from '../../screens/Home/styles'
+import LogoutIcon from '@mui/icons-material/Logout'
+import authService from '../../services/authService'
 
 export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false)
@@ -41,6 +43,11 @@ export default function Header() {
 
   const handleDrawerClose = () => {
     setDrawerOpen(false)
+  }
+
+  const handleLogout = async () => {
+    await authService.logout()
+    window.location.href = '/'
   }
 
   return (
@@ -118,6 +125,16 @@ export default function Header() {
                 sx={{ mr: 2 }}
               >
                 <NotificationsIcon />
+              </IconButton>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="notifications"
+                sx={{ mr: 2 }}
+                onClick={handleLogout}
+              >
+                <LogoutIcon />
               </IconButton>
             </Stack>
           </Toolbar>
