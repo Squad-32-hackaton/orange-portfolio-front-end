@@ -86,11 +86,11 @@ export default function RegisterPage() {
         setopenSnackbarSuccess(true)
         setTimeout(() => {
           handleLogin(email, password)
-        }, 4000)
+        }, 2000)
         checkAuthentication()
         setTimeout(() => {
           window.location.href = '/'
-        }, 6000)
+        }, 3000)
       } else {
         setErrors(response.data.error)
         setopenSnackbarError(true)
@@ -227,7 +227,7 @@ export default function RegisterPage() {
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={openSnackbarSuccess}
-        autoHideDuration={6000}
+        autoHideDuration={3000}
         onClose={handleCloseSnackbarSuccess}
         TransitionComponent={Grow}
       >
@@ -245,7 +245,7 @@ export default function RegisterPage() {
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={openSnackbarError}
-        autoHideDuration={6000}
+        autoHideDuration={3000}
         onClose={handleCloseSnackbarError}
         TransitionComponent={Grow}
       >
