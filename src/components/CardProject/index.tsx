@@ -52,7 +52,7 @@ export default function CardProject({
     setAnchorEl(null)
   }
 
-  const [isHovered, setIsHovered] = React.useState(false)
+  // const [isHovered, setIsHovered] = React.useState(false)
 
   function handleEditProject() {
     handleSetCurrentModalType('edit')
@@ -62,17 +62,16 @@ export default function CardProject({
   return (
     <Box
       sx={container}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      // onMouseEnter={() => setIsHovered(true)}
+      // onMouseLeave={() => setIsHovered(false)}
     >
       <Box sx={aling}>
         <Box sx={imageContainer}>
-          <img
+                    <img
             src={`https://orangeportfoliosquad32.software/images/${image}`}
             alt="Imagem do projeto"
           />
-
-          {isHovered && (
+          {/* {isHovered && ( */}
             <Box
               sx={iconContainer}
               onClick={() => handleSetCurrentProject(projectId)}
@@ -101,7 +100,7 @@ export default function CardProject({
                 <MenuItem onClick={handleOpenDeleteModal}>Excluir</MenuItem>
               </Menu>
             </Box>
-          )}
+          {/* )} */}
         </Box>
         <Box sx={divForaInfos}>
           <Box sx={divInfos}>
@@ -112,13 +111,11 @@ export default function CardProject({
           </Box>
           <Box sx={divTags}>
             {tags &&
-              tags.map((tag) => {
-                return (
-                  <Box sx={tagStyle} key={tag}>
-                    {tag}
-                  </Box>
-                )
-              })}
+              tags.map((tag) => (
+                <Box sx={tagStyle} key={tag}>
+                  {`${tag.slice(0, 10)}${tag.length > 10 ? '...' : ''}`}
+                </Box>
+              ))}
           </Box>
         </Box>
       </Box>
